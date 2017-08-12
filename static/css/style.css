@@ -1,0 +1,32 @@
+body {
+    padding-top: 65px;
+}
+p {
+    background: rgba(236, 255, 169, 0.4);
+}
+p.name {
+    color: #49ae93;
+}
+p.skype {
+    color: #4cae92;
+}
+p.email {
+    color: #49ae88;
+}
+p.phone {
+    color: #45ae82;
+}
+h3.description {
+    background-color: #b1b36c;
+}
+h5.program {
+    background-color: #dfe582;
+}
+p.right {
+    float: right;
+    width: 300px;
+}
+p.left {
+    float: left;
+    width: 300px;
+}
