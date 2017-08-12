@@ -30,3 +30,6 @@ p.left {
     float: left;
     width: 300px;
 }
+div.row {
+    background-color: #FFFFFF;
+}
