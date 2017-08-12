@@ -1,0 +1,51 @@
+@font-face {
+    font-family: 'YourFontName'; /*a name to be used later*/
+    src: url('http://domain.com/fonts/font.ttf'); /*URL to font*/
+}
+
+.container {
+	width: 70rem;
+	height: auto;
+	height: 100%;
+}
+
+.header {
+	padding: 1rem 0 0.5rem 0;
+}
+
+.main-content h2 {
+	margin-top: 1.5rem;
+}
+
+.main-footer {
+	background-color: #eeaacc;
+	padding: 1em;
+}
+
+/*Main content styling*/
+.curse-promo h3 {
+	font-size: 16px;
+	color: gray;
+}
+
+/*Contacts*/
+.card-title {
+	font-size: 1.2rem;
+	margin-top: 2rem;
+}
+.card-text {
+	margin-left: 1rem;
+}
+
+.contact-card {
+	width: 20rem;
+	margin-bottom: 1rem;
+}
+
+.card-body {
+	background-color: #e9ecef;
+}
+
+.project-title {
+	font-family: 'Vidaloka', serif;
+}
