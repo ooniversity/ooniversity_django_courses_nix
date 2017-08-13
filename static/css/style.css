@@ -1,0 +1,43 @@
+.matrix-theme {
+    background: url("../images/matrix-theme-8.jpg");
+}
+
+.matrix-theme > h1 {
+    color: wheat;
+}
+
+.butsaka-address-block dt {
+    width: auto;
+}
+
+.butsaka-address-block dd {
+    margin-left: 50px
+}
+
+.bursaka-footer {
+    height: 200px;
+    background-color: gray;
+}
+
+.contact-image {
+    height: 250px; display: block;
+}
+
+.jumbotron.matrix-theme {
+    margin-bottom: 0;
+}
+
+body {
+    font-family: "Bitstream Vera Sans Mono";
+}
+
+.bursaka-nav {
+    z-index: 10;
+    width: 100%;
+    position: fixed;
+    height: 50px;
+}
+
+.bursaka-content {
+    padding-top: 50px;
+}
