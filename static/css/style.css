@@ -1,57 +1,46 @@
-.matrix-theme {
-    background: url("../images/matrix-theme-8.jpg");
-}
-
-.butsaka-address-block dt {
-    width: auto;
-}
-
-.butsaka-address-block dd {
-    margin-left: 50px
-}
-
-.bursaka-footer {
-    height: 200px;
-    background-color: gray;
-}
-
-.contact-image {
-    height: 250px; display: block;
-}
-
-.jumbotron.matrix-theme {
-    margin-bottom: 0;
-}
-
-body {
-    font-family: "Bitstream Vera Sans Mono";
-}
-
-.bursaka-nav {
-    z-index: 10;
-    width: 100%;
-    position: fixed;
-    height: 50px;
-    padding-left: 35px;
-}
-
-.bursaka-nav a {
-    display: block;
+.unique-selectors {
+    width: 20px;
+    height: 20px;
     float: left;
-    color: #9d9d9d;
-    padding: 15px;
+    border: 1px solid black;
 }
 
-.bursaka-nav a.active {
-    color: white;
-    background-color: #080808;
+.unique-selectors.selector-1 {
+    background-color: #000000;
 }
 
-.bursaka-nav a:hover {
-    text-decoration: none;
-    color: white;
+.unique-selectors.selector-2 {
+    background-color: #111111;
 }
 
-.bursaka-content {
-    padding-top: 50px;
+.unique-selectors.selector-3 {
+    background-color: #222222;
+}
+
+.unique-selectors.selector-4 {
+    background-color: #333333;
+}
+
+.unique-selectors.selector-5 {
+    background-color: #444444;
+}
+
+.unique-selectors .selector-6 {
+    background-color: #555555;
+}
+
+.unique-selectors.selector-7 {
+    background-color: #666666;
+}
+
+.unique-selectors.selector-8 {
+    background-color: #777777;
+}
+
+.unique-selectors.selector-9 {
+    background-color: #888888;
+}
+
+.unique-selectors .selector-10 {
+    background-color: #999999;
 }
