@@ -20,7 +20,7 @@ p.phone {
     color: #45ae82;
     font-family: inherit
 }
-h3.description {
+h3.descr {
     background-color: #b1b36c;
     font-family: inherit
 }
@@ -37,4 +37,10 @@ p.left {
 }
 div.row {
     background-color: #FFFFFF;
+}
+h3.display-3{
+    font-size: 14px;
+}
+thead.thead-default{
+    font-family: inherit
 }
