@@ -1,46 +1,138 @@
-.unique-selectors {
+.unique-selectors .square {
     width: 20px;
     height: 20px;
     float: left;
     border: 1px solid black;
 }
 
-.unique-selectors.selector-1 {
+.selector-1 {
     background-color: #000000;
 }
 
-.unique-selectors.selector-2 {
+.selector-2 {
     background-color: #111111;
 }
 
-.unique-selectors.selector-3 {
+.selector-3 {
     background-color: #222222;
 }
 
-.unique-selectors.selector-4 {
+.selector-4 {
     background-color: #333333;
 }
 
-.unique-selectors.selector-5 {
+.selector-5 {
     background-color: #444444;
 }
 
-.unique-selectors .selector-6 {
+.selector-6 {
     background-color: #555555;
 }
 
-.unique-selectors.selector-7 {
+.selector-7 {
     background-color: #666666;
 }
 
-.unique-selectors.selector-8 {
+.selector-8 {
     background-color: #777777;
 }
 
-.unique-selectors.selector-9 {
+.selector-9 {
     background-color: #888888;
 }
 
-.unique-selectors .selector-10 {
+.selector-10 {
     background-color: #999999;
+}
+
+.row {
+    font-family: inherit;
+}
+
+.container {
+    font-family: inherit;
+}
+
+.panel {
+    font-family: inherit;
+}
+
+.panel-default {
+    font-family: inherit;
+}
+
+.panel-heading {
+    font-family: inherit;
+}
+
+.panel-body {
+    font-family: inherit;
+}
+
+.label {
+    font-family: inherit;
+}
+
+.label-default {
+    font-family: inherit;
+}
+
+.label-primary {
+    font-family: inherit;
+}
+
+.label-success {
+    font-family: inherit;
+}
+
+.label-info {
+    font-family: inherit;
+}
+
+.label-warning {
+    font-family: inherit;
+}
+
+.label-danger {
+    font-family: inherit;
+}
+
+.table {
+    font-family: inherit;
+}
+
+.center-block {
+    font-family: inherit;
+}
+
+.bottom {
+    font-family: inherit;
+}
+
+.text-center {
+    font-family: inherit;
+}
+
+.panel {
+    font-family: inherit;
+}
+
+.panel-primary {
+    font-family: inherit;
+}
+
+.panel-success {
+    font-family: inherit;
+}
+
+.panel-info {
+    font-family: inherit;
+}
+
+.panel-warning {
+    font-family: inherit;
+}
+
+.panel-danger {
+    font-family: inherit;
 }
