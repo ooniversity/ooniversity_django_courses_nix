@@ -8,7 +8,7 @@
 }
 
 .butsaka-address-block dd {
-    margin-left: 50px
+    margin-left: 70px
 }
 
 .bursaka-footer {
@@ -44,7 +44,42 @@ body {
     width: 70%;
 }
 
-.matrix-theme .bursaka-title {
+
+.address-skype {
+    background: url("../images/skype-icon.png") no-repeat;
+}
+
+.address-name {
+    background: url("../images/name.png") no-repeat;
+}
+
+.address-email {
+    background: url("../images/email.png") no-repeat;
+}
+.address-phone {
+    background: url("../images/phone.png") no-repeat;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-size: contain;
+    padding-left: 25px;
+}
+
+.butsaka-address-block dd,
+.butsaka-address-block dt {
+    line-height: 150%;
+}
+
+.program-title,
+.description-title {
+    font-weight: lighter;
+    text-decoration: underline;
+}
+
+.matrix-theme .bursaka-title-lg {
     font-weight: bold;
     color: darkgreen;
 }
@@ -135,3 +170,17 @@ body {
 }
 
 /* ----------------------------------- */
+
+.description-img,
+.program-img {
+    float: left;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    width: 320px;
+}
+
+.description-content,
+.program-content {
+    padding-bottom: 50px;
+}
+
