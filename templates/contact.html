@@ -1,51 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Contacts</title>
+
     <!-- Bootstrap -->
     <link href="../static/css/bootstrap.min.css" rel="stylesheet">
     <!-- Project -->
     <link href="../static/css/style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="../static/js/html5shiv.min.js"></script>
+      <script src="../static/js/respond.min.js"></script>
+    <![endif]-->
   </head>
   <body>
-    <nav>
-      <a href="./index.html">Main</a>
-      <a href="./contact.html">Contacts</a>
+    <nav class="navbar navbar-inverse bursaka-nav">
+      <div class="container-fluid active">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Main</a></li>
+            <li class="active"><a href="contact.html">Contacts</a></li>
+          </ul>
+        </div>
+      </div>
     </nav>
-
-    <h3>Director</h3>
-    Name: Ivan Bondarenko
-    Skype: bursaka.ivan.bondarenko
-    Email: ivan.bondarenko@bursaka.com
-    Phone: +300000000000
-    <h3>Manager</h3>
-    Name: Ivan Bondarenko2
-    Skype: bursaka.ivan.bondarenko2
-    Email: ivan.bondarenko2@bursaka.com
-    Phone: +311111111111
-    <h3>founder</h3>
-    Name: Ivan Bondarenko3
-    Skype: bursaka.ivanbondarenko3
-    Email: ivan.bondarenko3@bursaka.com
-    Phone: +333333333333
-    <div class="container unique-selectors">
-      <div class="row center-block bottom text-center"></div>
-      <div class="panel panel-primary"></div>
-      <div class="panel panel-success"></div>
-      <div class="panel panel-info"></div>
-      <div class="panel panel-warning"></div>
-      <div class="panel panel-danger"></div>
-      <div class="col-md-1 selector-1"></div>
-      <div class="col-md-1 selector-2"></div>
-      <div class="col-md-1 selector-3"></div>
-      <div class="col-md-1 selector-4"></div>
-      <div class="col-md-1 selector-5"></div>
-      <div class="col-md-1 selector-6"></div>
-      <div class="col-md-1 selector-7"></div>
-      <div class="col-md-1 selector-8"></div>
-      <div class="col-md-1 selector-9"></div>
-      <div class="col-md-1 selector-10"></div>
+    <div class="bursaka-content">
+      <div class="jumbotron matrix-theme">
+        <div class="container contacts">
+          <div class="row col-md-9">
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail">
+                <div class="caption">
+                  <img src="../static/images/manager.jpg" class="contact-image" data-holder-rendered="true">
+                  <h3>Manager</h3>
+                  <div class="caption butsaka-address-block">
+                    <dl class="dl-horizontal">
+                      <dt>Name:</dt><dd>Trinity Popova</dd>
+                      <dt>Skype:</dt><dd><a href="https://join.skype.com/bursaka.trinity.popova">bursaka.trinity.popova</a></dd>
+                      <dt>Email:</dt><dd><a href=mailto:trinity.popova@bursaka.com">trinity.popova@bursaka.com</a></dd>
+                      <dt>Phone:</dt><dd>+388888888888</dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail">
+                <div class="caption">
+                  <img src="../static/images/founder.jpg" class="contact-image" data-holder-rendered="true">
+                  <h3>Founder</h3>
+                  <div class="caption butsaka-address-block">
+                    <dl class="dl-horizontal">
+                      <dt>Name:</dt><dd>Neo Karachintsev</dd>
+                      <dt>Skype:</dt><dd><a href="https://join.skype.com/bursaka.neo.karachintsev">bursaka.neo.karachintsev</a></dd>
+                      <dt>Email:</dt><dd><a href=mailto:neo.karachintsev@bursaka.com">neo.karachintsev@bursaka.com</a></dd>
+                      <dt>Phone:</dt><dd>+388888888887</dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                  <div class="caption">
+                    <img src="../static/images/director.jpg" class="contact-image" data-holder-rendered="true">
+                    <h3>Director</h3>
+                    <div class="caption butsaka-address-block">
+                      <dl class="dl-horizontal">
+                        <dt>Name:</dt><dd>Morpheus Ziberstain</dd>
+                        <dt>Skype:</dt><dd><a href="https://join.skype.com/bursaka.morpheus.ziberstain">bursaka.morpheus.ziberstain</a></dd>
+                        <dt>Email:</dt><dd><a href=mailto:morpheus.ziberstain@bursaka.com">morpheus.ziberstain@bursaka.com</a></dd>
+                        <dt>Phone:</dt><dd>+388888888889</dd>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="row col-md-3">
+            <div id="carousel-example-generic" class="carousel slide" data-interval="10000" data-ride="carousel">
+              <div class="carousel-inner vertical" role="listbox">
+                <div class="item active">
+                  <img src="../static/images/director.jpg" alt="...">
+                  <div class="carousel-caption">
+                    <p>Et ligula arcu malesuada sagittis congue, arcu molestie nec diam
+                      curabitur tempus enim metus cursus.
+                    </p>
+                  </div>
+                </div>
+                <div class="item">
+                  <img src="../static/images/manager.jpg" alt="...">
+                  <div class="carousel-caption">
+                    <p>Eu a quam maecenas donec lectus orci tempus sed donec,
+                      lectus mauris at elementum risus, ornare eros.
+                    </p>
+                  </div>
+                </div>
+                <div class="item">
+                  <img src="../static/images/founder.jpg" alt="...">
+                  <div class="carousel-caption">
+                    <p>Auctor justo magna sagittis, integer sagittis arcu elementum urna nec at
+                      donec sodales diam ultricies auctor odio.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <footer class="bursaka-footer"></footer>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="../static/js/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
