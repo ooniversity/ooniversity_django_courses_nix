@@ -38,3 +38,9 @@ p.left {
 div.row {
     background-color: #FFFFFF;
 }
+h3.display-3{
+    font-size: 14px;
+}
+thead.thead-default{
+    font-family: inherit
+}
