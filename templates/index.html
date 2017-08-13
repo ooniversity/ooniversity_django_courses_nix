@@ -24,18 +24,18 @@
       <div class="container-fluid active">
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="./index.html">Main</a></li>
-            <li><a href="./contact.html">Contacts</a></li>
+            <li class="active"><a href="index.html">Main</a></li>
+            <li><a href="contact.html">Contacts</a></li>
           </ul>
         </div>
       </div>
     </nav>
     <div class="bursaka-content">
       <div class="jumbotron matrix-theme">
-        <h1 class="text-center">Bursaka</h1>
         <div class="container">
           <div class="col-md-6">
             <div class="jumbotron">
+              <h1 class="text-left text-uppercase bursaka-title">Bursaka</h1>
               <h1>Description</h1>
               <img src="../static/images/conf_2.jpg" width="320" />
               <p>Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.
@@ -55,12 +55,78 @@
                 Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut,
                 imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
               </p>
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#programModal">
+                See more
+              </button>
+              <!-- Modal -->
+              <div class="modal fade" id="programModal" tabindex="-1" role="dialog" aria-labelledby="programModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                      <h4 class="modal-title" id="programModalLabel">Programm</h4>
+                    </div>
+                    <div class="modal-body">
+                      <img src="../static/images/neo_vs_bullets2.jpg" width="100%">
+                      <p>Lorem ipsum congue, maecenas ligula ut eros at integer: at, congue auctor orci.
+                        Curabitur ultricies lorem: quam adipiscing duis congue rutrum amet massa orci nibh
+                        gravida mauris tellus. Rutrum diam gravida a congue gravida porta leo mattis odio integer.
+                      </p>
+                      <p>Tempus porttitor quam mattis eget in elementum massa commodo a at porttitor tellus.
+                        Ultricies, sagittis, mattis vivamus quisque risus congue amet ipsum maecenas lectus:
+                        molestie maecenas justo eget cursus at lorem porta&nbsp;&mdash; leo adipiscing sagittis,
+                        metus. Commodo nulla maecenas sapien orci at integer eget, morbi massa mauris orci eros:
+                        curabitur ligula porta. Nam quam, justo tempus diam leo mattis lectus vitae risus auctor
+                        donec quisque nec quisque risus adipiscing.
+                      </p>
+                      <img src="../static/images/neo_vs_bullets.jpg" width="100%">
+                      <p>Porttitor auctor bibendum, sit tellus
+                        a non in et maecenas at nibh gravida integer nec. Adipiscing mattis rutrum, ipsum mattis
+                        proin curabitur ipsum morbi eu duis nulla. Congue orci magna arcu enim congue curabitur
+                        gravida risus quisque, commodo morbi, ultricies, eu diam duis ligula ut ligula, porttitor
+                        mattis in: vivamus cursus. Diam rutrum sem ligula sodales elementum pharetra ut et auctor
+                        in molestie sagittis vulputate sed ut ornare justo pharetra quisque sed molestie eu sodales.
+                        Quisque&nbsp;&mdash; congue cursus, risus mauris adipiscing porttitor orci tempus magna
+                        porttitor rutrum justo amet urna, sagittis.
+                      </p>
+                      <p>
+                        Eros urna orci molestie sapien at tempus pellentesque sed elementum arcu ipsum enim ultricies
+                        et ligula enim. Urna pellentesque diam sed, sem, sagittis vitae integer in, quam sodales.
+                        Justo&nbsp;&mdash; sagittis eget porta urna pharetra mattis nam leo vulputate, risus rutrum
+                        lectus ultricies urna sodales nibh eget sodales. Mauris urna pellentesque justo adipiscing,
+                        mattis leo mauris maecenas at, curabitur risus ultricies tempus orci ut lectus quam orci,
+                        gravida. Commodo, metus justo&nbsp;&mdash; lectus, risus, metus at lectus maecenas sit
+                        quam&nbsp;&mdash; cursus elementum justo, gravida commodo pharetra molestie eu, porta
+                        tempus, eu donec. Massa a, tellus nibh ligula ipsum, arcu risus porta sem.
+                      </p>
+                      <p>At morbi nam maecenas ornare integer sit at bibendum gravida lorem at magna amet gravida,
+                        pellentesque, commodo et. Diam arcu lectus, tellus, sagittis gravida curabitur sodales sed
+                        rutrum congue diam eros sagittis eget risus eros, quam sem lorem, ipsum quisque odio.
+                        Ut commodo bibendum sodales vivamus duis cursus sed pharetra tempus at porttitor sodales,
+                        eu metus ultricies porttitor. Sagittis risus bibendum sagittis orci non maecenas eu amet
+                        molestie malesuada non donec quam, porta nulla ultricies. In commodo ornare, leo mauris
+                        eros urna ipsum odio auctor duis. Ornare porta nulla vivamus integer amet massa orci duis
+                        rutrum diam tellus proin vulputate vitae, tempus amet cursus enim porta urna amet molestie.
+                        Mattis, morbi ultricies ipsum orci curabitur leo porttitor molestie ut, nibh metus, gravida
+                        at eros: non metus, eros integer.
+                      </p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
     <footer class="bursaka-footer"></footer>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="../static/js/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
