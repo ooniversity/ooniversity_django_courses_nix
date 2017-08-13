@@ -6,18 +6,23 @@ p {
 }
 p.name {
     color: #49ae93;
+    font-family: inherit
 }
 p.skype {
     color: #4cae92;
+    font-family: inherit
 }
 p.email {
     color: #49ae88;
+    font-family: inherit
 }
 p.phone {
     color: #45ae82;
+    font-family: inherit
 }
 h3.description {
     background-color: #b1b36c;
+    font-family: inherit
 }
 h5.program {
     background-color: #dfe582;
