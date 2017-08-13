@@ -5,10 +5,12 @@
 
 .butsaka-address-block dt {
     width: auto;
+    background-size: contain;
+    padding-left: 30px;
 }
 
 .butsaka-address-block dd {
-    margin-left: 70px
+    margin-left: 75px
 }
 
 .bursaka-footer {
@@ -44,33 +46,37 @@ body {
     width: 70%;
 }
 
-
 .address-skype {
     background: url("../images/skype-icon.png") no-repeat;
 }
 
 .address-name {
-    background: url("../images/name.png") no-repeat;
+    background: url("../images/name-icon.png") no-repeat;
 }
 
 .address-email {
-    background: url("../images/email.png") no-repeat;
-}
-.address-phone {
-    background: url("../images/phone.png") no-repeat;
+    background: url("../images/email-icon.png") no-repeat;
 }
 
-.icon {
-    width: 20px;
-    height: 20px;
-    display: inline-block;
-    background-size: contain;
-    padding-left: 25px;
+.address-phone {
+    background: url("../images/phone-icon.png") no-repeat;
+}
+
+.item-director {
+    color: darkgreen;
+}
+
+.item-manager {
+    color: darkmagenta;
+}
+
+.item-founder {
+    color: darkslategray;
 }
 
 .butsaka-address-block dd,
 .butsaka-address-block dt {
-    line-height: 150%;
+    line-height: 170%;
 }
 
 .program-title,
@@ -161,7 +167,6 @@ body {
 
 .carousel-inner.vertical .item p {
     font-family: inherit;
-    color: black;
     text-shadow: none;
 }
 
