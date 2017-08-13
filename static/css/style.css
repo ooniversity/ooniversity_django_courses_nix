@@ -2,10 +2,6 @@
     background: url("../images/matrix-theme-8.jpg");
 }
 
-.matrix-theme > h1 {
-    color: wheat;
-}
-
 .butsaka-address-block dt {
     width: auto;
 }
@@ -36,6 +32,24 @@ body {
     width: 100%;
     position: fixed;
     height: 50px;
+    padding-left: 35px;
+}
+
+.bursaka-nav a {
+    display: block;
+    float: left;
+    color: #9d9d9d;
+    padding: 15px;
+}
+
+.bursaka-nav a.active {
+    color: white;
+    background-color: #080808;
+}
+
+.bursaka-nav a:hover {
+    text-decoration: none;
+    color: white;
 }
 
 .bursaka-content {
