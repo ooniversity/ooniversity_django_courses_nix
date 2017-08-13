@@ -38,12 +38,13 @@ a {
 	font-style: italic;
 }
 
-.reserved {
-	background-color:white;
+.text {
+	font-size: 20px;
 }
 
-.enough {
-	background-color:white;
+.textlink {
+	font-size: 20px;
+	color:blue;
 }
 
 
