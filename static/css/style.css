@@ -57,3 +57,28 @@
 .project-title {
 	font-family: 'Vidaloka', serif;
 }
+
+.director,
+.manager,
+.founder
+ {
+	font-family: 'Vidaloka', serif;
+	font-size: 2em;
+}
+
+.name {
+	font-style: italic;	
+	font-size: 1.5em;
+}
+
+.skype {
+	color: red;
+}
+
+.email {
+	color: blue;
+}
+
+.phone {
+	font-style: italic;	
+}
