@@ -1,0 +1,64 @@
+.bursa-body{
+  background-color: rgba(38, 154, 188, 0.13);
+}
+
+.bursa-navbar {
+  width: 100%;
+}
+
+.bursa-main-container {
+  font-family: inherit;
+}
+
+.bursa-title {
+  font-size: 40px;
+}
+
+.bursa-description{
+  color: #0f0f0f;
+}
+
+.bursa-program{
+  opacity: 1;
+}
+
+.bursa-description-text{
+  font-size: 20px;
+}
+
+.bursa-program-text{
+  font-size: 10px;
+}
+
+.bursa-footer{
+  width: 100%;
+}
+
+.bursa-footer-text {
+  font-family: inherit;
+  text-align: center;
+}
+
+.bursa-list {
+  font-family: inherit;
+}
+
+.bursa-item-heading {
+  font-family: inherit;
+}
+
+.bursa-name {
+  font-family: inherit;
+}
+
+.bursa-skype {
+  font-family: inherit;
+}
+
+.bursa-email {
+  font-family: inherit;
+}
+
+.bursa-phone {
+  font-family: inherit;
+}
