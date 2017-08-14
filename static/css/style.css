@@ -1,0 +1,42 @@
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+.starter {
+  padding: 40px 15px;
+  text-align: center;
+}
+.my-list {
+    margin-top: 5px;
+}
+.name {
+    font-size: larger;
+}
+.skype {
+    font-size: inherit;
+}
+.email {
+    font-style: italic;
+}
+.phone {
+    font-style: oblique;
+}
+.inner-text {
+    display: block;
+}
+.plain {
+    margin-top: 5px;
+}
+.company {
+    text-align: left;
+}
+.schedule {
+    color: red;
+    font-family: inherit;
+}
+.center {
+    text-align: center;
+}
+
+
+
