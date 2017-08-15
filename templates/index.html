@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>AdvancedBursa/Course</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="AdvancedBursa Main Page">
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</head>
+
+<body class="bursa-body">
+
+<nav class="navbar navbar-inverse">
+    <div class="bursa-navbar">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="{% url 'index' %}">Main</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'contact' %}">Contacts</a></li>
+                    <li><a href="{% url 'student_list' %}">Students</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<section class="bursa-main-container">
+    <div class="container">
+        <div class="row">
+            <h1 class="bursa-title">AdvancedBursa</h1>
+            <h2 class="bursa-description">Description</h2>
+            <p class="bursa-description-text">It is a long established fact that a reader will be distracted
+                by the readable content of a page when looking at its layout. The point of using Lorem Ipsum
+                is that it has a more-or-less normal distribution of letters, as opposed to using
+                'Content here, content here', making it look like readable English.</p>
+            <h4 class="bursa-program">Program</h4>
+            <p class="bursa-program-text">Many desktop publishing packages and web page editors now use Lorem Ipsum
+                as their default model text, and a search for 'lorem ipsum' will uncover many web sites
+                still in their infancy. Various versions have evolved over the years, sometimes by accident,
+                sometimes on purpose (injected humour and the like).</p>
+        </div>
+    </div>
+</section>
+
+<footer class="bursa-footer">
+    <p class="bursa-footer-text">2017</p>
+</footer>
+
+</body>
+
+</html>
