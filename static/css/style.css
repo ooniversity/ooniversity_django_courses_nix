@@ -1,0 +1,94 @@
+.container {
+	width: 70rem;
+	height: auto;
+	height: 100%;
+}
+
+.header {
+	padding: 1rem 0 0.5rem 0;
+}
+
+.main-content h2 {
+	margin-top: 1.5rem;
+}
+
+.main-footer {
+	padding: 1em 3em;
+}
+
+
+.curse-promo h3 {
+	font-size: 16px;
+	color: gray;
+}
+
+.course-name {
+	font-size: 3em;
+}
+
+.course-description {
+	font-size: 2em;
+}
+.card {
+	float: left;
+    width: 30.333%;
+    padding: .75rem;
+	margin: 1em 1em 3em 1em;
+    border: 0;
+	position: relative;
+}
+.card-image {
+	height: 128px;
+    width: 128px;
+    display: block;
+}
+.card-title {
+	font-size: 1.2rem;
+	margin-top: 2rem;
+}
+.card-text {
+	margin-left: 1rem;
+}
+
+.contact-card {
+	width: 20rem;
+	margin-bottom: 1rem;
+}
+
+.card-body {
+	background-color: #e9ecef;
+}
+
+.project-title {
+	font-family: 'Vidaloka', serif;
+}
+
+.director,
+.manager,
+.founder
+ {
+	font-family: 'Vidaloka', serif;
+	font-size: 2em;
+}
+
+.name {
+	font-style: italic;	
+	font-size: 1.5em;
+}
+
+.skype {
+	color: red;
+}
+
+.email {
+	color: blue;
+}
+
+.phone {
+	font-style: italic;	
+}
+.album {
+	min-height: 32rem;
+	padding-top: 2rem;
+	background-color: #f7f7f7;
+}
