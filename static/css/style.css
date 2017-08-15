@@ -46,20 +46,52 @@ body {
     width: 70%;
 }
 
-.address-skype {
+.icon-skype {
     background: url("../images/skype-icon.png") no-repeat;
 }
 
-.address-name {
+.icon-name {
     background: url("../images/name-icon.png") no-repeat;
 }
 
-.address-email {
+.icon-email {
     background: url("../images/email-icon.png") no-repeat;
 }
 
-.address-phone {
+.icon-phone {
     background: url("../images/phone-icon.png") no-repeat;
+}
+
+.icon-sunrame {
+    background: url("../images/surname-icon.png") no-repeat;
+}
+
+.icon-patronymic {
+    background: url("../images/patronymic-icon.jpg") no-repeat;
+}
+
+.icon-rating {
+    background: url("../images/rating-icon.png") no-repeat;
+}
+
+.icon-average-grade {
+    background: url("../images/average-grade-icon.png") no-repeat;
+}
+
+.icon-package {
+    background: url("../images/package-icon.png") no-repeat;
+}
+
+.icon-birth-date {
+    background: url("../images/birth-date-icon.png") no-repeat;
+}
+
+.icon-address {
+    background: url("../images/address-icon.png") no-repeat;
+}
+
+.icon-post-code {
+    background: url("../images/post-code-icon.png") no-repeat;
 }
 
 .item-director {
@@ -189,3 +221,33 @@ body {
     padding-bottom: 50px;
 }
 
+.performance thead {
+    background-color: blue;
+    color: white;
+}
+.performance thead th {
+    border: 1px solid white;
+    padding: 0 10px;
+}
+
+.performance :not(thead) th {
+    border: 1px solid white;
+    padding: 3px 10px;
+}
+
+.performance tbody {
+    background-color: #66afe9;
+    color: white;
+}
+
+.performance tbody td{
+    padding: 3px 10px;
+}
+
+.performance tbody tr {
+    border-bottom: 1px solid aqua;
+}
+
+.performance-week {
+    width: 100%;
+}
