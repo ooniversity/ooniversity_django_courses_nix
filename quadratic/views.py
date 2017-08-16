@@ -8,11 +8,11 @@ def quadratic_results(request):
 
     if qe.is_valid:
         qe.calc_descr()
-        d = qe.get_descr()
+        descr = qe.get_descr()
         result = qe.get_result()
 
     return render(request, "results.html",
-                  {'a': qe.get_a(),'b': qe.get_b(), 'c': qe.get_c(), 'd': descr, 'result': result})
+                  {'a': qe.get_a(),'b': qe.get_b(), 'c': qe.get_c(), 'descr': descr, 'result': result})
 
 
 class QuadraticEquation:
