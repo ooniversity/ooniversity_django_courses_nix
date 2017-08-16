@@ -18,7 +18,13 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.conf import settings
 
+from . import views
+
 urlpatterns = [
     url(r'^polls/', include('polls.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^$', views.index, name='index'),
+    url(r'^contact', views.contact, name='contact'),
+    url(r'^student_list', views.student_list, name='student_list'),
+    url(r'^student_detail/(?P<pk>[0-9]+)/$', views.student_detail, name='student_detail'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
