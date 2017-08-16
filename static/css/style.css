@@ -85,6 +85,10 @@ body {
     line-height: 1.75;
 }
 
+.price-info{
+  width: 100%;
+}
+
 .course-footer{
   width: 100%;
 }
