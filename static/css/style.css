@@ -1,0 +1,45 @@
+body {
+    color: #aaa;
+}
+
+.container {
+    padding-left: 30px;
+    padding-right: 30px
+}
+
+.nav-link {
+    color: rgba(0, 0, 0, 1);
+}
+
+.important-info {
+    text-decoration: underline;
+}
+
+#course-description {
+    color: black;
+}
+
+.container .course-program {
+    margin-top: 20px;
+}
+
+.container .contact-name {
+    font-weight: bold;
+}
+
+.container .contact-skype {
+    font-style: italic;
+}
+
+.container .contact-email {
+    color: rgba(0, 0, 0, 1);
+}
+
+.container .contact-phone {
+    color: rgba(0, 0, 0, 1);
+}
+
+#director-phone {
+    color: black;
+    font-weight: bold;
+}
