@@ -1,0 +1,5 @@
+.vscode
+.python-version
+*.pyc
+*[D,d]ocker*
+__pycache__
