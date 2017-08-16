@@ -18,6 +18,6 @@ def student_list(request):
     """Student List Page"""
     return render(request, 'pybursa/student_list.html')
 
-def student_detail(request, pk):
+def student_detail(request):
     """Student Detail Page"""
     return render(request, 'pybursa/student_detail.html')
