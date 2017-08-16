@@ -23,7 +23,7 @@ body {
     text-decoration: underline;
 }
 
-span.highlight {
+.highlight {
     background-color: yellow;
 }
 
@@ -83,4 +83,12 @@ span.highlight {
 
 .index-container {
     line-height: 1.75;
+}
+
+.course-footer{
+  width: 100%;
+}
+
+.course-footer-info {
+  color: grey;
 }
