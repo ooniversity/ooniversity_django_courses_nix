@@ -1,0 +1,81 @@
+{% load staticfiles %}
+{% load get_item %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quadratic Equestion</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p>Квадратное уровнение: ax<sup>2</sup> + bx + c = 0</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <form class="form-inline" action="{% url 'results' %}">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <div class="input-group">
+                                <input type="number" class="form-control" name="a" placeholder="a" value="{{items.a}}">
+                                <span class="input-group-addon">x<sup>2</sup></span>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div class="input-group">
+                                <input type="number" class="form-control" name="b" placeholder="b" value="{{items.b}}">
+                                <span class="input-group-addon">x</span>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="form-group">
+                                <input type="number" class="form-control" name="c" placeholder="c" value="{{items.c}}">
+                                <p class="form-control-static"> = 0</p>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-default">Calculate</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <ul>
+                    {% for key, value in items.items %}
+                        <li>{{key}} = {{value}}
+                            {% if errors|get_item:key %}
+                            <ul>
+                                <li>{{errors|get_item:key}}</li>
+                            </ul>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+                <ul>
+                    {% if d is not None %}
+                    <li>Дискриминант: {{d}}
+                        {% if errors.d %}
+                        <ul><li>{{errors.d}}</li></ul>
+                        {% endif %}
+                    </li>
+                    {% endif %}
+                    {% if x1 and x2 %}
+                        {% if x1 == x2 %}
+                        <li>Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x<sub>1</sub> = x<sub>2</sub> = {{x1}}</li>
+                        {% else %}
+                        {% if x1 != x2 %}
+                        <li>Квадратное уравнение имеет два действительных корня: x<sub>1</sub> = {{x1}}, x<sub>2</sub> = {{x2}}</li>
+                        {% endif %}
+                    {% endif %}
+                </ul>  
+            </div>
+        </div>
+    </div>
+</body>
+</html>
