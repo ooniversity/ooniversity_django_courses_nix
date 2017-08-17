@@ -3,23 +3,40 @@
     src: url('http://domain.com/fonts/font.ttf'); /*URL to font*/
 }
 
+h1, h2, h3, h4, h5, h6 {
+  color: #538A93;
+}
+
+body {
+  color: #45504D;
+}
+
 .container {
 	width: 70rem;
 	height: auto;
 	height: 100%;
 }
 
-.header {
+.main-header {
 	padding: 1rem 0 0.5rem 0;
+  background-color: #9DC7CF;
 }
+
 
 .main-content h2 {
 	margin-top: 1.5rem;
 }
 
 .main-footer {
-	background-color: #eeaacc;
+	background-color: #83C1BD;
 	padding: 1em;
+}
+
+/*Navigation */
+
+.nav-pills .nav-link.active {
+  color: #fff;
+  background-color: #6096a0;
 }
 
 /*Main content styling*/
@@ -56,6 +73,12 @@
 
 .project-title {
 	font-family: 'Vidaloka', serif;
+  color: #043e45;
+  padding-left: 1.5rem;
+}
+
+.student-name {
+  font-size: 2em;
 }
 
 .director,
@@ -67,7 +90,7 @@
 }
 
 .name {
-	font-style: italic;	
+	font-style: italic;
 	font-size: 1.5em;
 }
 
@@ -80,5 +103,22 @@
 }
 
 .phone {
-	font-style: italic;	
+	font-style: italic;
+}
+.table-inverse {
+  color: #fff;
+  background-color: #6096a0;
+}
+.nav-pills,
+.nav-link {
+  color: #f6f6f6
+}
+
+.nav-link:hover {
+  color: #6096a0;
+}
+
+.table-inverse thead th,
+.table-inverse td {
+    border-color: #bfccd8;
 }
