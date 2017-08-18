@@ -1,17 +1,14 @@
-from django.views.generic.base import TemplateView
+from django.http import HttpResponse
+from django.shortcuts import render
 
-class HomePageView(TemplateView):
-    template_name = 'templates/index.html'
-    context_object_name = 'index_page'
+def index(request):
+    return render(request, 'templates/index.html')
 
-class ContactView(TemplateView):
-    template_name = 'templates/contact.html'
-    context_object_name = 'contact_page'
+def contact(request):
+    return render(request, 'templates/contact.html')
 
-class StudentListView(TemplateView):
-    template_name = 'templates/student_list.html'
-    context_object_name = 'student_list_page'
+def student_list(request):
+    return render(request, 'templates/student_list.html')
 
-class StudentDetailView(TemplateView):
-    template_name = 'templates/student_detail.html'
-    context_object_name = 'student_detail'
+def student_detail(request):
+    return render(request, 'templates/student_detail.html')
