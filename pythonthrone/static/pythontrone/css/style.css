@@ -1,0 +1,124 @@
+@font-face {
+    font-family: 'YourFontName'; /*a name to be used later*/
+    src: url('http://domain.com/fonts/font.ttf'); /*URL to font*/
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #538A93;
+}
+
+body {
+  color: #45504D;
+}
+
+.container {
+	width: 70rem;
+	height: auto;
+	height: 100%;
+}
+
+.main-header {
+	padding: 1rem 0 0.5rem 0;
+  background-color: #9DC7CF;
+}
+
+
+.main-content h2 {
+	margin-top: 1.5rem;
+}
+
+.main-footer {
+	background-color: #83C1BD;
+	padding: 1em;
+}
+
+/*Navigation */
+
+.nav-pills .nav-link.active {
+  color: #fff;
+  background-color: #6096a0;
+}
+
+/*Main content styling*/
+.curse-promo h3 {
+	font-size: 16px;
+	color: gray;
+}
+
+.course-name {
+	font-size: 3em;
+}
+
+.course-description {
+	font-size: 2em;
+}
+
+/*Contacts*/
+.card-title {
+	font-size: 1.2rem;
+	margin-top: 2rem;
+}
+.card-text {
+	margin-left: 1rem;
+}
+
+.contact-card {
+	width: 20rem;
+	margin-bottom: 1rem;
+}
+
+.card-body {
+	background-color: #e9ecef;
+}
+
+.project-title {
+	font-family: 'Vidaloka', serif;
+  color: #043e45;
+  padding-left: 1.5rem;
+}
+
+.student-name {
+  font-size: 2em;
+}
+
+.director,
+.manager,
+.founder
+ {
+	font-family: 'Vidaloka', serif;
+	font-size: 2em;
+}
+
+.name {
+	font-style: italic;
+	font-size: 1.5em;
+}
+
+.skype {
+	color: red;
+}
+
+.email {
+	color: blue;
+}
+
+.phone {
+	font-style: italic;
+}
+.table-inverse {
+  color: #fff;
+  background-color: #6096a0;
+}
+.nav-pills,
+.nav-link {
+  color: #f6f6f6
+}
+
+.nav-link:hover {
+  color: #6096a0;
+}
+
+.table-inverse thead th,
+.table-inverse td {
+    border-color: #bfccd8;
+}
