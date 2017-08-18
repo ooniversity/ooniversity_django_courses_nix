@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE HTML>
 <html>
   <head>
@@ -6,8 +7,8 @@
     <meta name="description" content="The PySchool main page">
     <meta name="author" content="Slava NIk">
     <title>The PySchool - main page</title>
-    <link rel="stylesheet" href="../static/css/bootstrap.css" />
-    <link rel="stylesheet" href="../static/css/style.css" />
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
   </head>
   <body>
   	<div class="container">
@@ -15,13 +16,13 @@
         <nav>
           <ul class="nav nav-pills float-right">
             <li class="nav-item">
-              <a class="nav-link active" href="index.html">Main</a>
+              <a class="nav-link active" href="{% url 'index' %}">Main</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contacts</a>
+              <a class="nav-link" href="{% url 'contact' %}">Contacts</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="student_list.html">Students</a>
+              <a class="nav-link" href="{% url 'student_list' %}">Students</a>
             </li>
           </ul>
         </nav>
@@ -83,6 +84,6 @@
       <p class="text-center">&copy; The PySchool 2017, some rights reserved</p>
     </footer>
   </div>
-  <script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="../static/js/bootstrap.js"></script>
+  <script type="text/javascript" src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
   </body>

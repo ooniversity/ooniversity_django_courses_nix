@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE HTML>
 <html>
   <head>
@@ -6,8 +7,8 @@
     <meta name="description" content="PySchool contacts">
     <meta name="author" content="Slava NIk">
     <title>The PySchool - contacts page</title>
-    <link rel="stylesheet" href="../static/css/bootstrap.css" />
-    <link rel="stylesheet" href="../static/css/style.css" />
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
   </head>
   <body>
   	<div class="container">
@@ -15,13 +16,13 @@
         <nav>
           <ul class="nav nav-pills float-right">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Main</a>
+              <a class="nav-link" href="{% url 'index' %}">Main</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="contact.html">Contacts</a>
+              <a class="nav-link active" href="{% url 'contact' %}">Contacts</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="student_list.html">Students</a>
+              <a class="nav-link" href="{% url 'student_list' %}">Students</a>
             </li>
           </ul>
         </nav>
@@ -44,7 +45,7 @@
             <div class="row album">
               <div class="card">
                   <h4 class="card-title director">Director</h4>
-                  <img src="../static/images/director.png" alt="director" class="card-image">
+                  <img src="{% static 'images/director.png' %}" alt="director" class="card-image">
                   <p class="card-text name">Name: Oozma Kappa</p>
                   <p class="card-text skype">Skype: gitler_kaput</p>
                   <p class="card-text email">Email: gitler_kaput@pyschool.com</p>
@@ -52,7 +53,7 @@
               </div>
               <div class="card">
                   <h4 class="card-title manager">Manager</h4>
-                  <img src="../static/images/manager.png" alt="manager" class="card-image">
+                  <img src="{% static 'images/manager.png' %}" alt="manager" class="card-image">
                   <p class="card-text name">Name: Terry Perry</p>
                   <p class="card-text skype">Skype: gopnik_kharkiv</p>
                   <p class="card-text email">Email: gopnik_kharkiv@pythothrone.org</p>
@@ -61,7 +62,7 @@
               </div>
               <div class="card">
                   <h4 class="card-title founder">Founder</h4>
-                  <img src="../static/images/founder.png" alt="founder" class="card-image">
+                  <img src="{% static 'images/founder.png' %}" alt="founder" class="card-image">
                   <p class="card-text name">Name: Don Carlton</p>
                   <p class="card-text skype">Skype: py_godzilla</p>
                   <p class="card-text email">Email: py_godzilla@pythothrone.org</p>
@@ -74,7 +75,7 @@
         <p class="text-center">&copy; The PySchool 2017, some rights reserved</p>
       </footer>
     </div>
-    <script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="../static/js/bootstrap.js"></script>
+    <script type="text/javascript" src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
   </body>
 </html>
