@@ -6,8 +6,9 @@
     <meta name="description" content="Mother of all Bursas, father of all Python">
     <meta name="author" content="Kostyantyn Kedrya">
     <title>The PythoThrone - students list page</title>
-    <link rel="stylesheet" href="../static/css/bootstrap.css" />
-    <link rel="stylesheet" href="../static/css/style.css" />
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'pythonthrone/css/bootstrap.css' %}" />
+    <link rel="stylesheet" href="{% static 'pythonthrone/css/style.css' %}" />
   </head>
   <body>
   	<div class="container">
@@ -16,13 +17,13 @@
         <nav>
           <ul class="nav nav-pills float-right">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Main</a>
+              <a class="nav-link" href="{% url 'index' %}">Main</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contacts</a>
+              <a class="nav-link" href="{% url 'contact' %}">Contacts</a>
             </li>
 			      <li class="nav-item">
-              <a class="nav-link active" href="student_list.html">Students</a>
+              <a class="nav-link active" href="{% url 'student_list' %}">Students</a>
             </li>
           </ul>
         </nav>
@@ -57,7 +58,7 @@
         	<tbody>
         		<tr>
         			<td>
-        				<a href="student_detail.html">1</a>
+        				<a href="{% url 'student_detail' %}">1</a>
         			</td>
         			<td>
         				Tarasov
