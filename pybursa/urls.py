@@ -19,6 +19,7 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
+    url(r'^quadratic/', include('quadratic.urls')),
     url(r'^polls/', include('polls.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
