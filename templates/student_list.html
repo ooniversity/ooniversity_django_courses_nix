@@ -24,9 +24,9 @@
       <div class="container-fluid active">
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a href=/">Main</a></li>
-            <li><a href="/contact/">Contacts</a></li>
-            <li class="active"><a href="/student_list/">Students</a></li>
+            <li><a href="{% url 'index' %}">Main</a></li>
+            <li><a href="{% url 'contact' %}">Contacts</a></li>
+            <li class="active"><a href="{% url 'student_list' %}">Students</a></li>
           </ul>
         </div>
       </div>
@@ -50,7 +50,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <th scope="row"><a href="/student_detail/">1</a></th>
+                    <th scope="row"><a href="{% url 'student_detail' %}">1</a></th>
                     <td>Pressley</td>
                     <td>Nelle</td>
                     <td>512 Chaney St, Lake Elsinore, CA, 92530</td>
