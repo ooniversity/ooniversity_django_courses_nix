@@ -1,22 +1,13 @@
-from django.http import HttpResponse
-from django.template import loader
-
+from django.shortcuts import render
 
 def index(request):
-    template = loader.get_template('index.html')
-    return HttpResponse(template.render(request))
-
+    return render(request, 'index.html')
 
 def contact(request):
-    template = loader.get_template('contact.html')
-    return HttpResponse(template.render(request))
-
+    return render(request, 'contact.html')
 
 def student_list(request):
-    template = loader.get_template('student_list.html')
-    return HttpResponse(template.render(request))
-
+    return render(request, 'student_list.html')
 
 def student_detail(request):
-    template = loader.get_template('student_detail.html')
-    return HttpResponse(template.render(request))
+    return render(request, 'student_detail.html')
