@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contacts</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/style.css' %}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'index' %}">Main</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'contact' %}">Contacts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'student_list' %}">Students</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <h3 id="main-contact">Director</h3>
+      <p class="contact-info">Name: <span class="contact-name">Directorname</span></p>
+      <p>Skype: <span class="contact-skype">Skypename</span></p>
+      <p>Email: <span class="contact-email">email@example.com</span></p>
+      <p>Phone: <span id="director-phone" class="contact-phone">123456789</span></p>
+      <h3>Manager</h3>
+      <p>Name: <span class="contact-name">Managername</span></p>
+      <p>Skype: <span class="contact-skype">Skypename</span></p>
+      <p>Email: <span class="contact-email">email@example.com</span></p>
+      <p>Phone: <span class="contact-phone">123456789</span></p>
+      <h3>Founder</h3>
+      <p>Name: <span class="contact-name">Foundername</span></p>
+      <p>Skype: <span class="contact-skype">Skypename</span></p>
+      <p>Email: <span class="contact-email">email@example.com</span></p>
+      <p>Phone: <span class="contact-phone">123456789</span></p>
+    </div>
+    <div class="price-info">
+      <p class="payment-method-info"></p>
+    </div>
+    <div class="course-footer">
+      <p class="course-footer-info"></p>
+    </div>
+    <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+</body>
+</html>
