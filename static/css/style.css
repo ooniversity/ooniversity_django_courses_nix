@@ -1,0 +1,45 @@
+body {
+    padding-top: 0;
+    margin: 0
+}
+.bursa-navbar {
+    margin-left: 0;
+    width: 100%;
+    position: fixed;
+    height: 50px;
+}
+.bursa-content {
+    display: block;
+}
+h1 {
+    font-size: 48px;
+    margin-top: 100px;
+    margin-bottom: 15px;
+}
+h4 {
+    font-size: 24px;
+    margin: 0 ;
+}
+a {
+    background-color: transparent;
+}
+
+img {
+    border-style: solid;
+}
+
+.bursa-description {
+    margin-top: 15px;
+}
+
+row,
+.bursa-title,
+.bursa-contents,
+.bursa-footer,
+.copyright,
+.bursa-name,
+.bursa-skype,
+.bursa-email,
+.bursa-phone {
+    display: block;
+}
