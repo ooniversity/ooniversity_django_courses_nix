@@ -1,17 +1,17 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Contacts</title>
-    <link rel="stylesheet" href="../static/css/bootstrap.css">
-    <link rel="stylesheet" href="../static/css/style.css">
-
+    <title>Main</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-text" href="index.html">Main</a>
-    <a class="navbar-text" href="contact.html">Contacts</a>
-    <a class="navbar-text" href="student_list.html">Students</a>
+    <a class="navbar-text" href="{% url 'index' %}">Main</a>
+    <a class="navbar-text" href="{% url 'contact' %}">Contacts</a>
+    <a class="navbar-text" href="{% url 'student_list' %}">Students</a>
 </nav>
 <div class="container">
     <div class="row">
@@ -39,6 +39,6 @@
         </div>
     </div>
 </div>
-<script src="../static/js/bootstrap.js"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
 </body>
 </html>
