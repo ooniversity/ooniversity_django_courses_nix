@@ -1,0 +1,29 @@
+<p>Квадтратное уравнение a*x*x + b*x + c = 0</p>
+<ul>
+    {% if result %}
+        {% for key, value in response.items%}
+            <li>
+                {{key}} = {{value}}
+
+            </li>
+        {% endfor %}
+    {% else %}
+        {% for key, item in response.items%}
+            <li>
+                {{key}} = {{item.value}} <br> {{item.error}}
+            </li>
+        {% endfor %}
+    {% endif %}
+</ul>
+{% if result %}
+    {% if result.discr > 0 %}
+        <p>Дискриминант: {{result.discr}}</p>
+        <p>Квадратное уравнение имеет два действительных корня: x1 = {{result.x1}}, x2 = {{result.x2}}</p>
+    {% elif result.discr == 0 %}
+        <p>Дискриминант: {{result.discr}}</p>
+        <p>Квадратное уравнение имеет два действительных корня: x1 = x2 = {{result.x1}}</p>
+    {% else %}
+        <p>Дискриминант: {{result.discr}}</p>
+        <p>Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.</p>
+    {% endif%}
+{% endif %}

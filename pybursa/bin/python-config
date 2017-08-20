@@ -1,4 +1,4 @@
-#!/home/kedrya/python/ooniversity_django_courses_nix/pybursa/bin/python
+#!/home/roach/Python/ooniversity_django_courses_nix/pybursa/bin/python
 
 import sys
 import getopt
