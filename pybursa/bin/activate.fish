@@ -36,7 +36,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/kedrya/python/ooniversity_django_courses_nix/pybursa"
+set -gx VIRTUAL_ENV "/home/roach/Python/ooniversity_django_courses_nix/pybursa"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
