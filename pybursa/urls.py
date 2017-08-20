@@ -17,9 +17,10 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 from pybursa import views
-
+from quadratic.views import quadratic_result
 urlpatterns = [
     url(r'^polls/', include('polls.urls')),
+    url(r'^quadratic/results/$', quadratic_result, name='results'),
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
     url(r'^contact/$', views.contact, name='contact'),
