@@ -12,10 +12,10 @@ def validate(param):
         int(param)
     except ValueError:
         error['is_valid'] = False
-        error['msg'] = 'Коэффициент не целое число'
+        error['msg'] = 'коэффициент не целое число'
     if param == '':
         error['is_valid'] = False
-        error['msg'] = 'Коэффициент не определен'
+        error['msg'] = 'коэффициент не определен'
     return error
 
 
