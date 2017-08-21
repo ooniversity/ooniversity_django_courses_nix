@@ -1,0 +1,52 @@
+{% extends 'index_courses.html' %}
+{% block title%}
+  <title>Students</title>
+{% endblock %}
+
+{% block links %}
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+        <li><a href="{% url 'courses:index' %}">Main</a></li>
+        <li class="active"><a href="{% url 'students:list_view' %}">Students</a><span class="sr-only">(current)</span></li>
+
+    </ul>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="panel panel-default">
+    <div class="panel-heading"><h2></h2></div>
+    <div class="panel-body">
+        <div class='otherContent'></div>
+    </div>
+    <h2>Students list</h2>
+    <!-- Table -->
+    <table class="table">
+        <tr class='cust_div'>
+            <th>#</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>skype</th>
+            <th>course</th>
+        </tr>
+        {% if student_list %}
+            {% for student in student_list %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td><a href="{% url 'students:detail' student.id %}">{{ student.name}} {{ student.surname}}</a></td>
+                <td>{{ student.address}}</td>
+                <td>{{ student.skype}}</td>
+                <td>
+                    {% for crs in student.courses.all %}
+                    <a href="{% url 'courses:detail' crs.id %}">{{ crs.name}}</a>
+                        <br>
+                    {% endfor %}
+                </td>
+            </tr>
+            {% endfor %}
+        {% else %}
+        <p>No students are available.</p>
+        {% endif %}
+    </table>
+</div>
+{% endblock %}
