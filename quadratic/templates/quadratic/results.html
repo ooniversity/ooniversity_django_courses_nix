@@ -1,0 +1,52 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Solve the quadratic equation</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p>Квадратное уравнение: ax<sup>2</sup> + bx + c = 0</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <ul>
+                    {% for key, value in coefficients %}
+                        <li>{{key}} = {{value}}
+                            {% if result['errors'].get(key) %}
+                            <p>{{result['errors'][key]}}</p>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+                {% if len(result['errors']) == 0 %}
+                <ul>
+                    <li>Дискриминант: {{result['discriminant']}}
+                        {% if result['errors'].get('d') %}
+                        <p>{{result['errors'].get('d')}}</p>
+                        {% endif %}
+                    </li>
+                    {% if result['roots'].get('root1') and result['roots'].get('root2') %}
+                        {% if result['roots'].get('root1') == result['roots'].get('root2') %}
+                        <li>Дискриминант равен нулю, квадратное уравнение имеет один действительный корень:
+                            x<sub>1</sub> = x<sub>2</sub> = {{result['roots'].get('root2')}}</li>
+                        {% else %}
+                        <li>Квадратное уравнение имеет два действительных корня:
+                            x<sub>1</sub> = {{result['roots'].get('root1')}},
+                            x<sub>2</sub> = {{result['roots'].get('root2')}}</li>
+                        {% endif %}
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
