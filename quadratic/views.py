@@ -8,17 +8,18 @@ class ResultsView(generic.TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(ResultsView, self).get_context_data(**kwargs)
-        print(context)
+
         coefficients = {
-            'a': kwargs.get('a', ''),
-            'b': kwargs.get('b', ''),
-            'c': kwargs.get('c', ''),
+            'a': self.request.GET.get('a', ''),
+            'b': self.request.GET.get('b', ''),
+            'c': self.request.GET.get('c', ''),
         }
 
         context.update({
             'coefficients': coefficients,
-            'result': QuadraticCalculator.calculate(**kwargs)
+            'result': QuadraticCalculator.calculate(coefficients)
         })
+        print(context)
         return context
 
 
@@ -30,18 +31,19 @@ class QuadraticValidator():
     }
 
     @classmethod
-    def validate(cls, **kwargs):
+    def validate(cls, kwargs):
         output = {}
-
-        for key, value in kwargs:
+        fields = ['a', 'b', 'c']
+        for field in fields:
+            value = kwargs.get(field, '')
             if value == '':
-                output[key] = cls.errors['undefined']
+                output[field] = cls.errors['undefined']
                 continue
             if not cls.__is_digit(value):
-                output[key] = cls.errors['not_digit']
+                output[field] = cls.errors['not_digit']
                 continue
-            if (key == 'a' and value == '') or 'a' not in kwargs.keys():
-                output[key] = cls.errors['empty_a']
+            if field == 'a' and value == '0':
+                output[field] = cls.errors['empty_a']
 
         return output
 
@@ -58,31 +60,30 @@ class QuadraticCalculator:
     negative_discriminant_error = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений'
 
     @classmethod
-    def calculate(cls, **kwargs):
+    def calculate(cls, coefficients):
+
         result = {
             'discriminant': None,
             'errors': {},
             'roots': []
         }
-        errors = QuadraticValidator.validate(**kwargs)
-        return result
+        errors = QuadraticValidator.validate(coefficients)
+
         if len(errors) > 0:
-            result['error'] = errors
-            return result
+            result['errors'] = errors
+        else:
+            a = int(coefficients['a'])
+            b = int(coefficients['b'])
+            c = int(coefficients['c'])
 
-        a = int(kwargs['a'])
-        b = int(kwargs['b'])
-        c = int(kwargs['c'])
+            discriminant = b ** 2 - 4 * a * c
+            result['discriminant'] = discriminant
 
-        discriminant = b ** 2 - 4 * a * c
-        if discriminant < 0:
-            result['errors']['d'] = cls.negative_discriminant_error
-            return result
-
-        result['discriminant'] = discriminant
-
-        root1 = round((-b + math.sqrt(discriminant)) / (2 * a), 2)
-        root2 = round((-b - math.sqrt(discriminant)) / (2 * a), 2)
-        result['roots'] = {'root1': root1, 'root2': root2}
+            if discriminant < 0:
+                result['errors']['d'] = cls.negative_discriminant_error
+            else:
+                root1 = round((-b + math.sqrt(discriminant)) / (2 * a), 2)
+                root2 = round((-b - math.sqrt(discriminant)) / (2 * a), 2)
+                result['roots'] = {'root1': root1, 'root2': root2}
 
         return result

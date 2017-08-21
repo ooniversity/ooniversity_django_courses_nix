@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load get_item %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,38 +14,40 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <p>Квадратное уравнение: ax<sup>2</sup> + bx + c = 0</p>
+                <p>Квадратное уравнение: a*x*x + bx + c = 0</p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <ul>
-                    {% for key, value in coefficients %}
+                    {% for key, value in coefficients.items %}
                         <li>{{key}} = {{value}}
-                            {% if result['errors'].get(key) %}
-                            <p>{{result['errors'][key]}}</p>
+                            {% if result.errors|get_item:key %}
+                            <p>{{result.errors|get_item:key}}</p>
                             {% endif %}
                         </li>
                     {% endfor %}
                 </ul>
-                {% if len(result['errors']) == 0 %}
+                {% if result.discriminant is not None %}
                 <ul>
-                    <li>Дискриминант: {{result['discriminant']}}
-                        {% if result['errors'].get('d') %}
-                        <p>{{result['errors'].get('d')}}</p>
+                    <li>Дискриминант: {{result.discriminant}}
+                        {% if result.errors.d %}
+                        <p>{{result.errors.d}}</p>
                         {% endif %}
                     </li>
-                    {% if result['roots'].get('root1') and result['roots'].get('root2') %}
-                        {% if result['roots'].get('root1') == result['roots'].get('root2') %}
+                    {% if result.roots.root1 and result.roots.root2 %}
+                        {% if result.roots.root1 == result.roots.root2 %}
                         <li>Дискриминант равен нулю, квадратное уравнение имеет один действительный корень:
-                            x<sub>1</sub> = x<sub>2</sub> = {{result['roots'].get('root2')}}</li>
+                            x1 = x2 = {{result.roots.root2}}</li>
                         {% else %}
                         <li>Квадратное уравнение имеет два действительных корня:
-                            x<sub>1</sub> = {{result['roots'].get('root1')}},
-                            x<sub>2</sub> = {{result['roots'].get('root2')}}</li>
+                            x1 = {{result.roots.root1}},
+                            x2> = {{result.roots.root2}}
+                        </li>
                         {% endif %}
                     {% endif %}
                 </ul>
+                {% endif %}
             </div>
         </div>
     </div>
