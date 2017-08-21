@@ -1,68 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../static/images/favicon.ico">
+{% extends 'base.html' %}
 
-    <title>Main page</title>
+{% block title %} Main page {% endblock %}
 
-    <!-- Bootstrap core CSS -->
-    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="../static/css/style.css" rel="stylesheet">
-
-  </head>
-
-  <body>
-
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="index.html">Main</a></li>
-            <li><a href="contact.html">Contacts</a></li>
-            <li><a href="student_list.html">Students</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-
-    <div class="container">
-
-      <div class="starter">
-        <h1 class="description">Description</h1>
-        <h3>Program</h3>
-        <p class="lead">
-            Добро пожаловать на ItBursa Django2017!<br>
-        </p>
-            <h5 class="schedule">21-го июля в пятницу:</h5>
-          <ul class="list-group">
-              <li class="list-group-item center">Сегодня дедлайн по выполнению тестов первой темы</li>
-              <li class="list-group-item center">Стало доступно первое контрольное задание, дедлайном на выполнение которого будет полночь понедельника 24 июля.</li>
-              <li class="list-group-item center">В 13:00 офлайн встреча на которой можно будет задать вопросы по текущей теме и контрольному заданию.</li>
-          </ul>
-      </div>
-
-    </div><!-- /.container -->
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
-    <script src="../static/js/bootstrap.min.js"></script>
-  </body>
-</html>
+{% block content %}
+<div class="starter">
+    <h1 class="description">Description</h1>
+    <h3>Program</h3>
+    <p class="lead">
+        Добро пожаловать на ItBursa Django2017!<br>
+    </p>
+    <h5 class="schedule">21-го июля в пятницу:</h5>
+    <ul class="list-group">
+      <li class="list-group-item center">Сегодня дедлайн по выполнению тестов первой темы</li>
+      <li class="list-group-item center">Стало доступно первое контрольное задание, дедлайном на выполнение которого будет полночь понедельника 24 июля.</li>
+      <li class="list-group-item center">В 13:00 офлайн встреча на которой можно будет задать вопросы по текущей теме и контрольному заданию.</li>
+    </ul>
+</div>
+{% endblock %}

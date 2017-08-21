@@ -1,95 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../static/images/favicon.ico">
+{% extends 'base.html' %}
 
-    <title>Contacts</title>
+{% block title %} Contacts {% endblock %}
 
-    <!-- Bootstrap core CSS -->
-    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+{% block content %}
+<!-- Example row of columns -->
+  <div class="row">
+    <div class="col-md-4 plain">
+      <h2>Director</h2>
+        <ul class="my-list">
+            <li class="name"><b>Name:</b> Vitaliy Bondarenko</li>
+            <li class="skype"><b>Skype:</b> Vitaliy_Bondarenko</li>
+            <li class="email"><b>Email:</b> bondar@mail.com</li>
+            <li class="phone"><b>Phone:</b> +14567283223</li>
+        </ul>
+      <p class="inner-text">
+          Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+      </p>
+    </div>
+    <div class="col-md-4 plain">
+      <h2>Manager</h2>
+        <ul class="my-list">
+            <li class="name"><b>Name:</b> Mariya Petrova</li>
+            <li class="skype"><b>Skype:</b> mary_mary</li>
+            <li class="email"><b>Email:</b> mary@mail.com</li>
+            <li class="phone"><b>Phone:</b> +14574748484</li>
+        </ul>
+      <p class="inner-text">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+   </div>
+    <div class="col-md-4 plain">
+      <h2>Founder</h2>
+       <ul class="my-list">
+            <li class="name"><b>Name:</b> Viktor Abramov</li>
+            <li class="skype"><b>Skype:</b> abram_v</li>
+            <li class="email"><b>Email:</b> abramov_v@mail.com</li>
+            <li class="phone"><b>Phone:</b> +19329848432</li>
+        </ul>
+      <p class="inner-text">Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+    </div>
+  </div>
 
-    <!-- Custom styles for this template -->
-    <link href="../static/css/style.css" rel="stylesheet">
+  <hr>
 
-  </head>
-
-  <body>
-
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <!--<a class="navbar-brand" href="#">Students</a>-->
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="index.html">Main</a></li>
-            <li class="active"><a href="contact.html">Contacts</a></li>
-            <li><a href="student_list.html">Students</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-
-    <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-md-4 plain">
-          <h2>Director</h2>
-            <ul class="my-list">
-                <li class="name"><b>Name:</b> Vitaliy Bondarenko</li>
-                <li class="skype"><b>Skype:</b> Vitaliy_Bondarenko</li>
-                <li class="email"><b>Email:</b> bondar@mail.com</li>
-                <li class="phone"><b>Phone:</b> +14567283223</li>
-            </ul>
-          <p class="inner-text">
-              Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-          </p>
-        </div>
-        <div class="col-md-4 plain">
-          <h2>Manager</h2>
-            <ul class="my-list">
-                <li class="name"><b>Name:</b> Mariya Petrova</li>
-                <li class="skype"><b>Skype:</b> mary_mary</li>
-                <li class="email"><b>Email:</b> mary@mail.com</li>
-                <li class="phone"><b>Phone:</b> +14574748484</li>
-            </ul>
-          <p class="inner-text">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-       </div>
-        <div class="col-md-4 plain">
-          <h2>Founder</h2>
-           <ul class="my-list">
-                <li class="name"><b>Name:</b> Viktor Abramov</li>
-                <li class="skype"><b>Skype:</b> abram_v</li>
-                <li class="email"><b>Email:</b> abramov_v@mail.com</li>
-                <li class="phone"><b>Phone:</b> +19329848432</li>
-            </ul>
-          <p class="inner-text">Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        </div>
-      </div>
-
-      <hr>
-
-      <footer>
-        <p class="company">&copy; 2016 Company, Inc.</p>
-      </footer>
-    </div> <!-- /container -->
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
-    <script src="../static/js/bootstrap.min.js"></script>
-  </body>
-</html>
+  <footer>
+    <p class="company">&copy; 2016 Company, Inc.</p>
+  </footer>
+{% endblock %}
