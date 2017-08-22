@@ -3,10 +3,10 @@ from .models import Course, Lesson
 
 
 # Create your views here.
-def index(request):
+def list_view(request):
     courses_list = Course.objects.all()
 
-    return render(request, 'courses/index.html',
+    return render(request, 'courses/list.html',
                   {'courses_list': courses_list})
 
 
