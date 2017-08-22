@@ -2,6 +2,10 @@ import math
 from django.views import generic
 
 
+def quadratic_results():
+    return ResultsView.as_view()
+
+
 class ResultsView(generic.TemplateView):
 
     template_name = 'quadratic/results.html'
