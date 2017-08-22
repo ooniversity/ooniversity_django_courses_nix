@@ -1,10 +1,11 @@
+# -*- coding: utf-8 -*-
 from django.shortcuts import render
 
 def quadratic_results(request):
     a = set_operand(request.GET['a'], True)
     b = set_operand(request.GET['b'])
     c = set_operand(request.GET['c'])
-    discriminant = results = is_valid = False
+    discriminant = result = is_valid = False
     if type(a) != str and type(b) != str and type(c) != str:
 	    is_valid = True
 
