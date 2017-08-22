@@ -12,7 +12,8 @@ def contact(request):
 
 
 def student_list(request):
-    return render(request, 'pybursa/student_list.html')
+    students = Student.objects.all()
+    return render(request, 'pybursa/student_list.html', {'student_list': students})
 
 
 def student_detail(request):

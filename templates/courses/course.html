@@ -42,17 +42,19 @@
               <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th># Тема</th>
+                    <th>#</th>
+                    <th>Тема</th>
                     <th>Описание</th>
                   </tr>
                 </thead>
                 <tbody>
-{#                  {% for course in course_list %}#}
-{#                    <tr>#}
-{#                      <td><a href="{% url 'courses' course.id %}">{{ course.name }}</a></td>#}
-{#                      <td>{{ course.short_description }}</td>#}
-{#                    </tr>#}
-{#                  {% endfor %}#}
+                  {% for lesson in lesson_list %}
+                    <tr>
+                      <td>{{ lesson.id }}</td>
+                      <td>{{ lesson.subject }}</td>
+                      <td>{{ lesson.description }}</td>
+                    </tr>
+                  {% endfor %}
                 </tbody>
               </table>
             </div>
