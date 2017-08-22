@@ -20,8 +20,8 @@
         <div class="row">
             <div class="col-md-12">
                 <ul>
-                    {% for key, value in coefficients.items %}
-                        <li>{{key}} = {{value}}
+                    {% for key in coefficients_names %}
+                        <li>{{key}} = {{coefficients|get_item:key}}
                             {% if result.errors|get_item:key %}
                             <p>{{result.errors|get_item:key}}</p>
                             {% endif %}
