@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-def quadratic_results():
+def quadratic_results(request):
     a = set_operand(request.GET['a'], True)
     b = set_operand(request.GET['b'])
     c = set_operand(request.GET['c'])
