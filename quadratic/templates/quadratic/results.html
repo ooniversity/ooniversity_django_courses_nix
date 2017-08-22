@@ -29,24 +29,19 @@
                     {% endfor %}
                 </ul>
                 {% if result.discriminant is not None %}
-                <ul>
-                    <li>Дискриминант: {{result.discriminant}}
-                        {% if result.errors.d %}
-                        <p>{{result.errors.d}}</p>
-                        {% endif %}
-                    </li>
-                    {% if result.roots.root1 and result.roots.root2 %}
-                        {% if result.roots.root1 == result.roots.root2 %}
-                        <li>Дискриминант равен нулю, квадратное уравнение имеет один действительный корень:
-                            x1 = x2 = {{result.roots.root2}}</li>
-                        {% else %}
-                        <li>Квадратное уравнение имеет два действительных корня:
+                    <p>Дискриминант: {{result.discriminant}}</p>
+                    <p>
+                       {% if result.errors.d %}
+                           {{result.errors.d}}
+                       {% elif result.roots.root1 == result.roots.root2 %}
+                            Дискриминант равен нулю, квадратное уравнение имеет один действительный корень:
+                            x1 = x2 = {{result.roots.root2}}
+                       {% else %}
+                            Квадратное уравнение имеет два действительных корня:
                             x1 = {{result.roots.root1}},
-                            x2> = {{result.roots.root2}}
-                        </li>
-                        {% endif %}
-                    {% endif %}
-                </ul>
+                            x2 = {{result.roots.root2}}
+                       {% endif %}
+                    </p>
                 {% endif %}
             </div>
         </div>
