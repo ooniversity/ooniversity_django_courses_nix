@@ -16,6 +16,7 @@ class ResultsView(generic.TemplateView):
         }
 
         context.update({
+            'coefficients_names': ['a', 'b', 'c'],
             'coefficients': coefficients,
             'result': QuadraticCalculator.calculate(coefficients)
         })
