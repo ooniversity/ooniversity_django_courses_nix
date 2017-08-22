@@ -21,11 +21,11 @@ def set_operand(value, first=False):
     	result = 'коэффициент не определен'
     else:
         try:
-            value = int(value)
+            result = int(value)
             if first is True and value == 0:
-                result = 'коэффициент при первом слагаемом уравнения не может быть равным нулю'
+                result = str(value) + ' коэффициент при первом слагаемом уравнения не может быть равным нулю'
         except ValueError:
-            result = 'коэффициент не целое число'
+            result = str(value) + ' коэффициент не целое число'
     return result
 
 def get_result(a, b, c, discriminant):
@@ -35,8 +35,8 @@ def get_result(a, b, c, discriminant):
     elif discriminant < 0:
         return 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
     else:
-        x1 = x = (-b + discriminant ** (1 / 2)) / 2 * a
-        x2 = (-b - discriminant ** (1/2)) / 2 * a
+        x1 = (-b + discriminant ** (1 / 2.0)) / 2 * a
+        x2 = (-b - discriminant ** (1/2.0)) / 2 * a
         return 'Квадратное уравнение имеет два действительных корня: x1 = ' + str(x1) + ', x2 = ' + str(x2)
 
 
