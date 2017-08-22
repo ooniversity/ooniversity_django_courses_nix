@@ -19,7 +19,6 @@ class ResultsView(generic.TemplateView):
             'coefficients': coefficients,
             'result': QuadraticCalculator.calculate(coefficients)
         })
-        print(context)
         return context
 
 
