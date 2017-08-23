@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from courses.models import Course, Lesson, Student
+from courses.models import Course, Lesson
 
 
 def courses(request, pk):
