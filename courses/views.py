@@ -5,4 +5,4 @@ from courses.models import Course, Lesson, Student
 def courses(request, pk):
     course = Course.objects.get(id=pk)
     lessons = Lesson.objects.filter(course=course)
-    return render(request, 'courses/course.html', {'course': course, 'lesson_list': lessons})
+    return render(request, 'courses/detail.html', {'course': course, 'lesson_list': lessons})

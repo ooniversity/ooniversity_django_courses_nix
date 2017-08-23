@@ -13,10 +13,9 @@ def contact(request):
 
 def student_list(request):
     students = Student.objects.all()
-    return render(request, 'pybursa/student_list.html', {'student_list': students})
+    return render(request, 'students/list.html', {'student_list': students})
 
 
 def student_detail(request, pk):
     student = Student.objects.get(id=pk)
-    return render(request, 'pybursa/student_detail.html', {'student': student})
-
+    return render(request, 'students/detail.html', {'student': student})
