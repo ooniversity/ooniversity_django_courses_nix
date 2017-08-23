@@ -2,9 +2,9 @@ from django.shortcuts import render
 from students.models import Student
 
 
-def student_list(request):
+def list_view(request):
     students = Student.objects.all()
-    return render(request, 'students/list.html', {'student_list': students})
+    return render(request, 'students/list.html', {'list_view': students})
 
 
 def student_detail(request, pk):
