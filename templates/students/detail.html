@@ -1,0 +1,68 @@
+{% load staticfiles %}<!DOCTYPE html>
+<html>
+<head>
+    <title>Student | {{ student.name }} {{ student.surname }}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/style.css' %}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'index' %}">Main</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact' %}">Contacts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{#% url 'student_list' %#}">Students</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <h1>{{ student.name }} {{ student.surname }}</h1>
+      <table class="table-hover">
+          <tbody>
+            <tr>
+              <td>фамилия</td>
+              <td>{{ student.surname }}</td>
+            </tr>
+            <tr>
+              <td>имя</td>
+              <td>{{ student.name }}</td>
+            </tr>
+            <tr>
+              <td>дата рождения</td>
+              <td>{{ student.date_of_birth|date:"b. d, Y" }}</td>
+            </tr>
+            <tr>
+              <td>адрес</td>
+              <td>{{ student.address }}</td>
+            </tr>
+            <tr>
+              <td>email</td>
+              <td>{{ student.email }}</td>
+            </tr>
+            <tr>
+              <td>skype</td>
+              <td>{{ student.skype }}</td>
+            </tr>
+            <tr>
+              <td>телефон</td>
+              <td>{{ student.phone }}</td>
+            </tr>
+            <tr>
+              <td>Курсы</td>
+              <td>
+                {% for course in student.courses.all %}
+                <p><a href="{% url 'courses:detail' pk=course.id %}">{{ course.name }}</a></p>
+                {% endfor %}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+</body>
+</html>

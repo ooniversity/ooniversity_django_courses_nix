@@ -17,7 +17,7 @@
 		    <a class="nav-link" href="{% url 'contact' %}">Contacts</a>
 		  </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'student_list' %}">Students</a>
+            <a class="nav-link" href="{% url 'students:list_view' %}">Students</a>
           </li>
         </ul>
 	  </div>
@@ -31,7 +31,24 @@
           <p class="course-program">Lorem ipsum dolor sit amet, consectetur adipiscing elit. <span class="highlight">Aliquam</span> eu velit mattis, euismod tellus a, consectetur massa. Pellentesque mollis vel urna id porta. <span class="important-info">Nulla dignissim justo nibh, ut placerat nulla fermentum eu.</span> Nulla convallis, sem eget mollis tempus, lacus ipsum tincidunt est, non condimentum lorem eros vel purus. Nunc gravida, justo nec tempus condimentum, tortor felis condimentum justo, eu aliquam ante nisi ut augue.</p>
         </div>
         <div id="additional-info">Ut placerat nulla fermentum eu.</div>
+        <div id="couses-wrapper">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Название</th>
+                        <th>Описание</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for course in courses %}
+                    <tr>
+                        <td><a href="{% url 'courses:detail' pk=course.id %}">{{ course.name }}</a></td>
+                        <td>{{ course.short_description }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>            
+            </table>
+        </div>
     </div>
-    <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
 </body>
 </html>
