@@ -5,14 +5,15 @@ class Course(models.Model):
     short_description = models.CharField(max_length=250)
     description = models.TextField()
     
-    def __str__():
+    def __str__(self):
         return self.name
 
 class Lesson(models.Model):
     subject = models.CharField(max_length=50)
     description = models.TextField()
-    course = 
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
     order = models.PositiveIntegerField()
     
-    def __str__():
+    def __str__(self):
         return self.subject
+
