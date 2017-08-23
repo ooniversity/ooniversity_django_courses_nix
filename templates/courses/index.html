@@ -24,7 +24,7 @@
       <div class="container-fluid active">
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="{% url 'index' %}">Main</a></li>
+            <li class="active"><a href="{% url 'courses:index' %}">Main</a></li>
             <li><a href="{% url 'contact' %}">Contacts</a></li>
             <li><a href="{% url 'students:student_list' %}">Students</a></li>
           </ul>
@@ -51,7 +51,7 @@
                 <tbody>
                   {% for course in course_list %}
                     <tr>
-                      <td><a href="{% url 'courses' course.id %}">{{ course.name }}</a></td>
+                      <td><a href="{% url 'courses:courses' course.id %}">{{ course.name }}</a></td>
                       <td>{{ course.short_description }}</td>
                     </tr>
                   {% endfor %}
