@@ -16,6 +16,7 @@ def student_list(request):
     return render(request, 'pybursa/student_list.html', {'student_list': students})
 
 
-def student_detail(request):
-    return render(request, 'pybursa/student_detail.html')
+def student_detail(request, pk):
+    student = Student.objects.get(id=pk)
+    return render(request, 'pybursa/student_detail.html', {'student': student})
 
