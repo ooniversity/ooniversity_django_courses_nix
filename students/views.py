@@ -15,7 +15,7 @@ def list_view(request):
     
     return render(request, 'students/list.html', {'students' : students})
 
-def student(request, pk):
+def detail(request, pk):
     try:
         student = Student.objects.get(id = pk)
     except Student.DoesNotExist:
