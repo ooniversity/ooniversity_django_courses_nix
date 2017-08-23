@@ -24,9 +24,9 @@
       <div class="container-fluid active">
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a href="{% url 'index' %}">Main</a></li>
+            <li><a href="{% url 'courses:index' %}">Main</a></li>
             <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li class="active"><a href="{% url 'student_list' %}">Students</a></li>
+            <li class="active"><a href="{% url 'students:list_view' %}">Students</a></li>
           </ul>
         </div>
       </div>
@@ -36,36 +36,31 @@
         <div class="container">
           <div class="col-md-12">
             <div class="jumbotron">
-              <h1 class="text-left text-uppercase bursaka-title-lg">Pressley Nelle</h1>
+              <h1 class="text-left text-uppercase bursaka-title-lg">{{ student.name }} {{ student.surname }}</h1>
               <img src="{% static 'images/pressley-nelle.png' %}">
               <div class="caption butsaka-address-block">
                 <dl class="dl-horizontal">
-                  <dt class="icon-sunrame">Surname:</dt>
-                  <dd>Pressley</dd>
-                  <dt class="icon-name">Name:</dt>
-                  <dd>Nelle</dd>
-                  <dt class="icon-patronymic">Patronymic:</dt>
-                  <dd>Jackvna</dd>
-                  <dt class="icon-rating">Rating:</dt>
-                  <dd>20</dd>
-                  <dt class="icon-rating">Problem Task:</dt>
-                  <dd>#2</dd>
-                  <dt class="icon-rating">Tests:</dt>
-                  <dd>2.1</dd>
-                  <dt class="icon-average-grade">Average Grade:</dt>
-                  <dd>99.8</dd>
-                  <dt class="icon-package">Package:</dt>
-                  <dd>Standard</dd>
+
                   <dt class="icon-birth-date">Birth Date:</dt>
-                  <dd>11/12/1989</dd>
+                  <dd>{{ student.date_of_birth }}</dd>
+
                   <dt class="icon-address">Address:</dt>
-                  <dd>512 Chaney St, Lake Elsinore, CA</dd>
-                  <dt class="icon-post-code">Post:</dt>
-                  <dd>92530</dd>
-                  <dt class="icon-skype">Skype:</dt>
-                  <dd><a href="https://join.skype.com/bursaka.pressley.nelle">bursaka.pressley.nelle</a></dd>
+                  <dd>{{ student.address }}</dd>
+
                   <dt class="icon-email">E-mail:</dt>
-                  <dd><a href=mailto:pressley.nelle@bursaka.com">pressley.nelle@bursaka.com</a></dd>
+                  <dd><a href=mailto:pressley.nelle@bursaka.com">{{ student.email }}</a></dd>
+
+                  <dt class="icon-skype">Skype:</dt>
+                  <dd><a href="https://join.skype.com/{{ student.skype }}">{{ student.skype }}</a></dd>
+
+                  <dt class="icon-phone">Telephone:</dt>
+                  <dd>{{ student.phone }}</dd>
+
+                  <dt class="icon-package">Courses:</dt>
+                  {% for course in student.courses.all %}
+                    <dd><a href="{% url 'courses:courses' course.id %}">{{ course.name }}</a></dd>
+                  {% endfor %}
+
                 </dl>
               </div>
             </div>

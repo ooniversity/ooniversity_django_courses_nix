@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Main</title>
+    <title>Course</title>
     {% load static %}
     <!-- Bootstrap -->
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
@@ -15,18 +15,18 @@
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-      <script src="{% static 'js/html5shiv.min.js' %}"></script>
-      <script src="{% static 'js/respond.min.js' %}"></script>
-    <![endif]-->
+        <script src="{% static 'js/html5shiv.min.js' %}"></script>
+        <script src="{% static 'js/respond.min.js' %}"></script>
+      <![endif]-->
   </head>
   <body>
     <nav class="navbar navbar-inverse bursaka-nav">
       <div class="container-fluid active">
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a href="{% url 'index' %}">Main</a></li>
+            <li><a href="{% url 'courses:index' %}">Main</a></li>
             <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li><a href="{% url 'list_view' %}">Students</a></li>
+            <li><a href="{% url 'students:list_view' %}">Students</a></li>
           </ul>
         </div>
       </div>
@@ -36,31 +36,27 @@
         <div class="container">
           <div class="col-md-12">
             <div class="jumbotron">
-              <h3>Квадратное уравнение a*x*x+b*x+c = 0</h3>
-              <ul>
-                  <li>
-                    <p>a = {{ a.val }}</p>
-                    {% if a.err_message %}
-                      <p>{{ a.err_message }}</p>
-                    {% endif %}
-                  </li>
-                  <li>
-                    <p>b = {{ b.val }}</p>
-                    {% if b.err_message %}
-                      <p>{{ b.err_message }}</p>
-                    {% endif %}
-                  </li>
-                  <li>
-                    <p>c = {{ c.val }}</p>
-                    {% if c.err_message %}
-                      <p>{{ c.err_message }}</p>
-                    {% endif %}
-                  </li>
-              </ul>
-              {% if not error %}
-                <p>Дискриминант: {{ descr }}</p>
-                <p>{{ result_text }}</p>
-              {% endif %}
+              <h1 class="text-left text-uppercase bursaka-title-lg">{{ course.name }}</h1>
+              <p class="description-content">{{ course.description }}</p>
+              <h3>План курса:</h3>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Тема</th>
+                    <th>Описание</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for lesson in lesson_list %}
+                    <tr>
+                      <td>{{ lesson.id }}</td>
+                      <td>{{ lesson.subject }}</td>
+                      <td>{{ lesson.description }}</td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
