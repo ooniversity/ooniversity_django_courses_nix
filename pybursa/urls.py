@@ -9,7 +9,7 @@ urlpatterns = [
     url(r'^contact/$', pybursa_views.contact, name='contact'),
     url(r'^quadratic/', include('quadratic.urls')),
     url(r'^polls/', include('polls.urls')),
-    url(r'^student/', include('students.urls')),
+    url(r'^students/', include('students.urls')),
     url(r'^', include('courses.urls')),
 
     url(r'^admin/', admin.site.urls),
