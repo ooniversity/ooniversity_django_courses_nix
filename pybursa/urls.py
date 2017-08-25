@@ -26,4 +26,5 @@ urlpatterns = [
     #url(r'^quadratic/', include('quadratic.urls')),
     url(r'^courses/', include('courses.urls')),
     url(r'^students/', include('students.urls')),
+    url(r'^coaches/', include('coaches.urls'))
 ]

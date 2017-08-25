@@ -1,8 +1,7 @@
-<!DOCTYPE html>
+{% load staticfiles %}<!DOCTYPE html>
 <html>
 <head>
 	<title>Course Details | {{ course.name }}</title>
-	{% load staticfiles %}
 	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/style.css' %}">
 </head>
@@ -28,6 +27,36 @@
           <p>{{ course.description }}</p>
         </div>
         <div id="couses-wrapper">
+            {% if course.coach or course.assistant %}
+            <div>
+                <h3 id="program-header">Преподаватели</h3>
+                {% if course.coach %}
+                    <table>
+                        <tr>
+                            <th>Учитель</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="{% url 'coaches:detail' pk=course.coach.id %}">{{ course.coach.first_name }} {{ course.coach.last_name }}</a></td></tr>
+                        <tr>
+                            <td>{{ course.coach.description }}</td></tr>
+                    </table>
+                {% endif %}
+                {% if course.assistant %}
+                    <table>
+                        <tr>
+                            <th>Учитель</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="{% url 'coaches:detail' pk=course.assistant.id %}">{{ course.assistant.first_name }} {{ course.assistant.last_name }}</a></td></tr>
+                        <tr>
+                            <td>{{ course.assistant.description }}</td></tr>
+                    </table>
+                {% endif %}
+            </div>
+            <br/>
+            {% endif %}
             <h3 id="program-header">План курса</h3>
             <table class="table">
                 <thead>
