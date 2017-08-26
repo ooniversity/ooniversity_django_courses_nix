@@ -1,18 +1,6 @@
-{% extends 'index_courses.html' %}
+{% extends 'index.html' %}
 {% block title%}
   <title>Course details</title>
-{% endblock %}
-
-{% block links %}
-<!-- Collect the nav links, forms, and other content for toggling -->
-<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <ul class="nav navbar-nav">
-        <li class="active"><a href="{% url 'courses:list_view' %}">Main</a><span class="sr-only">(current)</span></li>
-        <li><a href="{% url 'contact' %}">Contacts</a></li>
-        <li><a href="{% url 'students:list_view' %}?course_id={{ course_obj.id }}">Students</a></li>
-        <li><a href="{% url 'results' %}">Quadratic</a></li>
-    </ul>
-</div><!-- /.navbar-collapse -->
 {% endblock %}
 
 {% block content %}
@@ -20,20 +8,42 @@
     <!-- Default panel contents -->
     <div class="panel-heading">
         {% if course_obj %}
-            <h2>{{ course_obj.name }}</h2>
+            <h3>{{ course_obj.name }}</h3>
         {% endif %}
     </div>
     <div class="panel-body">
         <div class='otherContent'>
         {% if course_obj %}
-            <h3>{{ course_obj.description }}</h3>
+            <h4>{{ course_obj.description }}</h4>
         {% endif %}
         </div>
     </div>
+
+    <h3>Teachers</h3>
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">Teacher</h3>
+      </div>
+      <div class="panel-body">
+          <a href="{% url 'coaches:detail' course_obj.id %}">{{ course_obj.coach }}</a>
+          <p>{{ course_obj.coach.description }}</p>
+      </div>
+    </div>
+
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">Assistant</h3>
+      </div>
+      <div class="panel-body">
+          <a href="{% url 'coaches:detail' course_obj.id %}">{{ course_obj.assistant }}</a>
+          <p>{{ course_obj.assistant.description }}</p>
+      </div>
+    </div>
+
     <h2>Lessons plan</h2>
     <!-- Table -->
-    <table class="table">
-        <tr class='cust_div'>
+    <table class="table cust_div">
+        <tr>
             <th>#</th>
             <th>Theme</th>
             <th>Description</th>

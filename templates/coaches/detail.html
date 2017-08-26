@@ -1,0 +1,61 @@
+{% extends 'index.html' %}
+{% block title%}
+  <title>Coach detail</title>
+{% endblock %}
+
+{% block content %}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2>
+            {% if coach_obj %}
+                {{ coach_obj}}
+            {% else %}
+                <p>No coaches are available.</p>
+            {% endif %}
+        </h2>
+    </div>
+    <div class="panel-body">
+        <div class='otherContent'></div>
+    </div>
+    <!-- Table -->
+    <table class="table">
+        {% if coach_obj %}
+        <tr>
+            <td>date of birth</td>
+            <td>{{ coach_obj.date_of_birth}}</td></tr>
+        <tr>
+            <td>address</td>
+            <td>{{ coach_obj.address}}</td></tr>
+        <tr>
+            <td>email</td>
+            <td>{{ coach_obj.user.email}}</td></tr>
+        <tr>
+            <td>skype </td>
+            <td>{{ coach_obj.skype}}</td></tr>
+        <tr>
+            <td>phone </td>
+            <td>{{ coach_obj.phone}}</td></tr>
+        <tr>
+            <td>course teachers</td>
+            <td>
+            {% for course in coach_obj.coach_courses.all %}
+                <a href="{% url 'courses:detail' course.id %}">{{ course.name}}</a>
+                <br>
+            {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <td>course assistants</td>
+            <td>
+            {% for course in coach_obj.assistant_courses.all %}
+                <a href="{% url 'courses:detail' course.id %}">{{ course.name}}</a>
+                <br>
+            {% endfor %}
+            </td>
+        </tr>
+        {% else %}
+        <p>No coaches are available.</p>
+        {% endif %}
+    </table>
+</div>
+{% endblock %}
