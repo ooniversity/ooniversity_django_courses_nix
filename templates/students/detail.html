@@ -57,7 +57,7 @@
 
                   <dt class="icon-package">Courses:</dt>
                   {% for course in student.courses.all %}
-                    <dd><a href="{% url 'courses:courses' course.id %}">{{ course.name }}</a></dd>
+                    <dd><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></dd>
                   {% endfor %}
 
                 </dl>
