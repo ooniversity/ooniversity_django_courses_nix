@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponseNotFound
 from students.models import Student
 
 
@@ -11,5 +12,8 @@ def list_view(request):
 
 
 def student_detail(request, pk):
-    student = Student.objects.get(id=pk)
+    try:
+        student = Student.objects.get(id=pk)
+    except Student.DoesNotExist:
+        return HttpResponseNotFound()
     return render(request, 'students/detail.html', {'student': student})
