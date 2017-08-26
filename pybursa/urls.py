@@ -1,8 +1,8 @@
 from django.conf.urls import include, url
 from django.contrib import admin
 from pybursa import views as pybursa_views
-from courses import views as courses_views
-from students import views as students_views
+
+admin.site.site_header = 'PyBursa Administration'
 
 urlpatterns = [
     url(r'^$', pybursa_views.index, name='index'),
