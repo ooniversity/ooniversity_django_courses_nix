@@ -8,11 +8,15 @@ class Course(models.Model):
     description = models.TextField()
     coach = models.ForeignKey(
         Coach,
-        related_name='coach_courses'
+        related_name='coach_courses',
+        null=True,
+        blank=True
     )
     assistant = models.ForeignKey(
         Coach,
-        related_name='assistant_courses'
+        related_name='assistant_courses',
+        null=True,
+        blank=True
     )
 
     def __str__(self):
