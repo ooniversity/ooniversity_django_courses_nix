@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 
+
 # Create your models here.
 class Coach(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL)
@@ -12,4 +13,4 @@ class Coach(models.Model):
     description = models.TextField()
 
     def __str__(self):
-        return self.user
+        return self.user.get_full_name()
