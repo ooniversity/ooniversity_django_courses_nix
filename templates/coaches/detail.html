@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ coach.get_full_name }} {% endblock %}
+
+{% block content %}
+<div class="col-md-6">
+    <h2>{{ coach.get_full_name }}</h2>
+    <table class="table green">
+      <tbody>
+        <tr>
+          <td>Date of birth</td>
+          <td>{{ coach.date_of_birth }}</td>
+        </tr>
+        <tr>
+          <td>Address</td>
+          <td>{{ coach.address }}</td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td>{{ coach.user.email }}</td>
+        </tr>
+        <tr>
+          <td>Skype</td>
+          <td>{{ coach.skype }}</td>
+        </tr>
+        <tr>
+          <td>Phone number</td>
+          <td>{{ coach.phone }}</td>
+        </tr>
+        <tr>
+          <td>Coach courses</td>
+          <td>
+            {% for c_course in c_courses %}
+              <a href="{% url 'courses:detail' c_course.id %}">
+                {{ c_course.name }}
+              </a>
+              <a href="{% url 'students:list_view' %}?course_id={{ c_course.id }}">
+                Students
+              </a>
+              <br>
+            {% endfor %}
+          </td>
+        </tr>
+        <tr>
+          <td>Assistant courses</td>
+          <td>
+            {% for a_course in a_courses %}
+              <a href="{% url 'courses:detail' a_course.id %}">
+                {{ a_course.name }}
+              </a>
+              <a href="{% url 'students:list_view' %}?course_id={{ a_course.id }}">
+                Students
+              </a>
+              <br>
+            {% endfor %}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+{% endblock %}

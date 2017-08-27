@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^$', courses.views.index, name='index'),
     url(r'^students/', include('students.urls')),
     url(r'^courses/', include('courses.urls')),
+    url(r'^coaches/', include('coaches.urls')),
     # static pybursa urls
     url(r'^contact/', views.contact, name='contact'),
     url(r'^student_list/', views.student_list, name='student_list'),

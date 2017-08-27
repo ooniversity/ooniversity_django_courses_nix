@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'coaches.apps.CoachesConfig',
     'courses.apps.CoursesConfig',
     'students.apps.StudentsConfig',
     'quadratic.apps.QuadraticConfig',
