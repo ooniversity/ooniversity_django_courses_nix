@@ -3,17 +3,36 @@
 {% block title %} Main page {% endblock %}
 
 {% block content %}
-<div class="starter">
-    <h1 class="description">Description</h1>
-    <h3>Program</h3>
+<div class="jumbotron">
+    <h1 class="description">oouniversity</h1>
     <p class="lead">
-        Добро пожаловать на ItBursa Django2017!<br>
+        Добро пожаловать на oouniversity! Мы специализируемся на модных языках программирования.
+        Принципиальное наше отличие от других курсов- максимум практики и жесткая система
+        обязательных домашних заданий.
     </p>
-    <h5 class="schedule">21-го июля в пятницу:</h5>
-    <ul class="list-group">
-      <li class="list-group-item center">Сегодня дедлайн по выполнению тестов первой темы</li>
-      <li class="list-group-item center">Стало доступно первое контрольное задание, дедлайном на выполнение которого будет полночь понедельника 24 июля.</li>
-      <li class="list-group-item center">В 13:00 офлайн встреча на которой можно будет задать вопросы по текущей теме и контрольному заданию.</li>
-    </ul>
 </div>
+<h3>Выбирай на каком курсе хочешь учиться!</h3>
+{% if courses.count %}
+    <table class="table">
+        <thead>
+            <tr class="left">
+            <th>Курс</th>
+            <th>Описание</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for course in courses %}
+            <tr class="left">
+                <th scope="row">
+                    <a href="{% url 'courses:detail' course.id %}">
+                        {{ course.name }}
+                    </a>
+                </th>
+                <td>{{ course.description }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+
 {% endblock %}
