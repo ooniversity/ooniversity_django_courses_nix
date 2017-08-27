@@ -19,6 +19,10 @@ class Student(models.Model):
         names = list(i.name for i in courses)
         return names
 
+    def get_full_name(self):
+        return self.name + ' ' + self.surname
+    get_full_name.short_description = "Full Name"
+
     def __str__(self):
         return self.name + ' ' + self.surname
 
