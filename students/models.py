@@ -11,3 +11,6 @@ class Student(models.Model):
      address = models.CharField(max_length = 120)
      skype = models.CharField(max_length = 64)
      courses = models.ManyToManyField(Course)
+
+     def full_name(self):
+          return self.name + ' ' + self.surname
