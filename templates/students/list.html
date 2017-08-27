@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %} Students {% endblock %}
+
+{% block content %}
+<h3>{% if course_name %}Студенты курса "{{ course_name }}"{% else %} Список студентов {% endif %}</h3>
+{% if students.count %}
+    <table class="table">
+        <thead>
+            <tr class="left">
+                <th>No</th>
+                <th>Фамилия Имя</th>
+                <th>Адрес</th>
+                <th>Skype</th>
+                <th>Курсы</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for student in students %}
+            <tr class="left">
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>
+                    <a href="{% url 'students:detail' student.id %}">
+                        {{ student.surname }} {{ student.name }}
+                    </a>
+                </td>
+                <td>{{ student.address }}</td>
+                <td>{{ student.skype }}</td>
+                <td>
+                    {% for c in student.courses.all %}
+                        <a href="{% url 'courses:detail' c.id %}">
+                            {{ c.name }}
+                        </a>
+                        <br>
+                    {% endfor %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+
+{% endblock %}

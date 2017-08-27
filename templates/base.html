@@ -1,7 +1,4 @@
-{% load static %}
-
-
-<!DOCTYPE html>
+{% load staticfiles %}<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -42,9 +39,11 @@
             <li class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
                 <a href="{% url 'contact' %}">Contacts</a>
             </li>
-            <li class="{% if request.resolver_match.url_name == 'student_list' %}active{% endif %}">
-                <a href="{% url 'student_list' %}">Students</a>
+            {% block students %}
+            <li class="{% if request.resolver_match.url_name == 'list_view' %}active{% endif %}">
+                <a href="{% url 'students:list_view' %}">Students</a>
             </li>
+            {% endblock %}
           </ul>
         </div><!--/.nav-collapse -->
       </div>

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %} Course details {% endblock %}
+
+{% block students %}
+<li class="{% if request.resolver_match.url_name == 'students:list_view' %}active{% endif %}">
+    <a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Students</a>
+</li>
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 class="description">{{ course.name }}</h1>
+    <p class="lead">
+        {{ course.description }}
+    </p>
+</div>
+<h3>План курса:</h3>
+{% if lessons.count %}
+    <table class="table">
+        <thead>
+            <tr class="left">
+                <th>No</th>
+                <th>Theme</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for lesson in lessons %}
+            <tr class="left">
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ lesson.subject }}</td>
+                <td>{{ lesson.description }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %} Nikolay Galkin {% endblock %}
+
+{% block content %}
+<div class="col-md-6">
+    <h2>{{ student.name }} {{ student.surname }}</h2>
+    <table class="table green">
+      <tbody>
+        <tr>
+          <td>Date of birth</td>
+          <td>{{ student.date_of_birth }}</td>
+        </tr>
+        <tr>
+          <td>Address</td>
+          <td>{{ student.address }}</td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td>{{ student.email }}</td>
+        </tr>
+        <tr>
+          <td>Skype</td>
+          <td>{{ student.skype }}</td>
+        </tr>
+        <tr>
+          <td>Phone number</td>
+          <td>{{ student.phone }}</td>
+        </tr>
+        <tr>
+          <td>Courses</td>
+          <td>
+            {% for c in student.courses.all %}
+                <a href="{% url 'courses:detail' c.id %}">
+                    {{ c.name }}
+                </a>
+                <br>
+            {% endfor %}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+{% endblock %}
