@@ -15,8 +15,36 @@
         {{ course.description }}
     </p>
 </div>
-<h3>План курса:</h3>
+
+<h3>Преподаватели</h3>
+<div class = "panel panel-default">
+   <div class = "panel-heading">
+      Coach
+   </div>
+   <div class = "panel-body">
+       <a href="{% url 'coaches:detail' course.coach.id %}">
+           {{ course.coach.get_full_name }}
+       </a>
+       <br>
+        {{ course.coach.description }}
+   </div>
+</div>
+<div class = "panel panel-default">
+   <div class = "panel-heading">
+      Assistant
+   </div>
+   <div class = "panel-body">
+      <a href="{% url 'coaches:detail' course.assistant.id %}">
+          {{ course.assistant.get_full_name }}
+      </a>
+      </a>
+       <br>
+        {{ course.assistant.description }}
+   </div>
+</div>
+
 {% if lessons.count %}
+<h3>План курса:</h3>
     <table class="table">
         <thead>
             <tr class="left">
