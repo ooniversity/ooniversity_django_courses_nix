@@ -8,7 +8,8 @@
     <div class="panel-heading">
         <h2>
             {% if coach_obj %}
-                {{ coach_obj}}
+                {{ coach_obj.user.first_name }}
+                {{ coach_obj.user.last_name }}
             {% else %}
                 <p>No coaches are available.</p>
             {% endif %}
