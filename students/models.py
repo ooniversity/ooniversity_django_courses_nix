@@ -17,4 +17,5 @@ class Student(models.Model):
 
     def get_name_surname(self):
         return self.name + ' ' + self.surname
+    get_name_surname.short_description = 'Full name'
 
