@@ -10,7 +10,7 @@ def list_view(request):
         students = Student.objects.filter(courses=request.GET['course_id'])
     except:
         students = Student.objects.all()
-    return render(request, 'student_list.html', {'students': students})
+    return render(request, 'students/list.html', {'students': students})
 
 
 def detail(request, student_id):
@@ -18,4 +18,4 @@ def detail(request, student_id):
         student = Student.objects.get(id=student_id)
     except Student.DoesNotExist:
         return HttpResponseNotFound()
-    return render(request, 'student_detail.html', {'student': student})
+    return render(request, 'students/detail.html', {'student': student})
