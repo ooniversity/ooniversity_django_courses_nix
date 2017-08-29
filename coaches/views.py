@@ -16,4 +16,4 @@ def detail(request, coach_id):
         'coach_courses': coach_courses,
         'coach_assistant': coach_assistant,
     }
-    return render(request, 'coach_detail.html', context)
+    return render(request, 'coaches/detail.html', context)
