@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    {% block title%}
-      <title>Main</title>
-    {% endblock %}
+
+      <title>{% block title%}Main{% endblock %}</title>
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -33,39 +33,22 @@
 
 			    <img id='img1' src="{% static 'images/python-logo.png'  %}" alt='python'>
 			  </div>
-			  {% block links %}
+
 				<!-- Collect the nav links, forms, and other content for toggling -->
-				  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-
-
+						<li {% block active_main_class %}{% endblock %}><a href="{% url 'courses:list_view' %}">Main</a></li>
+						<li {% block active_contact_class %}{% endblock %}><a href="{% url 'contact' %}">Contacts</a></li>
+						<li {% block active_students_class %}{% endblock %}><a href="{% url 'students:list_view' %}">Students</a></li>
+						<li {% block active_quadratic_class %}{% endblock %}><a href="{% url 'results' %}">Quadratic</a></li>
 					</ul>
-
-				  </div><!-- /.navbar-collapse -->
-			  {% endblock %}
+				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
 		</nav>
+
 	  {% block content %}
-		<div class="jumbotron">
-			<div class="container">
-				<div class='cust_div'>
-					<div class='content'>
-						<ul class="list-group">
-							<li class="list-group-item">
-								<h2 class='titleH'>PyBursa</h2>
-								<h3 class='titleH'>Description</h3>
-								<div class='otherContent'>Some text</div>
-							</li>
-							<li class="list-group-item">
-								<h3 class='titleH'>Program</h3>
-								<div class='otherContent'>Prgrm...text...</div>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
 	  {% endblock %}
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

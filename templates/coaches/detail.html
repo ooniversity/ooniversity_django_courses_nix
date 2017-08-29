@@ -1,7 +1,10 @@
-{% extends 'index.html' %}
-{% block title%}
-  <title>Coach detail</title>
-{% endblock %}
+{% extends 'base.html' %}
+
+{% block title%}Coach detail{% endblock %}
+
+
+{% block active_main_class %}class="active"{% endblock %}
+
 
 {% block content %}
 <div class="panel panel-default">
@@ -23,7 +26,7 @@
         {% if coach_obj %}
         <tr>
             <td>date of birth</td>
-            <td>{{ coach_obj.date_of_birth}}</td></tr>
+            <td>{{ coach_obj.date_of_birth|date:"d F, Y" }}</td></tr>
         <tr>
             <td>address</td>
             <td>{{ coach_obj.address}}</td></tr>
