@@ -1,28 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Contacts</title>
-    {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/style.css' %}">
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'index' %}">Main</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="{% url 'contact' %}">Contacts</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'students:list_view' %}">Students</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <div class="container">
+{% extends 'base.html' %}
+
+
+{% block title %}Contacts{% endblock %}
+
+
+{% block active_contacts %}active{% endblock %}
+
+
+{% load staticfiles %}
+
+
+    {% block content %}
       <h3 id="main-contact">Director</h3>
       <p class="contact-info">Name: <span class="contact-name">Directorname</span></p>
       <p>Skype: <span class="contact-skype">Skypename</span></p>
@@ -45,6 +33,4 @@
     <div class="course-footer">
       <p class="course-footer-info"></p>
     </div>
-    <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
-</body>
-</html>
+    {% endblock content %}

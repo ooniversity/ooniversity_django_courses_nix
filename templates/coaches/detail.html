@@ -1,27 +1,13 @@
-{% load staticfiles %}<!DOCTYPE html>
-<html>
-<head>
-	<title>Coach Details | {{ coach.first_name }} {{ coach.last_name }}</title>
-	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/style.css' %}">
-</head>
-<body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<ul class="navbar-nav mr-auto">
-		  <li class="nav-item">
-		    <a class="nav-link" href="{% url 'index' %}">Main</a>
-		  </li>
-		  <li class="nav-item">
-		    <a class="nav-link" href="{% url 'contact' %}">Contacts</a>
-		  </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'students:list_view' %}">Students</a>
-          </li>
-        </ul>
-	  </div>
-	</nav>
-    <div class="container">
+{% extends 'base.html' %}
+
+
+{% block title %}Coach Details | {{ coach.first_name }} {{ coach.last_name }}{% endblock %}
+
+
+{% load staticfiles %}
+
+
+      {% block content %}
         <h1>{{ coach.first_name }} {{ coach.last_name }}</h1>
         <table>
             <tbody>
@@ -79,6 +65,4 @@
                 {% endif %}
             </tbody>
         </table>
-    </div>
-</body>
-</html>
+      {% endblock content %}
