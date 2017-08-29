@@ -9,7 +9,7 @@
       {% block content %}
         <div id="course-information-block">
           <h1 id="course-description">{{ course.name }}</h1>
-          <p>{{ course.description }}</p>
+          <p>{{ course.description|truncatechars:32 }}</p>
         </div>
         <div id="couses-wrapper">
             {% if course.coach or course.assistant %}

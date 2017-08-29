@@ -16,7 +16,7 @@
           <h2 id="description-header">Description</h2>
           <p>Nunc gravida, justo nec tempus condimentum, tortor felis condimentum justo, eu aliquam ante nisi ut augue.</p>
           <h3 id="program-header">Program</h3>
-          <p class="course-program">Lorem ipsum dolor sit amet, consectetur adipiscing elit. <span class="highlight">Aliquam</span> eu velit mattis, euismod tellus a, consectetur massa. Pellentesque mollis vel urna id porta. <span class="important-info">Nulla dignissim justo nibh, ut placerat nulla fermentum eu.</span> Nulla convallis, sem eget mollis tempus, lacus ipsum tincidunt est, non condimentum lorem eros vel purus. Nunc gravida, justo nec tempus condimentum, tortor felis condimentum justo, eu aliquam ante nisi ut augue.</p>
+          <p class="course-program">Lorem ipsum dolor sit amet, consectetur adipiscing elit. <span class="highlight">{% lorem 2 w random %}</span> eu velit mattis, euismod tellus a, consectetur massa. Pellentesque mollis vel urna id porta. <span class="important-info">Nulla dignissim justo nibh, ut placerat nulla fermentum eu.</span> Nulla convallis, sem eget mollis tempus, lacus ipsum tincidunt est, non condimentum lorem eros vel purus. Nunc gravida, justo nec tempus condimentum, tortor felis condimentum justo, eu aliquam ante nisi ut augue. {% lorem %}</p>
         </div>
         <div id="additional-info">Ut placerat nulla fermentum eu.</div>
         <div id="couses-wrapper">
@@ -30,8 +30,8 @@
                 <tbody>
                     {% for course in courses %}
                     <tr>
-                        <td><a href="{% url 'courses:detail' pk=course.id %}">{{ course.name }}</a></td>
-                        <td>{{ course.short_description }}</td>
+                        <td><a href="{% url 'courses:detail' pk=course.id %}">{{ course.name|upper }}</a></td>
+                        <td>{{ course.short_description|title }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>            
