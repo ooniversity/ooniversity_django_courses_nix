@@ -39,13 +39,13 @@ def edit(request, student_id):
     return render(request, 'students/edit.html', {'form': form})
 
 
-def delete(request, student_id):
+def remove(request, student_id):
     student = Student.objects.get(id=student_id)
     if request.method == 'POST':
         student.delete()
         messages.success(request, 'Info on ' + student.name + ' ' + student.surname + ' has been successfully deleted.')
         return redirect('students:list_view')
-    return render(request, 'students/delete.html', {'student': student})
+    return render(request, 'students/remove.html', {'student': student})
 
 def detail(request, student_id):
     try:
