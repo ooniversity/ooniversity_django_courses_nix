@@ -4,7 +4,7 @@
 {% block title %}pyBursa - Детали курса{% endblock title %}
 {% block students_href %}{% url 'students:list_view' %}?course_id={{ course.id }}{% endblock students_href %}
 
-{% block main_content %}
+{% block content %}
 <div class="container">
     <div id="course-information-block">
         <h1>{{ course.name }}</h1>
@@ -68,4 +68,4 @@
         </table>
     </div>
 </div>
-{% endblock main_content %}
+{% endblock content %}
