@@ -1,18 +1,10 @@
-{% extends 'index.html' %}
-{% block title%}
-  <title>Course details</title>
-{% endblock %}
+{% extends 'base.html' %}
 
-{% block links %}
-<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <ul class="nav navbar-nav">
-        <li class="active"><a href="{% url 'courses:list_view' %}">Main</a><span class="sr-only">(current)</span></li>
-        <li><a href="{% url 'contact' %}">Contacts</a></li>
-        <li><a href="{% url 'students:list_view' %}?course_id={{ course_obj.id }}">Students</a></li>
-        <li><a href="{% url 'results' %}">Quadratic</a></li>
-    </ul>
-</div>
-{% endblock %}
+{% block title%}Course details{% endblock %}
+
+
+{% block active_main_class %}class="active"{% endblock %}
+
 
 {% block content %}
 <div class="panel panel-default">
@@ -25,33 +17,15 @@
     <div class="panel-body">
         <div class='otherContent'>
         {% if course_obj %}
-            <h4>{{ course_obj.description }}</h4>
+            <h4>{{ course_obj.description|truncatechars:32 }}</h4>
         {% endif %}
         </div>
     </div>
 
     <h3>Teachers</h3>
-    <div class="panel panel-success">
-      <div class="panel-heading">
-        <h3 class="panel-title">Teacher</h3>
-      </div>
-      <div class="panel-body">
-          <a href="{% url 'coaches:detail' course_obj.coach.id %}">{{ course_obj.coach.user.first_name }}
-            {{ course_obj.coach.user.last_name }}</a>
-          <p>{{ course_obj.coach.description }}</p>
-      </div>
-    </div>
 
-    <div class="panel panel-success">
-      <div class="panel-heading">
-        <h3 class="panel-title">Assistant</h3>
-      </div>
-      <div class="panel-body">
-          <a href="{% url 'coaches:detail' course_obj.assistant.id %}">{{ course_obj.assistant.user.first_name }}
-            {{ course_obj.assistant.user.last_name }}</a>
-          <p>{{ course_obj.assistant.description }}</p>
-      </div>
-    </div>
+    {% include 'inc_instructor.html' with block_title='Teacher' instructor=course_obj.coach%}
+    {% include 'inc_instructor.html' with block_title='Assistant' instructor=course_obj.assistant%}
 
     <h2>Lessons plan</h2>
     <!-- Table -->

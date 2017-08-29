@@ -6,7 +6,7 @@ from .models import Course, Lesson
 def list_view(request):
     courses_list = Course.objects.all()
 
-    return render(request, 'courses/list.html',
+    return render(request, 'index.html',
                   {'courses_list': courses_list})
 
 
