@@ -1,40 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
+{% load staticfiles %}
 
-<head>
-    <title>AdvancedBursa/Results</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="AdvancedBursa Main Page">
-    {% load staticfiles %}
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% block title %}pyBursa - Квадратное уравнение{% endblock title %}
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-</head>
-
-<body class="bursa-body">
-
-<nav class="navbar navbar-inverse">
-    <div class="bursa-navbar">
-        <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="{% url 'index' %}">Main</a>
-            </div>
-            <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="{% url 'contact' %}">Contacts</a></li>
-                    <li><a href="{% url 'student_list' %}">Students</a></li>
-                    <li><a href="{% url 'results' %}">Equation</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</nav>
-
-<section class="bursa-main-container">
+{% block main_content %}
     <div class="container">
         <div class="row">
             <h3>Квадратное уравнение a*x*x+b*x+c = 0</h3>
@@ -63,12 +32,4 @@
             {% endif %}
         </div>
     </div>
-</section>
-
-<footer class="bursa-footer">
-    <p class="bursa-footer-text">2017</p>
-</footer>
-
-</body>
-
-</html>
+{% endblock main_content %}
