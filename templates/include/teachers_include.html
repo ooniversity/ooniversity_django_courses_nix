@@ -1,0 +1,12 @@
+<tr>
+  <td>курсы {{ teacher_role }}</td>
+  <td>
+      {% for course in courses %}
+      <p><a href="{% url 'courses:detail' pk=course.id %}">{{ course.name }}</a> студенты курса 
+        <a href="{% url 'students:list_view' %}?course_id={{ course.id }}" >
+          <span class="glyphicon glyphicon-new-window">тыц</span>
+        </a>
+      </p>
+      {% endfor %}
+  </td>
+</tr>

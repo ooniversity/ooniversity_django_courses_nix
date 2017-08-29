@@ -29,36 +29,10 @@
                     <td>{{ coach.phone }}</td>
                 </tr>
                 {% if coach_courses %}
-                <tr>
-                    <td>курсы учитель</td>
-                    <td>
-                        {% for course in coach_courses %}
-                        <p>
-                            <a href="{% url 'courses:detail' pk=course.id %}">{{ course.name }}</a> 
-                            студенты курса 
-                            <a href="{% url 'students:list_view' %}?course_id={{ course.id }}" >
-                                <span class="glyphicon glyphicon-new-window">тыц</span>
-                            </a>
-                        </p>
-                        {% endfor %}
-                    </td>
-                </tr>
+                {% include 'include/teachers_include.html' with teacher_role="учитель" courses=coach_courses %}
                 {% endif %}
                 {% if assis_courses %}
-                <tr>
-                    <td>курсы ассистент</td>
-                    <td>
-                        {% for course in assis_courses %}
-                        <p>
-                            <a href="{% url 'courses:detail' pk=course.id %}">{{ course.name }}</a> 
-                            студенты курса 
-                            <a href="{% url 'students:list_view' %}?course_id={{ course.id }}" >
-                                <span class="glyphicon glyphicon-new-window">тыц</span>
-                            </a>
-                        </p>
-                        {% endfor %}
-                    </td>
-                </tr>
+                {% include 'include/teachers_include.html' with teacher_role="ассистент" courses=assis_courses %}
                 {% endif %}
             </tbody>
         </table>
