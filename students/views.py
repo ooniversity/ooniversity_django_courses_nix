@@ -14,7 +14,7 @@ def list_view(request):
     return render(request, 'students/list.html', {'students': students})
 
 
-def create(request):
+def add(request):
     if request.method == 'POST':
         form = StudentModelForm(request.POST)
         if form.is_valid():
