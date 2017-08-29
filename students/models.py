@@ -10,7 +10,7 @@ class Student(models.Model):
      phone = models.CharField(max_length = 50)
      address = models.CharField(max_length = 120)
      skype = models.CharField(max_length = 64)
-     courses = models.ManyToManyField(Course)
+     courses = models.ManyToManyField(Course, help_text='Hold down "Control", or "Command" on Mac, to select more than one')
 
      def full_name(self):
           return self.name + ' ' + self.surname
