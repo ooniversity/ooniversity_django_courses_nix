@@ -1,27 +1,13 @@
-{% load staticfiles %}<!DOCTYPE html>
-<html>
-<head>
-    <title>Student | {{ student.name }} {{ student.surname }}</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/style.css' %}">
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'index' %}">Main</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'contact' %}">Contacts</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'students:list_view' %}">Students</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <div class="container">
+{% extends 'base.html' %}
+
+
+{% block title %}Student | {{ student.name }} {{ student.surname }}{% endblock %}
+
+
+{% block active_students %}active{% endblock %}
+    
+
+    {% block content %}
       <h1>{{ student.name }} {{ student.surname }}</h1>
       <table class="table-hover">
           <tbody>
@@ -55,6 +41,4 @@
             </tr>
           </tbody>
         </table>
-    </div>
-</body>
-</html>
+    {% endblock content %}
