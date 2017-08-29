@@ -1,73 +1,42 @@
 from django.shortcuts import render
+from .forms import QuadraticForm
+
 
 def quadratic_results(request):
-
-    qe = QuadraticEquation(request.GET['a'], request.GET['b'], request.GET['c'])
-    descr = False
+    d = False
     result = False
+    form = QuadraticForm()
+    if 'a' in request.GET and 'b' in request.GET and 'c' in request.GET:
+        form = QuadraticForm(request.GET)
+        if form.is_valid():
+            data = form.cleaned_data
+            d = get_d(data['a'], data['b'], data['c'])
+            result = get_result(data['a'], data['b'], d)
 
-    if qe.is_valid:
-        qe.calc_descr()
-        descr = qe.get_descr()
-        result = qe.get_result()
-
-    return render(request, "results.html",
-                  {'a': qe.get_a(),'b': qe.get_b(), 'c': qe.get_c(), 'descr': descr, 'result': result})
+    return render(request, "quadratic/results.html",
+                  {'form': form, 'd': d, 'result': result})
 
 
-class QuadraticEquation:
-    def __init__(self, a, b, c):
-        self.is_valid = True
-        self.a = self.set_input(a, True)
-        self.b = self.set_input(b)
-        self.c = self.set_input(c)
-        self.d = False
+def get_d(a, b, c):
+    return b ** 2 - 4 * a * c
 
-    def set_input(self, value, is_first=False):
-        error = False
-        if value == '':
-            self.is_valid = False
-            error = 'коэффициент не определен'
-        else:
-            try:
-                value = int(value)
-                if is_first is True and value == 0:
-                    self.is_valid = False
-                    error = 'коэффициент при первом слагаемом уравнения не может быть равным нулю'
-            except ValueError:
-                self.is_valid = False
-                error = 'коэффициент не целое число'
-        return {'value': value, 'error': error}
 
-    def get_a(self):
-        return self.a
+def calc_root(a, b, d, order=1):
+    if order == 1:
+        x = (-b + d ** (1 / 2.0)) / 2 * a
+    else:
+        x = (-b - d ** (1 / 2.0)) / 2 * a
+    return x
 
-    def get_b(self):
-        return self.b
 
-    def get_c(self):
-        return self.c
-
-    def get_descr(self):
-        return self.d
-
-    def get_result(self):
-        if self.get_descr() == 0:
-            x = self.calc_root()
-            return 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = ' + str(x)
-        elif self.get_descr() < 0:
-            return 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
-        else:
-            x1 = self.calc_root()
-            x2 = self.calc_root(2)
-            return 'Квадратное уравнение имеет два действительных корня: x1 = ' + str(x1) + ', x2 = ' + str(x2)
-
-    def calc_descr(self):
-        self.d = self.b['value'] ** 2 - 4 * self.a['value'] * self.c['value']
-
-    def calc_root(self, order=1):
-        if order == 1:
-            x = (-self.b['value'] + self.d ** (1 / 2.0)) / 2 * self.a['value']
-        else:
-            x = (-self.b['value'] - self.d ** (1/2.0)) / 2 * self.a['value']
-        return x
+def get_result(a, b, d):
+    if d == 0:
+        x = calc_root(a, b, d)
+        print(x)
+        return 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = ' + str(x)
+    elif d < 0:
+        return 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
+    else:
+        x1 = calc_root(a, b, d)
+        x2 = calc_root(a, b, d, 2)
+        return 'Квадратное уравнение имеет два действительных корня: x1 = ' + str(x1) + ', x2 = ' + str(x2)
