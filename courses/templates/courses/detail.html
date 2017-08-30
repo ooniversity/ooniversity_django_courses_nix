@@ -1,0 +1,15 @@
+<h1>Описание курса</h1>
+<table>
+    <tr>
+        <th>#</th>
+        <th>Тема</th>
+        <th>Описание</th>
+    </tr>
+    {% for lesson in course %}
+        <tr>
+            <td>{{ lesson.order }}</td>
+            <td>{{ lesson.subject }}</td>
+            <td>{{ lesson.description }}</td>
+        </tr>
+    {% endfor %}
+</table>
