@@ -1,3 +1,11 @@
 from django.shortcuts import render
+from . import models
 
-# Create your views here.
+
+def list_view(request, course_id = None):
+    pass
+
+
+def detail(request, pk):
+    pass
+

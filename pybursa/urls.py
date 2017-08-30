@@ -28,4 +28,6 @@ urlpatterns = [
     url(r'^student_detail', views.student_detail, name='student_detail'),
     url(r'^polls/', include('polls.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^courses/', include('courses.urls')),
+    url(r'^students/', include('students.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

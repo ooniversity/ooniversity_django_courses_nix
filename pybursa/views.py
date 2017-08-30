@@ -1,8 +1,13 @@
 from django.shortcuts import render
+from courses.models import Course
+from django.http import HttpResponse
+from django.template import loader
 
 
 def index(request):
-    return render(request, 'pybursa/index.html')
+    course_list = Course.objects.all()
+    context = {'courses': course_list}
+    return render(request, 'pybursa/index.html', context)
 
 
 def contact(request):

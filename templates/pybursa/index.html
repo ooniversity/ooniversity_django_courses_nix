@@ -53,29 +53,23 @@
          </p>
       </div>
       <div class="row about-course">
-        <div class="col-lg-6">
+        <div class="col-lg-12">
           <article class="main-content">
-            <h2>Program</h2>
-            <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi iaculis fringilla semper.
-              Sed est urna, facilisis ac gravida a, convallis nec elit. Integer faucibus egestas suscipit.
-              Cras vitae purus efficitur, iaculis nisl sit amet, interdum quam. Etiam venenatis venenatis mi in bibendum.
-              Phasellus nisl elit, pharetra sit amet dictum vel, semper nec risus. Nunc sed congue nisi,
-              sit amet aliquet velit. Nam imperdiet nisl nec sem congue congue. Phasellus nisi nunc, cursus ut accumsan ut,
-              lacinia ut erat. Phasellus velit mi, facilisis ut sagittis sed, volutpat id nulla. Nunc eget odio
-              eu odio interdum interdum et vel nunc. In gravida sem mi, at pharetra arcu ullamcorper a. Vestibulum
-              dapibus vehicula dictum. Sed lacinia lacinia sapien, ut vehicula tellus iaculis eu.
-          </p>
-          <p>
-            Vivamus vestibulum commodo arcu nec laoreet. Etiam et lacinia dolor. Proin diam tellus,
-             rhoncus sit amet metus in, vulputate scelerisque tortor. Sed tempor, elit et volutpat imperdiet,
-             ante nisl vulputate lectus, et imperdiet massa diam sit amet quam. Donec eu sodales sapien. Donec
-             nunc diam, sagittis a lectus eget, iaculis luctus nibh. Ut magna arcu, euismod feugiat sodales sodales,
-             hendrerit et mi. Maecenas condimentum nunc id imperdiet lobortis. Aenean erat metus, bibendum id
-             finibus ut, convallis ac massa. Ut tortor ipsum, sodales at turpis in, dapibus volutpat est. In non
-             neque sem. Duis mattis sapien ac massa tincidunt, at congue sapien placerat. Vestibulum maximus
-             volutpat nulla quis interdum. Ut erat dui, fermentum quis augue a, interdum fermentum metus.
-          </p>
+            <h2>Список наших курсов</h2>
+            <table class="table">
+              <thead class="thead-inverse">
+                <tr>
+                  <th>Курс</th>
+                  <th>Описание</th>
+                </tr>
+                {% for course in courses %}
+                   <tr>
+                       <td><a href="{% url 'courses:detail' course.id %}">{{course.name}}</a></td>
+                       <td>{{course.description}}</td>
+                   </tr>
+                {% endfor %}
+            </thead>
+            </table>
         </article>
       </div>
     </div>
