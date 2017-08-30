@@ -6,6 +6,16 @@
 
 {% block content %}
 <div class="container">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success" role="alert" aria-label="Close">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
     <div id="course-information-block">
         <h1>{{ course.name }}</h1>
         <p>{{ course.description|truncatechars:32 }}</p>
@@ -48,6 +58,9 @@
         <br/>
         {% endif %}
         <h3 id="program-header">План курса</h3>
+        <a href="{% url 'courses:add_lesson' course_id=course.id %}" class="btn btn-primary">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Добавить занятие</a>
+        </a>
         <table class="table">
             <thead>
             <tr>

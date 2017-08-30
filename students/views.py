@@ -14,6 +14,14 @@ def list_view(request):
     return render(request, 'students/list.html', {'students': students})
 
 
+def detail(request, student_id):
+    try:
+        student = Student.objects.get(id=student_id)
+    except Student.DoesNotExist:
+        return HttpResponseNotFound()
+    return render(request, 'students/detail.html', {'student': student})
+
+
 def add(request):
     if request.method == 'POST':
         form = StudentModelForm(request.POST)
@@ -46,10 +54,3 @@ def remove(request, student_id):
         messages.success(request, 'Info on ' + student.name + ' ' + student.surname + ' has been successfully deleted.')
         return redirect('students:list_view')
     return render(request, 'students/remove.html', {'student': student})
-
-def detail(request, student_id):
-    try:
-        student = Student.objects.get(id=student_id)
-    except Student.DoesNotExist:
-        return HttpResponseNotFound()
-    return render(request, 'students/detail.html', {'student': student})
