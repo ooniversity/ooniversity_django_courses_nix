@@ -9,7 +9,7 @@
       <tbody>
         <tr>
           <td>Date of birth</td>
-          <td>{{ coach.date_of_birth }}</td>
+          <td>{{ coach.date_of_birth|date:'j F, Y' }}</td>
         </tr>
         <tr>
           <td>Address</td>
@@ -58,4 +58,4 @@
       </tbody>
     </table>
 </div>
-{% endblock %}
+{% endblock content %}

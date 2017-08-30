@@ -30,12 +30,7 @@
         <tr>
           <td>Courses</td>
           <td>
-            {% for c in student.courses.all %}
-                <a href="{% url 'courses:detail' c.id %}">
-                    {{ c.name }}
-                </a>
-                <br>
-            {% endfor %}
+            {% include 'include/courses_list.html' with list=student.courses.all %}
           </td>
         </tr>
       </tbody>

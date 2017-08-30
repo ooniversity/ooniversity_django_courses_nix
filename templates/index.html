@@ -25,10 +25,10 @@
             <tr class="left">
                 <th scope="row">
                     <a href="{% url 'courses:detail' course.id %}">
-                        {{ course.name }}
+                        {{ course.name|upper}}
                     </a>
                 </th>
-                <td>{{ course.description }}</td>
+                <td>{{ course.short_description|title }}</td>
             </tr>
         {% endfor %}
         </tbody>

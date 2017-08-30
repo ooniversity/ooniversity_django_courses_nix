@@ -1,0 +1,6 @@
+{% for c in list %}
+    <a href="{% url 'courses:detail' c.id %}">
+        {{ c.name }}
+    </a>
+    <br>
+{% endfor %}
