@@ -56,12 +56,13 @@ def quadratic_results(request):
     #        context['D_var'], context['D_info'] = calc_descr(form.cleaned_data['a'],
     #                                                         form.cleaned_data['b'],
     #                                                         form.cleaned_data['c'])
-    if request.GET:
+    if 'a' in request.GET and 'b' in request.GET and 'c' in request.GET:
         form = QuadraticForm(request.GET)
         if form.is_valid():
+            print(form.cleaned_data)
             context['D_var'], context['D_info'] = calc_descr(form.cleaned_data['a'],
-                                                                     form.cleaned_data['b'],
-                                                                     form.cleaned_data['c'])
+                                                            form.cleaned_data['b'],
+                                                            form.cleaned_data['c'])
     else:
         form = QuadraticForm()
 
