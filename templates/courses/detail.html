@@ -12,36 +12,13 @@
 <div class="jumbotron">
     <h1 class="description">{{ course.name }}</h1>
     <p class="lead">
-        {{ course.description }}
+        {{ course.description|truncatechars:32 }}
     </p>
 </div>
 
 <h3>Преподаватели</h3>
-<div class = "panel panel-default">
-   <div class = "panel-heading">
-      Coach
-   </div>
-   <div class = "panel-body">
-       <a href="{% url 'coaches:detail' course.coach.id %}">
-           {{ course.coach.get_full_name }}
-       </a>
-       <br>
-        {{ course.coach.description }}
-   </div>
-</div>
-<div class = "panel panel-default">
-   <div class = "panel-heading">
-      Assistant
-   </div>
-   <div class = "panel-body">
-      <a href="{% url 'coaches:detail' course.assistant.id %}">
-          {{ course.assistant.get_full_name }}
-      </a>
-      </a>
-       <br>
-        {{ course.assistant.description }}
-   </div>
-</div>
+{% include 'include/instructor.html' with instructor=course.coach title='Coach' %}
+{% include 'include/instructor.html' with instructor=course.assistant title='Assistant' %}
 
 {% if lessons.count %}
 <h3>План курса:</h3>
