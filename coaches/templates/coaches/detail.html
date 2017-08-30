@@ -46,12 +46,17 @@
             <p>курсы учитель
                 {% for course in coach.course_set.all %}
                     <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br/>
-                {% endfor %}
-                студенты курса </p>
+                    <a class="nav-link"
+                       href="{% url 'students:list_view' %}?course_id={{ course.id }}">Студенты</a>                {% endfor %}
+                студенты курса
+
+            </p>
             <hr>
             <p>курсы ассистент
                 {% for course in coach.coach_assistant.all %}
                     <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br/>
+                    <a class="nav-link"
+                       href="{% url 'students:list_view' %}?course_id={{ course.id }}">Студенты</a>
                 {% endfor %}
                 студенты курса </p>
             <hr>
