@@ -7,16 +7,10 @@
         <div>
             Квадратное уравнение a*x*x + b*x + c = 0
         </div>
-        <div>
-            <ul>
-                <li>a = {{ a }}</li>
-                {{ a_m }}
-                <li>b = {{ b }}</li>
-                {{ b_m }}
-                <li>c = {{ c }}</li>
-                {{ c_m }}
-            </ul>
-        </div>
+        <form method="get">
+            {{ form.as_p }}
+            <input type="submit" />
+        </form>
         <div>
             {{ d_m }}
         </div>
