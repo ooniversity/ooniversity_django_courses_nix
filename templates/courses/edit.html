@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title%}Edit course{% endblock %}
+
+
+{% block active_main_class %}class="active"{% endblock %}
+
+
+{% block content %}
+<h2>Edit course data</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Edit</button>
+</form>
+{% endblock %}

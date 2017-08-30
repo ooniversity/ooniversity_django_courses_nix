@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title%}Add new lesson{% endblock %}
+
+
+{% block active_main_class %}class="active"{% endblock %}
+
+
+{% block content %}
+<h2>Add new lesson</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create</button>
+</form>
+{% endblock %}

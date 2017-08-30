@@ -1,5 +1,7 @@
-from django.shortcuts import render, HttpResponse, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Course, Lesson
+from django.contrib import messages
+from .forms import CourseModelForm, LessonModelForm
 
 
 # Create your views here.
@@ -17,3 +19,56 @@ def detail(request, course_id):
     return render(request, 'courses/detail.html',
                   {'lessons_list': lessons_list,
                    'course_obj': course_obj})
+
+
+def add(request):
+    if request.method == 'POST':
+        form = CourseModelForm(request.POST)
+        if form.is_valid():
+            instance = form.save()
+            messages.success(request, 'Course ' + instance.name + ' has been successfully added.')
+            return redirect('/')
+    else:
+        form = CourseModelForm()
+    return render(request, 'courses/add.html',
+                  {'form': form})
+
+
+def edit(request, course_id):
+    course = Course.objects.get(id = course_id)
+
+    if request.method == 'POST':
+        form = CourseModelForm(request.POST, instance=course)
+        if form.is_valid():
+            student = form.save()
+            messages.success(request, 'The changes have been saved.')
+            return redirect('/')
+    else:
+        form = CourseModelForm(instance=course)
+    return render(request, 'courses/edit.html',
+                  {'form': form})
+
+
+def remove(request, course_id):
+    course = Course.objects.get(id = course_id)
+
+    if request.method == 'POST':
+        course.delete()
+        messages.success(request, 'Course ' + course.name + ' has been deleted.')
+        return redirect('/')
+
+    return render(request, 'courses/remove.html',
+                  {'course': course})
+
+
+def add_lesson(request, course_id):
+    if request.method == 'POST':
+        form = LessonModelForm(request.POST)
+        if form.is_valid():
+            instance = form.save()
+            messages.success(request, 'Lesson ' + instance.subject + ' has been successfully added.')
+            return redirect('/courses/' + course_id)
+    else:
+        form = LessonModelForm()
+    return render(request, 'courses/add_lesson.html',
+                  {'form': form})
