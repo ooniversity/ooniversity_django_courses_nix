@@ -2,6 +2,8 @@
 <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
+
+
 <div class="panel panel-info">
   <div class="panel-heading">
     <h3 class="panel-title">Quadratic results</h3>
@@ -9,14 +11,21 @@
   <div class="panel-body">
     <div>a*x*x + b*x + c = 0</div>
 
-    <p>- a = {{ a_var }}</p>
+
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Решить</button>
+    </form>
+
+    <!--<p>- a = {{ a_var }}</p>
     <p>{{ a_err }}</p>
 
     <p> - b = {{ b_var }}</p>
     <p>{{ b_err }}</p>
 
     <p> - c = {{ c_var }}</p>
-    <p>{{ c_err }}</p>
+    <p>{{ c_err }}</p>-->
 
   </div>
   <div class="panel-footer">
