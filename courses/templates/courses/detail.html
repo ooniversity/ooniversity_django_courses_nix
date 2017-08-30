@@ -18,7 +18,8 @@
                 <a class="nav-link" href="#">Контакты</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="{% url 'students:list_view' %}?course_id={{ course.id }}">Студенты</a>
+                <a class="nav-link disabled"
+                   href="{% url 'students:list_view' %}?course_id={{ course.id }}">Студенты</a>
             </li>
         </ul>
     </div>
@@ -34,6 +35,35 @@
             <hr>
         </div>
 
+        <div class="col-md-12">
+            <hi>Преподаватели</hi>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">Учитель</div>
+                    <div class="card-block">
+                        <a href="{% url 'coaches:detail' course.coach.id %}">{{ course.coach.user.first_name }}</a>
+                        <h4 class="card-title">{{ course.coach.description }}</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">Ассистент</div>
+                    <div class="card-block">
+                        <a href="{% url 'coaches:detail' course.assistant.id %}">{{ course.assistant.user.first_name }}</a>
+                        <h4 class="card-title">{{ course.assistant.description }}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <hi>План курса</hi>
+        </div>
         <table class="table table-striped table-hover table-bordered">
             <thead class="">
             <tr>
