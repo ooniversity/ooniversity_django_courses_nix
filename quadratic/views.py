@@ -1,12 +1,11 @@
 from django.shortcuts import render
-from quadratic.forms import QuadraticForm
+from .forms import QuadraticForm
 
 def quadratic_results(request):
     context = {}
-    if request.method == 'GET' and request.GET:
+    if request.method == 'GET' and 'a' in request.GET and 'b' in request.GET and 'c' in request.GET:
         form = QuadraticForm(request.GET)
         
-        print(form.errors)
         if form.is_valid():
             a = form.cleaned_data['a']
             b = form.cleaned_data['b']
@@ -23,7 +22,6 @@ def quadratic_results(request):
                 result = 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {:.1f}'.format(x1)
             else:
                 result = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
-            context['d'] = d
             context['d_m'] = d_m
             context['r_m'] = result
     else:
@@ -31,4 +29,3 @@ def quadratic_results(request):
 
     context['form'] = form
     return render(request, 'quadratic/results.html', context)
-
