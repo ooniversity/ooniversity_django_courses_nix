@@ -50,14 +50,18 @@ def quadratic_results(request):
     #    form = QuadraticForm()
     #print(not request.GET, request.GET)
 
-    if request.method == 'POST':
-        form = QuadraticForm(request.POST)
+    #if request.method == 'POST':
+    #    form = QuadraticForm(request.POST)
+    #    if form.is_valid():
+    #        context['D_var'], context['D_info'] = calc_descr(form.cleaned_data['a'],
+    #                                                         form.cleaned_data['b'],
+    #                                                         form.cleaned_data['c'])
+    if request.GET:
+        form = QuadraticForm(request.GET)
         if form.is_valid():
             context['D_var'], context['D_info'] = calc_descr(form.cleaned_data['a'],
-                                                             form.cleaned_data['b'],
-                                                             form.cleaned_data['c'])
-    elif request.GET:
-        form = QuadraticForm(request.GET)
+                                                                     form.cleaned_data['b'],
+                                                                     form.cleaned_data['c'])
     else:
         form = QuadraticForm()
 
