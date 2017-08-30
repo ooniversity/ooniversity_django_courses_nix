@@ -42,7 +42,7 @@ def edit(request, course_id):
         if form.is_valid():
             student = form.save()
             messages.success(request, 'The changes have been saved.')
-            return redirect('/courses/'+course_id)
+            return redirect('/courses/edit/'+course_id)
     else:
         form = CourseModelForm(instance=course)
     return render(request, 'courses/edit.html',
