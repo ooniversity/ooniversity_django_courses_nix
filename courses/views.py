@@ -55,4 +55,4 @@ def add_lesson(request, course_id):
             return redirect('courses:detail', course_id=course.id)
     else:
         form = LessonModelForm(initial={'course': course.id})
-    return render(request, 'courses/add_lesson.html', {'form': form})
+    return render(request, 'add_lesson.html', {'form': form})
