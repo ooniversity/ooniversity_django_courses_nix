@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Удаление студента {{ student.full_name }}{% endblock %}
+
+
+{% block active_students %}active{% endblock %}
+
+
+	{% block content %}
+	<h1>Студент {{ student.full_name }} будет удален</h1>
+	<form method="post">
+		{% csrf_token %}
+		<input type="submit" />
+	</form>
+	{% endblock content %}
