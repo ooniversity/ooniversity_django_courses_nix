@@ -7,12 +7,27 @@
 
 
 {% block content %}
+
+{% if messages %}
+<div class="alert alert-success" role="alert">
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
 <div class="panel panel-default">
-    <div class="panel-heading"><h2></h2></div>
+    <div class="panel-heading"><h2>Students list</h2></div>
     <div class="panel-body">
         <div class='otherContent'></div>
+        <!--<button type="button" class="btn btn-default">Добавить нового студента</button>-->
+    <ul class="nav nav-pills">
+        <li role="presentation" class="active"><a href="{% url 'students:add' %}">Добавить нового студента</a></li>
+    </ul>
     </div>
-    <h2>Students list</h2>
+    <!-- <h2>Students list</h2> -->
     <!-- Table -->
     <table class="table">
         <tr class='cust_div'>
@@ -34,6 +49,16 @@
                     <a href="{% url 'courses:detail' crs.id %}">{{ crs.name}}</a>
                         <br>
                     {% endfor %}
+                </td>
+                <td>
+                    <ul class="nav nav-pills">
+                    <li role="presentation" class="active"><a href="{% url 'students:edit' student.id %}">Изменить</a></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul class="nav nav-pills">
+                    <li role="presentation" class="active"><a href="{% url 'students:remove' student.id %}">Удалить</a></li>
+                    </ul>
                 </td>
             </tr>
             {% endfor %}
