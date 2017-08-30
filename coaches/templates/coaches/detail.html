@@ -55,6 +55,8 @@
             <p>курсы ассистент
                 {% for course in coach.coach_assistant.all %}
                     <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br/>
+                    <a class="nav-link"
+                       href="{% url 'students:list_view' %}?course_id={{ course.id }}">Студенты</a>
                 {% endfor %}
                 студенты курса </p>
             <hr>
