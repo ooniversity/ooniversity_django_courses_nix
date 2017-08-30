@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^polls/', include('polls.urls')),
     url(r'^courses/', include('courses.urls')),
     url(r'^students/', include('students.urls')),
+    url(r'^coaches/', include('coaches.urls')),
     url(r'^$', CourseIndexView.as_view(), name='index'),
     url(r'^quadratic/results/$', quadratic_result, name='results'),
     url(r'^admin/', admin.site.urls),
