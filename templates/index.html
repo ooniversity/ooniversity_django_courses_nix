@@ -19,24 +19,25 @@
           <p class="course-program">Lorem ipsum dolor sit amet, consectetur adipiscing elit. <span class="highlight">{% lorem 2 w random %}</span> eu velit mattis, euismod tellus a, consectetur massa. Pellentesque mollis vel urna id porta. <span class="important-info">Nulla dignissim justo nibh, ut placerat nulla fermentum eu.</span> Nulla convallis, sem eget mollis tempus, lacus ipsum tincidunt est, non condimentum lorem eros vel purus. Nunc gravida, justo nec tempus condimentum, tortor felis condimentum justo, eu aliquam ante nisi ut augue. {% lorem %}</p>
         </div>
         <div id="additional-info">Ut placerat nulla fermentum eu.</div>
+        <a href="{% url 'courses:add' %}" class="btn btn-primary">Добавить новый курс</a>
         <div id="couses-wrapper">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Название</th>
-                        <th>Описание</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for course in courses %}
-                    <tr>
-                        <td><a href="{% url 'courses:detail' pk=course.id %}">{{ course.name|upper }}</a></td>
-                        <td>{{ course.short_description|title }}</td>
-                        <td><a href="{% url 'courses:edit' pk=course.id %}" class="btn btn-primary">Редактировать</a></td>
-                        <td><a href="{% url 'courses:remove' pk=course.id %}" class="btn btn-primary">Удалить</a></td>
-                    </tr>
-                    {% endfor %}
-                </tbody>            
-            </table>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Название</th>
+                <th>Описание</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for course in courses %}
+                <tr>
+                  <td><a href="{% url 'courses:detail' pk=course.id %}">{{ course.name|upper }}</a></td>
+                  <td>{{ course.short_description|title }}</td>
+                  <td><a href="{% url 'courses:edit' pk=course.id %}" class="btn btn-primary">Редактировать</a></td>
+                  <td><a href="{% url 'courses:remove' pk=course.id %}" class="btn btn-primary">Удалить</a></td>
+                </tr>
+              {% endfor %}
+            </tbody>            
+          </table>
         </div>
       {% endblock content %}

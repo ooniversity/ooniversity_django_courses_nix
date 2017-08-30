@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import Course
-from .forms import CourseModelForm
+from .forms import CourseModelForm, LessonModelForm
 
 def detail(request, pk):
     course = None
@@ -44,3 +44,14 @@ def remove(request, pk):
         messages.success(request, 'Course {!s} has been deleted.'.format(course_name))
         return redirect('/')
     return render(request, 'courses/remove.html', {'course': course})
+
+def add_lesson(request, course_id):
+    if request.method == 'POST':
+        form = LessonModelForm(request.POST)
+        if form.is_valid():
+            lesson = form.save()
+            messages.success(request, 'Lesson {!s} has been successfully added.'.format(lesson.subject))
+            return redirect('courses:detail', pk=course_id)
+    else:
+        form = LessonModelForm(initial={'course': course_id})
+    return render(request, 'courses/add_lesson.html', {'form': form})
