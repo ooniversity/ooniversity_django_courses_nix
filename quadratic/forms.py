@@ -1,9 +1,4 @@
 from django import forms
-from django.core.validators import RegexValidator
-from django.forms import ValidationError
-
-# alphanumeric = RegexValidator(r'^-?[0-9]*$', 'коэффициент не целое число')
-# clean_a = RegexValidator(r'^[^0]+$', 'коэффициент при первом слагаемом уравнения не может быть равным нулю')
 
 
 class QuadraticForm(forms.Form):
