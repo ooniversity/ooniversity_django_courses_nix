@@ -9,7 +9,7 @@ def contact(request):
     return render(request, 'contact.html')
 
 def student_list(request):
-    return render(request, 'students/list.html')
+    return render(request, 'students/student_list.html')
 
 def student_detail(request):
     return render(request, 'students/detail.html')
