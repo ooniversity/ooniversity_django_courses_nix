@@ -8,11 +8,9 @@ def quadratic_results(request):
         form = QuadraticFrom(request.GET)
     else:
         form = QuadraticFrom()
-
     context = {
         'form': form
     }
-
     if form.is_valid():
         context['result'] = Quadratic(**form.cleaned_data)
 
