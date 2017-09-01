@@ -1,50 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Quadratic equation</title>
-    </head>
-    <body>
+{% extends 'base.html' %}
 
-        <h3>Квадратное уравнение a*x*x + b*x + c = 0</h3>
+{% block title %} Quadratic equation {% endblock %}
 
-        <!--params-->
-        <ul>
-            <li>
-                <p>a = {{ data.a }}</p>
-                {% if not data.errors.a.is_valid %}
-                <p><strong>{{ data.errors.a.msg }}</strong></p>
-                {% endif %}
-            </li>
-            <li>
-                <p>b = {{ data.b }}</p>
-                {% if not data.errors.b.is_valid %}
-                <p><strong>{{ data.errors.b.msg }}</strong></p>
-                {% endif %}
-            </li>
-            <li>
-                <p>c = {{ data.c }}</p>
-                {% if not data.errors.c.is_valid %}
-                <p><strong>{{ data.errors.c.msg }}</strong></p>
-                {% endif %}
-            </li>
-        </ul>
-        <!--/params-->
-
-        <!--results-->
-        {% if data.result %}
-        <p>Дискриминант: {{ data.result.desc }}</p>
-        {% if data.result.desc < 0 %}
-        <p>Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.</p>
-        {% elif data.result.desc == 0 %}
-        <p>Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {{ data.result.x1 }}
+{% block content %}
+    <h3>Квадратное уравнение a*x*x + b*x + c = 0</h3>
+    <form method="get" class="form-horizontal">
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-default">
+    </form>
+    <!--results-->
+    {% if result %}
+        <h3>Результаты:</h3>
+        <p>Дискриминант: {{ result.desc }}</p>
+        {% if result.desc < 0 %}
+            <p>Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.</p>
+        {% elif result.desc == 0 %}
+        <p>Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {{ result.get_x1 }}
         </p>
         {% else %}
-        <p>Квадратное уравнение имеет два действительных корня:  x1 = {{ data.result.x1 }}, x2 = {{ data.result.x2 }}
-        </p>
+            <p>
+                Квадратное уравнение имеет два действительных корня:  x1 = {{ result.get_x1 }}, x2 = {{ result.get_x2 }}
+            </p>
         {% endif %}
-        {% endif %}
-        <!--/results-->
-
-    </body>
-</html>
+    {% endif %}
+    <!--/results-->
+{% endblock %}
