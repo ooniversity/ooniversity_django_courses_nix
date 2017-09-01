@@ -1,24 +1,26 @@
 from django import forms
 from django.core.validators import RegexValidator
+from django.forms import ValidationError
 
-alphanumeric = RegexValidator(r'^-?[0-9]*$', 'коэффициент не целое число')
-clean_a = RegexValidator(r'^[^0]+$', 'коэффициент при первом слагаемом уравнения не может быть равным нулю')
+# alphanumeric = RegexValidator(r'^-?[0-9]*$', 'коэффициент не целое число')
+# clean_a = RegexValidator(r'^[^0]+$', 'коэффициент при первом слагаемом уравнения не может быть равным нулю')
 
 
 class QuadraticForm(forms.Form):
-    a = forms.CharField(
-        max_length=10,
+    a = forms.IntegerField(
         label='коэффициент a',
-        validators=[alphanumeric, clean_a]
     )
-    b = forms.CharField(
-        max_length=10,
+    b = forms.IntegerField(
         label='коэффициент b',
-        validators=[alphanumeric]
     )
-    c = forms.CharField(
-        max_length=10,
+    c = forms.IntegerField(
         label='коэффициент c',
-        validators=[alphanumeric]
     )
+
+    def clean_a(self):
+        a = self.cleaned_data['a']
+        if a == 0:
+            raise forms.ValidationError("коэффициент при первом слагаемом уравнения не может быть равным нулю")
+
+        return a
 
