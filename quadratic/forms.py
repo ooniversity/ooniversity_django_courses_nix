@@ -5,7 +5,7 @@ alphanumeric = RegexValidator(r'^-?[0-9]*$', 'коэффициент не цел
 clean_a = RegexValidator(r'^[^0]+$', 'коэффициент при первом слагаемом уравнения не может быть равным нулю')
 
 
-class QuadraticFrom(forms.Form):
+class QuadraticForm(forms.Form):
     a = forms.CharField(
         max_length=10,
         label='коэффициент a',
