@@ -12,7 +12,8 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 class StudentDetailView(DetailView):
     model = Student
 
-class StudentsListView(ListView):
+
+class StudentListView(ListView):
     model = Student
 
     def get_queryset(self):
@@ -28,7 +29,8 @@ class StudentsListView(ListView):
 class StudentCreateView(CreateView):
     model = Student
     success_url = reverse_lazy('students:list_view')
-    fields = '__all__'
+    form_class = StudentModelForm
+    #fields = '__all__'
 
     def form_valid(self, form):
         response = super().form_valid(form)
@@ -47,7 +49,8 @@ class StudentCreateView(CreateView):
 class StudentUpdateView(UpdateView):
     model = Student
     success_url = reverse_lazy('students:list_view')
-    fields = '__all__'
+    form_class = StudentModelForm
+    #fields = '__all__'
 
     def form_valid(self, form):
         response = super().form_valid(form)
@@ -65,7 +68,8 @@ class StudentUpdateView(UpdateView):
 class StudentDeleteView(DeleteView):
     model = Student
     success_url = reverse_lazy('students:list_view')
-    fields = '__all__'
+    form_class = StudentModelForm
+    #fields = '__all__'
 
     def delete(self, request, *args, **kwargs):
         response = super().delete(self, request, *args, **kwargs)
