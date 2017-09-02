@@ -10,8 +10,8 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <h2>
-            {% if student_obj %}
-        {{ student_obj.name}} {{ student_obj.surname}}
+            {% if student %}
+        {{ student.name}} {{ student.surname}}
         {% else %}
             <p>No students are available.</p>
         {% endif %}
@@ -22,26 +22,26 @@
     </div>
     <!-- Table -->
     <table class="table">
-        {% if student_obj %}
+        {% if student %}
         <tr>
             <td>date of birth</td>
-            <td>{{ student_obj.date_of_birth}}</td></tr>
+            <td>{{ student.date_of_birth}}</td></tr>
         <tr>
             <td>address</td>
-            <td>{{ student_obj.address}}</td></tr>
+            <td>{{ student.address}}</td></tr>
         <tr>
             <td>email</td>
-            <td>{{ student_obj.email}}</td></tr>
+            <td>{{ student.email}}</td></tr>
         <tr>
             <td>skype </td>
-            <td>{{ student_obj.skype}}</td></tr>
+            <td>{{ student.skype}}</td></tr>
         <tr>
             <td>phone </td>
-            <td>{{ student_obj.phone}}</td></tr>
+            <td>{{ student.phone}}</td></tr>
         <tr>
             <td>courses</td>
             <td>
-            {% for crs in student_obj.courses.all %}
+            {% for crs in student.courses.all %}
                 <a href="{% url 'courses:detail' crs.id %}">{{ crs.name}}</a>
                 <br>
                 {% endfor %}

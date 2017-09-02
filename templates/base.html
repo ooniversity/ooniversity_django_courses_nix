@@ -39,7 +39,7 @@
 					<ul class="nav navbar-nav">
 						<li {% block active_main_class %}{% endblock %}><a href="{% url 'courses:list_view' %}">Main</a></li>
 						<li {% block active_contact_class %}{% endblock %}><a href="{% url 'contact' %}">Contacts</a></li>
-						<li {% block active_students_class %}{% endblock %}><a href="{% url 'students:list_view' %}">Students</a></li>
+						<li {% block active_students_class %}{% endblock %}><a {% block students_href %} href="{% url 'students:list_view' %}" {% endblock %}>Students</a></li>
 						<li {% block active_quadratic_class %}{% endblock %}><a href="{% url 'results' %}">Quadratic</a></li>
 					</ul>
 				</div><!-- /.navbar-collapse -->

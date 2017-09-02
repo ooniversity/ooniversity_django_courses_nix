@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Course, Lesson
 from django.contrib import messages
 from .forms import CourseModelForm, LessonModelForm
+from django.views.generic.detail import DetailView
 
 
 # Create your views here.
@@ -10,6 +11,11 @@ def list_view(request):
 
     return render(request, 'index.html',
                   {'courses_list': courses_list})
+
+
+class LessonDetailView(DetailView):
+    model = Lesson
+    template_name = 'courses/temp.html'
 
 
 def detail(request, course_id):
