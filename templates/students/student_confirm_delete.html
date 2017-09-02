@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 
-{% block title%}Add student{% endblock %}
+{% block title%}{{ title }}{% endblock %}
 
 
 {% block active_students_class %}class="active"{% endblock %}
 
 
 {% block content %}
-<p>Студент {{ full_name }} будет удален</p>
+<p>Студент будет удален</p>
 <form method="post">
     {% csrf_token %}
     <button type="submit">Remove</button>
