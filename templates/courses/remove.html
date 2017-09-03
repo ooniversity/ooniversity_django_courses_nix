@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block students-active %} active {% endblock %}
+
+{% block title %} Remove course {% endblock %}
+
+{% block content %}
+
+<h3>Удаление курса</h3>
+<hr>
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            {% csrf_token %}
+            <p>Курс {{ course.name }} будет удален</p>
+            <hr>
+            <input class="btn btn-primary" type="submit" value="Удалить">
+        </form>
+    </div>
+</div>
+
+{% endblock %}
