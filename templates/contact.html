@@ -9,27 +9,14 @@
     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
     <link rel="stylesheet" href="../static/css/style.css">
 
-    <script src="../static/js/bootstrap.min.js"></script>
-</head>
+{% extends "base.html" %}
+{% load staticfiles %}
 
-<body class="bursa-body">
+{% block title %}pyBursa - Контакты{% endblock title %}
 
-<nav class="navbar navbar-inverse">
-    <div class="bursa-navbar">
-        <div class="container">
-            <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="{% url 'index' %}">Main</a></li>
-                    <li><a href="{% url 'contact' %}">Contacts</a></li>
-                    <li><a href="{% url 'students:list_view' %}">Students</a></li>
-		    <li><a href="{% url 'results' %}">Equation</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</nav>
+{% block nav_class_contact %}active{% endblock %}
 
-<section class="bursa-main-container">
+{% block content %}
     <div class="container">
         <div class="row">
             <ul class="list-group bursa-list">
@@ -61,9 +48,4 @@
             </ul>
         </div>
     </div>
-</section>
-<footer class="raccoon-content-footer">
-    <p class="text-right raccoon-description-footer">Python Django 2017</p>
-</footer>
-</body>
-</html>
+{% endblock content %}
