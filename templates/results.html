@@ -1,27 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Raccoon Results</title>
-    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../static/css/style.css">
-</head>
-<body >
-<nav class="navbar navbar-inverse bursa-navbar">
-    <div class="container">
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="index.html">Main</a></li>
-                <li><a href="contact.html">Contacts</a></li>
-                <li><a href="student_list.html">Students</a></li>
-		<li><a href="results.html">Equation</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<div class="bursa-content">
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}pyBursa - Квадратное уравнение{% endblock title %}
+
+{% block content %}
     <div class="container">
         <div class="row">
             <h4>Квадратное уравнение a*x*x+b*x+c = 0</h4>
@@ -38,13 +20,4 @@
             {% endif %}
         </div>
     </div>
-</div>
-<footer class="bursa-footer">
-    <div class="container-footer">
-        <p class="text-right copyright">&copy; Web Jango Task №2</p>
-    </div>
-</footer>
-<script src="../static/js/bootstrap.min.js"></script>
-</body>
-
-</html>
+{% endblock content %}

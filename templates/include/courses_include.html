@@ -1,0 +1,16 @@
+<table class="table">
+    <thead>
+    <tr>
+        <th>Название</th>
+        <th>Описание</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for course in courses %}
+    <tr>
+        <td><a href="{% url 'courses:detail' pk=course.id %}">{{ course.name|upper }}</a></td>
+        <td>{{ course.short_description|title }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
