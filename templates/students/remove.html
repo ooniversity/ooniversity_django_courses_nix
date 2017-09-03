@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block students-active %} active {% endblock %}
+
+{% block title %} Remove student {% endblock %}
+
+{% block content %}
+
+<h3>Удаление данных студента</h3>
+<hr>
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            {% csrf_token %}
+            <p>Данные о студенте {{ student.get_full_name }} будут удалены</p>
+            <input class="btn btn-primary" type="submit" value="Удалить">
+        </form>
+    </div>
+</div>
+
+{% endblock %}
