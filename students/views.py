@@ -51,7 +51,7 @@ def edit(request, student_id):
         form.save()
         messages.success(request, 'Info on the student has been successfully changed.')
 
-        return redirect('/students/')
+        return redirect('students:edit', student_id=student.id)
 
     form = StudentModelForm(instance=student)
     context = {'form': form}

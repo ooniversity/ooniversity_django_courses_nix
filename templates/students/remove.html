@@ -13,7 +13,8 @@
     <div class="col-md-6">
         <form method="post">
             {% csrf_token %}
-            <p>Данные о студенте {{ student.get_full_name }} будут удалены</p>
+            <p>Студент {{ student.get_full_name }} будет удален</p>
+            <hr>
             <input class="btn btn-primary" type="submit" value="Удалить">
         </form>
     </div>

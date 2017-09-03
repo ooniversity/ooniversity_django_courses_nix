@@ -42,10 +42,10 @@
                     {% endfor %}
                 </td>
                 <td>
-                    <a class="btn btn-primary" href="{% url 'students:edit' student.id %}">Edit</a>
+                    <a class="btn btn-primary" href="{% url 'students:edit' student.id %}">Изменить</a>
                 </td>
                 <td>
-                    <a class="btn btn-danger" href="{% url 'students:remove' student.id %}">Remove</a>
+                    <a class="btn btn-danger" href="{% url 'students:remove' student.id %}">Удалить</a>
                 </td>
             </tr>
         {% endfor %}
