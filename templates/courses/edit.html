@@ -1,10 +1,11 @@
 {% extends "base.html" %}
+
 {% load staticfiles %}
 
-{% block title %}PyBursa - Главная{% endblock title %}
+{% block title %}pyBursa - Редактирование курса{% endblock title %}
 
 {% block content %}
-    <div class="container">
+<div class="container">
     {% if messages %}
     {% for message in messages %}
     <div class="alert alert-success" role="alert" aria-label="Close">
@@ -15,13 +16,15 @@
     </div>
     {% endfor %}
     {% endif %}
-        <div class="row">
-            <h1 class="text-center bursa-title">Description</h1>
-            <h4 class="text-left bursa-contents">Program</h4>
-            <p class="bursa-description">Django Week 1. HTML, CSS, Bootstrap</p>
-        </div>
-	<div class="row">
-            {% include "include/courses_include.html" with courses=courses %}
+    <div class="col-sm-12">
+        <h2>Редактирование курса</h2>
+        <div class="col-sm-6">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" class="btn btn-default" value="Изменить">
+            </form>
         </div>
     </div>
+</div>
 {% endblock content %}
