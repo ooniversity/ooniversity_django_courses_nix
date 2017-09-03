@@ -1,9 +1,15 @@
 {% extends 'base.html' %}
 
+{% block students-active %} active {% endblock %}
+
 {% block title %} Students {% endblock %}
 
 {% block content %}
-<h3>{% if course_name %}Студенты курса "{{ course_name }}"{% else %} Список студентов {% endif %}</h3>
+
+<h3>
+    {% if course_name %}Студенты курса "{{ course_name }}"{% else %} Список студентов {% endif %}
+</h3>
+<a href="{% url 'students:add' %}" class="btn btn-lg btn-info">Add new student</a>
 {% if students.count %}
     <table class="table">
         <thead>
@@ -13,6 +19,7 @@
                 <th>Адрес</th>
                 <th>Skype</th>
                 <th>Курсы</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -33,6 +40,12 @@
                         </a>
                         <br>
                     {% endfor %}
+                </td>
+                <td>
+                    <a class="btn btn-primary" href="{% url 'students:edit' student.id %}">Edit</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" href="{% url 'students:remove' student.id %}">Remove</a>
                 </td>
             </tr>
         {% endfor %}
