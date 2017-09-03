@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %} Add course {% endblock %}
+
+{% block content %}
+
+<h3>Создание нового курса</h3>
+<hr>
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Создать">
+        </form>
+    </div>
+</div>
+
+{% endblock %}

@@ -20,8 +20,9 @@
 {% include 'include/instructor.html' with instructor=course.coach title='Coach' %}
 {% include 'include/instructor.html' with instructor=course.assistant title='Assistant' %}
 
-{% if lessons.count %}
 <h3>План курса:</h3>
+<a class="btn btn-primary" href="{% url 'courses:add_lesson' course.id %}">Добавить занятие</a>
+{% if lessons.count %}
     <table class="table">
         <thead>
             <tr class="left">

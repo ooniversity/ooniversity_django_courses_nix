@@ -15,11 +15,14 @@
 </div>
 <h3>Выбирай на каком курсе хочешь учиться!</h3>
 {% if courses.count %}
+<a class="btn btn-primary" href="{% url 'courses:add' %}">Добавить курс</a>
     <table class="table">
         <thead>
             <tr class="left">
             <th>Курс</th>
             <th>Описание</th>
+            <th></th>
+            <th></th>
             </tr>
         </thead>
         <tbody>
@@ -31,6 +34,16 @@
                     </a>
                 </th>
                 <td>{{ course.short_description|title }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{% url 'courses:edit' course.id %}">
+                        Edit
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" href="{% url 'courses:remove' course.id %}">
+                        Remove
+                    </a>
+                </td>
             </tr>
         {% endfor %}
         </tbody>
