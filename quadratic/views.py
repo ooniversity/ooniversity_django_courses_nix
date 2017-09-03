@@ -1,36 +1,23 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render
+from .forms import QuadraticForm
 
 def quadratic_results(request):
-    a = set_operand(request.GET['a'], True)
-    b = set_operand(request.GET['b'])
-    c = set_operand(request.GET['c'])
-    discriminant = result = is_valid = False
-    if type(a) != str and type(b) != str and type(c) != str:
-	    is_valid = True
+    discriminant = result = False
+    form = QuadraticForm()
+    if 'a' in request.GET and 'b' in request.GET and 'c' in request.GET:
+        form = QuadraticForm(request.GET)
 
-    if is_valid:
-        discriminant = b ** 2 - 4 * a * c
-        result = get_result(a, b, c, discriminant)
+    if form.is_valid():
+        data = form.cleaned_data
+        discriminant = data['b'] ** 2 - 4 * data['a'] * data['c']
+        result = get_result(data['a'], data['b'], data['c'], discriminant)
 
-    return render(request, "results.html", {'a': a,'b': b, 'c': c, 'discriminant': discriminant, 'result': result})
-
-def set_operand(value, first=False):
-    result = value
-    if value == '':
-    	result = 'коэффициент не определен'
-    else:
-        try:
-            result = int(value)
-            if first is True and value == 0:
-                result = str(value) + ' коэффициент при первом слагаемом уравнения не может быть равным нулю'
-        except ValueError:
-            result = str(value) + ' коэффициент не целое число'
-    return result
+    return render(request, "quadratic/results.html", {'form': form, 'discriminant': discriminant, 'result': result})
 
 def get_result(a, b, c, discriminant):
     if discriminant == 0:
-        x = x = (-b + discriminant ** (1 / 2)) / 2 * a
+        x = x = (-b + discriminant ** (1 / 2.0)) / 2 * a
         return 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = ' + str(x)
     elif discriminant < 0:
         return 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
