@@ -1,3 +1,6 @@
+<a href="{% url 'courses:add' %}" class="btn btn-primary">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Добавить новый курс</a>
+</a>
 <table class="table">
     <thead>
     <tr>
@@ -10,6 +13,8 @@
     <tr>
         <td><a href="{% url 'courses:detail' pk=course.id %}">{{ course.name|upper }}</a></td>
         <td>{{ course.short_description|title }}</td>
+        <td><a href="{% url 'courses:edit' pk=course.id %}" class="btn btn-primary">Редактировать</a></td>
+        <td><a href="{% url 'courses:remove' pk=course.id %}" class="btn btn-primary">Удалить</a></td>
     </tr>
     {% endfor %}
     </tbody>
