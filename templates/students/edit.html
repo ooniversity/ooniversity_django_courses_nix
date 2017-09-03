@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}pyBursa - Редактирование студента{% endblock title %}
+
+{% block nav_class_student %}active{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="col-sm-12">
+        <h2>Редактирование данных студента</h2>
+        <div class="col-sm-6">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" class="btn btn-default" value="Изменить">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
