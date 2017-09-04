@@ -41,6 +41,7 @@
 						<li {% block active_contact_class %}{% endblock %}><a href="{% url 'contact' %}">Contacts</a></li>
 						<li {% block active_students_class %}{% endblock %}><a {% block students_href %} href="{% url 'students:list_view' %}" {% endblock %}>Students</a></li>
 						<li {% block active_quadratic_class %}{% endblock %}><a href="{% url 'results' %}">Quadratic</a></li>
+						<li {% block active_feedback_class %}{% endblock %}><a href="{% url 'feedback' %}">Feedback</a></li>
 					</ul>
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
