@@ -39,7 +39,7 @@ class CourseUpdateView(UpdateView):
     template_name = 'courses/edit.html'
 
     def get_success_url(self):
-        return reverse('courses:edit', args=(self.object.id))
+        return reverse('courses:edit', kwargs={'pk':self.object.id})
 
     def form_valid(self, form):
         response = super().form_valid(form)
