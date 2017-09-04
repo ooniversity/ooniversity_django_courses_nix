@@ -17,7 +17,7 @@ class CourseDetailView(DetailView):
 class CourseCreateView(CreateView):
     model = Course
     template_name = 'courses/add.html'
-    success_url = reverse_lazy('courses:list_view')
+    success_url = reverse_lazy('index')
     form_class = CourseModelForm
 
     def form_valid(self, form):
@@ -39,7 +39,7 @@ class CourseUpdateView(UpdateView):
     template_name = 'courses/edit.html'
 
     def get_success_url(self):
-        return reverse('courses:edit', args=(self.object.id,))
+        return reverse('courses:edit', args=(self.object.id))
 
     def form_valid(self, form):
         response = super().form_valid(form)
@@ -56,7 +56,7 @@ class CourseDeleteView(DeleteView):
     model = Course
     template_name = 'courses/remove.html'
     form_class = CourseModelForm
-    success_url = reverse_lazy('courses:list_view')
+    success_url = reverse_lazy('index')
     context_object_name = 'course_obj'
 
     def delete(self, request, *args, **kwargs):
