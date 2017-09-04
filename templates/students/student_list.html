@@ -12,7 +12,8 @@
 <div class="alert alert-success" role="alert">
     <ul class="messages">
         {% for message in messages %}
-        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        <li
+        {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
         {% endfor %}
     </ul>
 </div>
@@ -23,9 +24,9 @@
     <div class="panel-body">
         <div class='otherContent'></div>
         <!--<button type="button" class="btn btn-default">Добавить нового студента</button>-->
-    <ul class="nav nav-pills">
-        <li role="presentation" class="active"><a href="{% url 'students:add' %}">Добавить нового студента</a></li>
-    </ul>
+        <ul class="nav nav-pills">
+            <li role="presentation" class="active"><a href="{% url 'students:add' %}">Добавить нового студента</a></li>
+        </ul>
     </div>
     <!-- <h2>Students list</h2> -->
     <!-- Table -->
@@ -38,33 +39,59 @@
             <th>course</th>
         </tr>
         {% if student_list %}
-            {% for student in student_list %}
-            <tr>
-                <td>{{ forloop.counter }}</td>
-                <td><a href="{% url 'students:detail' student.id %}">{{ student.name}} {{ student.surname}}</a></td>
-                <td>{{ student.address}}</td>
-                <td>{{ student.skype}}</td>
-                <td>
-                    {% for crs in student.courses.all %}
-                    <a href="{% url 'courses:detail' crs.id %}">{{ crs.name}}</a>
-                        <br>
-                    {% endfor %}
-                </td>
-                <td>
-                    <ul class="nav nav-pills">
-                    <li role="presentation" class="active"><a href="{% url 'students:edit' student.id %}">Изменить</a></li>
-                    </ul>
-                </td>
-                <td>
-                    <ul class="nav nav-pills">
-                    <li role="presentation" class="active"><a href="{% url 'students:remove' student.id %}">Удалить</a></li>
-                    </ul>
-                </td>
-            </tr>
-            {% endfor %}
+        {% for student in student_list %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td><a href="{% url 'students:detail' student.id %}">{{ student.name}} {{ student.surname}}</a></td>
+            <td>{{ student.address}}</td>
+            <td>{{ student.skype}}</td>
+            <td>
+                {% for crs in student.courses.all %}
+                <a href="{% url 'courses:detail' crs.id %}">{{ crs.name}}</a>
+                <br>
+                {% endfor %}
+            </td>
+            <td>
+                <ul class="nav nav-pills">
+                    <li role="presentation" class="active"><a href="{% url 'students:edit' student.id %}">Изменить</a>
+                    </li>
+                </ul>
+            </td>
+            <td>
+                <ul class="nav nav-pills">
+                    <li role="presentation" class="active"><a href="{% url 'students:remove' student.id %}">Удалить</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        {% endfor %}
         {% else %}
         <p>No students are available.</p>
         {% endif %}
     </table>
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <li>
+                {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                    <span aria-hidden="true"><< previous</span>
+                </a>
+                {% endif %}
+            </li>
+            {% for page_num in paginator.page_range %}
+            <li><a href="?page={{ page_num }}">{{ page_num }}</a></li>
+            {% endfor %}
+            <li>
+                {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                    <span aria-hidden="true">next >></span>
+                </a>
+                {% endif %}
+            </li>
+        </ul>
+    </nav>
+    {% endif %}
+
 </div>
 {% endblock %}
