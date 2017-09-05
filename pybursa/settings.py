@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'quadratic',
     'courses',
     'students',
-    'coaches'
+    'coaches',
+    'feedbacks'
 ]
 
 MIDDLEWARE = [
@@ -130,3 +131,5 @@ STATICFILES_DIRS = [
 ]
 
 admin.site.site_header = 'PyBursa Administration'
+
+ADMINS = [('Vladislav Arhipov', 'nix.arhipov@gmail.com')]
