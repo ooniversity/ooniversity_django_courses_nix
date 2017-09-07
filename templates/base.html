@@ -15,7 +15,7 @@
 		      <a class="nav-link" href="{% url 'contact' %}">Contacts</a>
         </li>
         <li class="nav-item {% block active_students %} {% endblock %}">
-          <a class="nav-link" href="{% url 'students:list_view' %}">Students</a>
+          <a class="nav-link" href="{% url 'students:list_view' %}{% if course.id %}?course_id={{ course.id }}{% endif %}">Students</a>
         </li>
       </ul>
 	  </div>
