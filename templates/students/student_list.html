@@ -8,7 +8,7 @@
 
 <h3>{{ page_title }}</h3>
 <a href="{% url 'students:add' %}" class="btn btn-lg btn-info">Add new student</a>
-{% if students.count %}
+{% if object_list.count %}
     <table class="table">
         <thead>
             <tr class="left">
@@ -21,7 +21,7 @@
             </tr>
         </thead>
         <tbody>
-        {% for student in students %}
+        {% for student in object_list %}
             <tr class="left">
                 <th scope="row">{{ forloop.counter }}</th>
                 <td>

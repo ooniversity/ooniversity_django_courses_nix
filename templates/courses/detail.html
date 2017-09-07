@@ -3,8 +3,8 @@
 {% block title %} Course details {% endblock %}
 
 {% block students %}
-<li class="{% if request.resolver_match.url_name == 'students:list' %}active{% endif %}">
-    <a href="{% url 'students:list' %}?course_id={{ course.id }}">Students</a>
+<li class="{% if request.resolver_match.url_name == 'students:list_view' %}active{% endif %}">
+    <a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Students</a>
 </li>
 {% endblock %}
 

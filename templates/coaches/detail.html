@@ -34,7 +34,7 @@
               <a href="{% url 'courses:detail' c_course.id %}">
                 {{ c_course.name }}
               </a>
-              <a href="{% url 'students:list' %}?course_id={{ c_course.id }}">
+              <a href="{% url 'students:list_view' %}?course_id={{ c_course.id }}">
                 Students
               </a>
               <br>
@@ -48,7 +48,7 @@
               <a href="{% url 'courses:detail' a_course.id %}">
                 {{ a_course.name }}
               </a>
-              <a href="{% url 'students:list' %}?course_id={{ a_course.id }}">
+              <a href="{% url 'students:list_view' %}?course_id={{ a_course.id }}">
                 Students
               </a>
               <br>
