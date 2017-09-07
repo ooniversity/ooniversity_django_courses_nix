@@ -2,11 +2,11 @@
 
 {% block students-active %} active {% endblock %}
 
-{% block title %} {{ page_title }} {% endblock %}
+{% block title %}pyBursa - Студенты{% endblock %}
 
 {% block content %}
 
-<h3>{{ page_title }}</h3>
+<h3>Список студентов</h3>
 <a href="{% url 'students:add' %}" class="btn btn-lg btn-info">Add new student</a>
 {% if object_list.count %}
     <table class="table">
