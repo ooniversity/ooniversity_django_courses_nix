@@ -8,7 +8,7 @@ from .forms import CourseModelForm, LessonModelForm
 
 class CourseDetailView(DetailView):
     model = Course
-    #context_object_name = 'course'
+    context_object_name = 'course'
     template_name = 'courses/detail.html'
 
 
@@ -36,7 +36,9 @@ class CourseUpdateView(UpdateView):
     model = Course
     form_class = CourseModelForm
     template_name = 'courses/edit.html'
-    success_url = reverse_lazy('index')
+
+    def get_success_url(self):
+        return reverse_lazy('courses:edit', kwargs={'pk': self.object.id})
 
     def get_context_data(self, **kwargs):
         context = super(CourseUpdateView, self).get_context_data(**kwargs)
