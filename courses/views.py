@@ -2,10 +2,6 @@ from django.shortcuts import get_object_or_404, render
 from . import models
 
 
-def list_view():
-    pass
-
-
 def detail(request, pk):
     course = get_object_or_404(models.Course, pk=pk)
     context = {

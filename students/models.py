@@ -14,3 +14,7 @@ class Students(models.Model):
 
     def __str__(self):
         return self.surname + ' ' + self.name
+
+    @property
+    def full_name(self):
+        return self.surname + ' ' + self.name

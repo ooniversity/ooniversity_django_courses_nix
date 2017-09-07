@@ -22,7 +22,7 @@
               <a class="nav-link" href="{% url 'contact' %}">Contacts</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'student_list' %}">Students</a>
+              <a class="nav-link" href="{% url 'students:course_students' course_id=course.id %}">Students</a>
             </li>
           </ul>
         </nav>
@@ -44,9 +44,9 @@
                 </tr>
                 {% for lesson in lessons %}
                    <tr>
-                       <td>{{lesson.order}}</td>
-                       <td>{{lesson.name}}</a></td>
-                       <td>{{lesson.description}}</td>
+                       <td>{{ lesson.order }}</td>
+                       <td>{{ lesson.name }}</td>
+                       <td>{{ lesson.description }}</td>
                    </tr>
                 {% endfor %}
             </thead>
