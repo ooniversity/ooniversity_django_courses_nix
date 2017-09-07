@@ -12,27 +12,12 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 class StudentListView(ListView):
     model = Student
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        course_id = self.request.GET.get('course_id')
-        course_name = ''
-        page_title = 'Список студентов'
-        if course_id:
-            course = Course.objects.get(pk=course_id)
-            course_name = course.name
-            page_title = 'Студенты курса ' + course_name
-        context['course_name'] = course_name
-        context['page_title'] = page_title
-
-        return context
-
     def get_queryset(self):
-        qs = super().get_queryset()
-        course_id = self.request.GET.get('course_id')
+        queryset = super().get_queryset()
+        course_id = self.request.GET.get('course_id', None)
         if course_id:
-            qs = Student.objects.filter(courses__id__contains=course_id)
-
-        return qs
+            queryset = Student.objects.filter(courses__id=course_id)
+        return queryset
 
 
 class StudentDetailView(DetailView):
