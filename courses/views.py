@@ -6,6 +6,9 @@ from .forms import CourseModelForm, LessonModelForm
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
+import logging
+logger = logging.getLogger(__name__)
+
 
 # Create your views here.
 def list_view(request):
@@ -19,6 +22,11 @@ class CourseDetailView(DetailView):
     model = Course
     template_name = 'courses/detail.html'
     context_object_name = 'course_obj'
+
+    logger.debug('Courses detail view has been debugged!')
+    logger.warning('Logger of courses detail view warns you!')
+    logger.info('Logger of courses detail view informs you!')
+    logger.error('Courses detail view went wrong!')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

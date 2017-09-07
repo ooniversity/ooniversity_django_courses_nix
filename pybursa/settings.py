@@ -129,8 +129,94 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-ADMINS = [('Alex', 'belohonov.a@gmail.com')]
+ADMINS = [('Alex', 'ab@gmail.com')]
 
 EMAIL_HOST = '127.0.0.1'
 
 EMAIL_PORT = '1025'
+
+import os
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+
+        'file_courses_debug': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'courses_logger.log',
+            'formatter': 'simple'
+        },
+        'file_courses_info': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': 'courses_logger.log',
+            'formatter': 'simple'
+        },
+        'file_courses_warning': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': 'courses_logger.log',
+            'formatter': 'simple'
+        },
+        'file_courses_error': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': 'courses_logger.log',
+            'formatter': 'simple'
+        },
+        'file_students_debug': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'students_logger.log',
+            'formatter': 'verbose'
+        },
+        'file_students_info': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': 'students_logger.log',
+            'formatter': 'verbose'
+        },
+        'file_students_warning': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': 'students_logger.log',
+            'formatter': 'verbose'
+        },
+        'file_students_error': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': 'students_logger.log',
+            'formatter': 'verbose'
+        },
+    },
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s: %(message)s'
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
+        },
+        'courses': {
+            'handlers': ['console', 'file_courses_debug', 'file_courses_info',
+                         'file_courses_warning', 'file_courses_error'],
+            'level': 'DEBUG'
+        },
+        'students': {
+            'handlers': ['console', 'file_students_debug', 'file_students_info',
+                         'file_students_warning', 'file_students_error'],
+            'level': 'WARNING'
+        },
+    },
+}
