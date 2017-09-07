@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
-{% block title %}pyBursa - Удаление курса{% endblock title %}
+{% block title %}{{ title }}{% endblock title %}
 
 {% block content %}
 <div class="col-sm-12">
+    <h2>{{ title }}</h2>
     <p>Курс {{ course.name }} будет удален</p>
     <form method="post">
         {% csrf_token %}
