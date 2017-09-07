@@ -21,7 +21,7 @@
         <a href="{% url 'students:add' %}" class="btn btn-primary">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Добавить нового студента</a>
     </div>
-    <h1>Списко студентов</h1>
+    <h1>Список студентов</h1>
     <table class="table table-hover">
         <thead class="thead-inverse">
             <tr>
@@ -33,7 +33,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for student in students %}
+            {% for student in object_list %}
             <tr>
                 <th scope="row">{{ student.id }}</th>
                 <td><a href="{% url 'students:detail' pk=student.id %}">{{ student.surname }} {{ student.name }}</a></td>
