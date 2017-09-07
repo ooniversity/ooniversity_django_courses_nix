@@ -11,7 +11,6 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 class StudentListView(ListView):
     model = Student
-    template_name = 'students/student_list.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -38,7 +37,6 @@ class StudentListView(ListView):
 
 class StudentDetailView(DetailView):
     model = Student
-    context_object_name = 'student'
 
 
 class StudentCreateView(CreateView):
