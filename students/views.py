@@ -7,10 +7,18 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
+import logging
+logger = logging.getLogger(__name__)
+
 
 # Create your views here.
 class StudentDetailView(DetailView):
     model = Student
+
+    logger.debug('Students detail view has been debugged!')
+    logger.warning('Logger of students detail view warns you!')
+    logger.info('Logger of students detail view informs you!')
+    logger.error('Students detail view went wrong!')
 
 
 class StudentListView(ListView):
@@ -30,8 +38,8 @@ class StudentListView(ListView):
 class StudentCreateView(CreateView):
     model = Student
     success_url = reverse_lazy('students:list_view')
-    form_class = StudentModelForm
-    #fields = '__all__'
+    #form_class = StudentModelForm
+    fields = '__all__'
 
     def form_valid(self, form):
         response = super().form_valid(form)

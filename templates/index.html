@@ -29,7 +29,7 @@
 
     </div>
     <ul class="nav nav-pills">
-        <li role="presentation" class="active"><a href="{% url 'courses:add' %}">Добавить новый курс</a></li>
+        <li role="presentation" class="active"><a href="{% url 'courses:add' %}"><span class="glyphicon glyphicon-plus" aria-hidden="true">&nbsp;</span>Добавить новый курс</a></li>
     </ul>
 
     <h2>Select a course</h2>
@@ -46,13 +46,13 @@
             <td>{{course.short_description|title}}</td>
             <td>
                 <ul class="nav nav-pills">
-                    <li role="presentation" class="active"><a href="{% url 'courses:edit' course.id %}">Изменить</a>
+                    <li role="presentation" class="active"><a href="{% url 'courses:edit' course.id %}"><span class="glyphicon glyphicon-pencil" aria-hidden="true">&nbsp;</span>Изменить</a>
                     </li>
                 </ul>
             </td>
             <td>
                 <ul class="nav nav-pills">
-                    <li role="presentation" class="active"><a href="{% url 'courses:remove' course.id %}">Удалить</a>
+                    <li role="presentation" class="active"><a href="{% url 'courses:remove' course.id %}"><span class="glyphicon glyphicon-remove" aria-hidden="true">&nbsp;</span>Удалить</a>
                     </li>
                 </ul>
             </td>

@@ -25,7 +25,7 @@
         <div class='otherContent'></div>
         <!--<button type="button" class="btn btn-default">Добавить нового студента</button>-->
         <ul class="nav nav-pills">
-            <li role="presentation" class="active"><a href="{% url 'students:add' %}">Добавить нового студента</a></li>
+            <li role="presentation" class="active"><a href="{% url 'students:add' %}"><span class="glyphicon glyphicon-plus" aria-hidden="true">&nbsp;</span>Добавить нового студента</a></li>
         </ul>
     </div>
     <!-- <h2>Students list</h2> -->
@@ -53,13 +53,13 @@
             </td>
             <td>
                 <ul class="nav nav-pills">
-                    <li role="presentation" class="active"><a href="{% url 'students:edit' student.id %}">Изменить</a>
+                    <li role="presentation" class="active"><a href="{% url 'students:edit' student.id %}"><span class="glyphicon glyphicon-pencil" aria-hidden="true">&nbsp;</span>Изменить</a>
                     </li>
                 </ul>
             </td>
             <td>
                 <ul class="nav nav-pills">
-                    <li role="presentation" class="active"><a href="{% url 'students:remove' student.id %}">Удалить</a>
+                    <li role="presentation" class="active"><a href="{% url 'students:remove' student.id %}"><span class="glyphicon glyphicon-remove" aria-hidden="true">&nbsp;</span>Удалить</a>
                     </li>
                 </ul>
             </td>
