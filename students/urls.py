@@ -5,9 +5,9 @@ from . import views
 
 app_name = 'students'
 urlpatterns = [
-    url(r'^$', views.list_view, name='list_view'),
-    url(r'^(?P<student_id>[0-9]+)/$', views.detail, name='detail'),
-    url(r'^add/$', views.create, name='add'),
-    url(r'^(?P<student_id>[0-9]+)/edit/$', views.edit, name='edit'),
-    url(r'^(?P<student_id>[0-9]+)/remove/$', views.remove, name='remove'),
+    url(r'^$', views.StudentListView.as_view(), name='list'),
+    url(r'^(?P<pk>\d+)/$', views.StudentDetailView.as_view(), name='detail'),
+    url(r'^add/$', views.StudentCreateView.as_view(), name='add'),
+    url(r'^(?P<pk>\d+)/edit/$', views.StudentUpdateView.as_view(), name='edit'),
+    url(r'^(?P<pk>[0-9]+)/remove/$', views.StudentDeleteView.as_view(), name='remove'),
 ]

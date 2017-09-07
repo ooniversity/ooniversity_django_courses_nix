@@ -2,13 +2,11 @@
 
 {% block students-active %} active {% endblock %}
 
-{% block title %} Students {% endblock %}
+{% block title %} {{ page_title }} {% endblock %}
 
 {% block content %}
 
-<h3>
-    {% if course_name %}Студенты курса "{{ course_name }}"{% else %} Список студентов {% endif %}
-</h3>
+<h3>{{ page_title }}</h3>
 <a href="{% url 'students:add' %}" class="btn btn-lg btn-info">Add new student</a>
 {% if students.count %}
     <table class="table">
