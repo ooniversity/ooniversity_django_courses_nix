@@ -45,9 +45,16 @@
             <a href="{% if course_id %}?course_id={{ course_id }}&{% else %}?{% endif %}page={{ page_obj.previous_page_number }}">previous</a>
           {% endif %}
 
-          <span class="current">
-            Page {{ page_obj.number }} of {{ paginator.num_pages }}.
-          </span>
+          {% for i in paginator.page_range %}
+            {% if page_obj.number == i %}
+              <span>{{i}}</span>
+            {% else %}
+              <a href="{% if course_id %}?course_id={{ course_id }}&{% else %}?{% endif %}page={{i}}">{{i}}</a>
+            {% endif %}
+          {% endfor %}
+          {#<span class="current">#}
+            {#Page {{ page_obj.number }} of {{ paginator.num_pages }}.{{ paginator.page }}#}
+          {#</span>#}
 
           {% if page_obj.has_next %}
             <a href="{% if course_id %}?course_id={{ course_id }}&{% else %}?{% endif %}page={{ page_obj.next_page_number }}">next</a>
