@@ -11,6 +11,7 @@ from .models import Student
 
 class StudentListView(ListView):
     model = Student
+    paginate_by = 2
 
     def get_queryset(self):
         if 'course_id' in self.request.GET:
@@ -22,7 +23,6 @@ class StudentListView(ListView):
 
 class StudentDetailView(DetailView):
     model = Student
-
 
 class StudentCreateView(CreateView):
     model = Student
