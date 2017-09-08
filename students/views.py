@@ -13,6 +13,7 @@ from .forms import StudentModelForm
 
 class StudentListView(ListView):
     model = Student
+    paginate_by = 2
 
     def get_queryset(self):
         if 'course_id' in self.request.GET:
