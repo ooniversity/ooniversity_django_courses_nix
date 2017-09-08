@@ -23,14 +23,3 @@ class FeedbackView(CreateView):
 
         return response
 
-    def form_valid(self, form):
-        response = super().form_valid(form)
-        messages.success(self.request, 'Course ' + self.object.name + ' has been successfully added.')
-
-        return response
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = 'Course creation'
-
-        return context
