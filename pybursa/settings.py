@@ -132,4 +132,7 @@ STATICFILES_DIRS = [
 
 admin.site.site_header = 'PyBursa Administration'
 
+EMAIL_HOST = '127.0.0.1'
+EMAIL_PORT = '1025'
+
 ADMINS = [('Viacheslav Kovalenko', 'kovalenko_v@gmail.com')]
