@@ -29,7 +29,7 @@
 .course-description {
 	font-size: 2em;
 }
-.card {
+.contacts .card {
 	float: left;
     width: 30.333%;
     padding: .75rem;
@@ -37,26 +37,29 @@
     border: 0;
 	position: relative;
 }
-.card-image {
+.contacts  .card-image {
 	height: 128px;
     width: 128px;
     display: block;
 }
-.card-title {
+.contacts  .card-title {
 	font-size: 1.2rem;
 	margin-top: 2rem;
 }
-.card-text {
+.contacts  .card-text {
 	margin-left: 1rem;
 }
 
-.contact-card {
+.contacts .contact-card {
 	width: 20rem;
 	margin-bottom: 1rem;
 }
 
-.card-body {
+.contacts .card-body {
 	background-color: #e9ecef;
+}
+.card-body {
+	padding: 1.25em;
 }
 
 .project-title {
@@ -91,4 +94,9 @@
 	min-height: 32rem;
 	padding-top: 2rem;
 	background-color: #f7f7f7;
+}
+
+.course_students_link {
+	width: 25px;
+	height: 25px;
 }

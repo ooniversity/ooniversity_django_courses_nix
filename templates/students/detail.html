@@ -47,24 +47,11 @@
                 <th>Skype</th>
                 <td>{{ student.skype }}</td>
               </tr>
-              <tr>
-                <th>Address</th>
-                <td>some address 234</td>
-              </tr>
-              <tr>
-                <th>E-mail</th>
-                <td>vasia_pupkin@gmail.com</td>
-              </tr>
-              <tr>
-                <th>Skype</th>
-                <td>vasia_pupkin</td>
-              </tr>
-              <tr>
-                <th>Телефон</th>
+              <th>Телефон</th>
                 <td>{{ student.phone }}</td>
               </tr>
               <tr>
-                <th>Курсы</th>
+              <th>Курсы</th>
                 <td>
                   {% for course in student.courses.all %}
                     <p><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></p>
