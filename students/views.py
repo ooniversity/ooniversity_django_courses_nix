@@ -15,6 +15,13 @@ class StudentListView(ListView):
     model = Student
     paginate_by = 2
 
+    def get_context_data(self, **kwargs):
+        context = super(StudentListView, self).get_context_data(**kwargs)
+        if 'course_id' in self.request.GET:
+            context['course_id'] = self.request.GET['course_id']
+        
+        return context
+
     def get_queryset(self):
         if 'course_id' in self.request.GET:
             queryset = self.model._default_manager.filter(courses = self.request.GET['course_id'])
