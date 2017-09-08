@@ -21,8 +21,8 @@
 {% include 'include/instructor.html' with instructor=course.assistant title='Assistant' %}
 
 <h3>План курса:</h3>
-<a class="btn btn-primary" href="{% url 'courses:add-lesson' course.id %}">Добавить занятие</a>
-{% if lessons.count %}
+<a class="btn btn-primary" href="{% url 'courses:addlesson' course.id %}">Добавить занятие</a>
+{% if course.lesson_set.all.count %}
     <table class="table">
         <thead>
             <tr class="left">
@@ -32,7 +32,7 @@
             </tr>
         </thead>
         <tbody>
-        {% for lesson in lessons %}
+        {% for lesson in course.lesson_set.all %}
             <tr class="left">
                 <th scope="row">{{ forloop.counter }}</th>
                 <td>{{ lesson.subject }}</td>
