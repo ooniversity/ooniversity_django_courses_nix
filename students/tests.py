@@ -60,7 +60,6 @@ class StudentsListTest(TestCase):
         #print(qs[0].name)
         #print(qs[0].surname)
         #print(qs[0].courses.all()[0].id)
-        #print(qs)
 
         response = client.get('/students/?course_id=1')
 
@@ -112,12 +111,12 @@ class StudentsListTest(TestCase):
         response = client.get('/students/')
 
         tree = etree.HTML(response.content)
-        r = tree.xpath('//table[@class="table"]/tr')
+        table_tr = tree.xpath('//table[@class="table"]/tr')
         #for i in r:
         #    print(i)
 
         self.assertEquals(response.status_code, 200)
-        self.assertEquals(len(r), 3)
+        self.assertEquals(len(table_tr), 3)
 
     def test_page_empty(self):
         client = Client()
