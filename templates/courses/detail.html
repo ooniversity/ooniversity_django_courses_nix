@@ -34,9 +34,12 @@
     </div>
 
     <h3>Teachers</h3>
-
-    {% include 'include/instructor_include.html' with block_title='Teacher' instructor=course_obj.coach%}
-    {% include 'include/instructor_include.html' with block_title='Assistant' instructor=course_obj.assistant%}
+    {% if course_obj.coach%}
+        {% include 'include/instructor_include.html' with block_title='Teacher' instructor=course_obj.coach%}
+    {% endif %}
+    {% if course_obj.assistant%}
+        {% include 'include/instructor_include.html' with block_title='Assistant' instructor=course_obj.assistant%}
+    {% endif %}
 
     <h2>Lessons plan</h2>
     <ul class="nav nav-pills">
