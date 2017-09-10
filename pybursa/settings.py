@@ -27,9 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
-
 INSTALLED_APPS = [
     'feedbacks.apps.FeedbacksConfig',
     'coaches.apps.CoachesConfig',
@@ -135,7 +133,6 @@ EMAIL_HOST = '127.0.0.1'
 
 EMAIL_PORT = '1025'
 
-import os
 
 LOGGING = {
     'version': 1,
@@ -220,3 +217,8 @@ LOGGING = {
         },
     },
 }
+
+try:
+    from local_settings import *
+except ImportError:
+    print("Warning! local_settings are not defined!")
