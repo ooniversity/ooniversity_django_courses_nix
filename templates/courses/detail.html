@@ -1,97 +1,36 @@
+{% extends "base.html" %}
 {% load staticfiles %}
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="The PySchool main page">
-    <meta name="author" content="Slava NIk">
-    <title>{{ course.short_description }}</title>
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-  </head>
-  <body>
-  	<div class="container">
-      <div class="header clearfix">
-        <nav>
-          <ul class="nav nav-pills float-right">
-            <li class="nav-item">
-              <a class="nav-link active" href="{% url 'index' %}">Main</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'contact' %}">Contacts</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'students:course_students' course.id  %}">Students</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-
-      <h1 class="display-3 course-name">{{ course.name }} </h1>
-      <div class="lead text-muted">
-          <p>{{ course.description }}</p>
-      </div>
-      <h2>Преподаватели</h2>
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="card">
-            <div class="card-header">
-              Учитель
-            </div>
-            <div class="card-body">
-              <p class="card-title">
-                  <a href="{% url 'coaches:detail' course.coach.id %}">{{ course.coach.full_name }}</a>
-              </p>
-              <p class="card-text">{{ course.coach.description }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="clearfix"></div>
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="card">
-            <div class="card-header">
-              Ассистент
-            </div>
-            <div class="card-body">
-              <p class="card-title">
-                  <a href="{% url 'coaches:detail' course.coach.id %}">{{ course.assistant.full_name }}</a>
-              </p>
-              <p class="card-text">{{ course.assistant.description }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row about-course">
-        <div class="col-lg-12">
-          <article class="main-content">
-            <h2>План курса</h2>
-            <table class="table">
-              <thead class="thead-inverse">
-                <tr>
-                  <th>#</th>
-                  <th>Тема</th>
-                  <th>Описание</th>
-                </tr>
-                {% for lesson in lessons %}
-                   <tr>
-                       <td>{{ lesson.order }}</td>
-                       <td>{{ lesson.subject }}</td>
-                       <td>{{ lesson.description }}</td>
-                   </tr>
-                {% endfor %}
-            </thead>
-            </table>
-        </article>
-      </div>
-    </div>
-
-    <footer class="text-muted">
-      <p class="text-center">&copy; The PySchool 2017, some rights reserved</p>
-    </footer>
+{% block title %}The PySchool - {{ course.name }}{% endblock title %}
+{% block description %}{{ course.description|truncatechars:32 }}{% endblock description %}
+{% block main_content%}
+  <h1 class="display-3 course-name">{{ course.name }} </h1>
+  <div class="lead text-muted">
+    <p>{{ course.description }}</p>
   </div>
-  <script type="text/javascript" src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
-  <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
-  </body>
+  <h2>Преподаватели</h2>
+{% include "includes/course_coach_include.html" with block_title="Учитель" instructor=course.coach %}
+{% include "includes/course_coach_include.html" with block_title="Ассистент" instructor=course.assistant %}
+  <div class="row about-course">
+    <div class="col-lg-12">
+      <article class="main-content">
+        <h2>План курса</h2>
+        <table class="table">
+          <thead class="thead-inverse">
+            <tr>
+              <th>#</th>
+              <th>Тема</th>
+              <th>Описание</th>
+            </tr>
+          {% for lesson in lessons %}
+            <tr>
+              <td>{{ lesson.order }}</td>
+              <td>{{ lesson.subject }}</td>
+              <td>{{ lesson.description }}</td>
+            </tr>
+          {% endfor %}
+          </thead>
+        </table>
+      </article>
+    </div>
+  </div>
+{% endblock main_content %}

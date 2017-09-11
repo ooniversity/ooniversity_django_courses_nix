@@ -1,74 +1,40 @@
+{% extends "base.html" %}
 {% load staticfiles %}
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="PySchool contacts">
-    <meta name="author" content="Slava NIk">
-    <title>{{ student.full_name }} details page</title>
-     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-  </head>
-  <body>
-  	<div class="container">
-      <div class="header clearfix">
-        <nav>
-         <ul class="nav nav-pills float-right">
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'index' %}">Main</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'contact' %}">Contacts</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'students:index' %}">Students</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-        <h2 class="text-muted project-title">{{ student.full_name }}</h2>
-        <div class="container student-details">
-          <table class="table">
-            <tbody>
-              <tr>
-                <th>Дата рождения</th>
-                <td>{{ student.date_of_birth|date:"N d, Y" }}</td>
-              </tr>
-              <tr>
-                <th>Адрес</th>
-                <td>{{ student.address }}</td>
-              </tr>
-              <tr>
-                <th>Почта</th>
-                <td>{{ student.email }}</td>
-              </tr>
-              <tr>
-                <th>Skype</th>
-                <td>{{ student.skype }}</td>
-              </tr>
-              <th>Телефон</th>
-                <td>{{ student.phone }}</td>
-              </tr>
-              <tr>
-              <th>Курсы</th>
-                <td>
-                  {% for course in student.courses.all %}
-                    <p><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></p>
-                  {% endfor %}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        </div>
-    </div>
-  <footer class="main-footer clearfix">
-    <p class="text-center">&copy; The PySchool 2017, some rights reserved</p>
-  </footer>
+{% block title %}The PySchool - {{ student.full_name }}{% endblock title %}
+{% block description %}{{ student.full_name}} details page{% endblock description %}
+{% block main_content%}
+  <h2 class="text-muted project-title">{{ student.full_name }}</h2>
+  <div class="container student-details">
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>Дата рождения</th>
+          <td>{{ student.date_of_birth|date:"N d, Y" }}</td>
+        </tr>
+        <tr>
+          <th>Адрес</th>
+          <td>{{ student.address }}</td>
+        </tr>
+        <tr>
+          <th>Почта</th>
+          <td>{{ student.email }}</td>
+        </tr>
+        <tr>
+          <th>Skype</th>
+          <td>{{ student.skype }}</td>
+        </tr>
+          <th>Телефон</th>
+          <td>{{ student.phone }}</td>
+        </tr>
+        <tr>
+          <th>Курсы</th>
+          <td>
+          {% for course in student.courses.all %}
+            <p><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></p>
+          {% endfor %}
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <script type="text/javascript" src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
-  <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
-  </body>
-</html>
+{% endblock main_content %}
