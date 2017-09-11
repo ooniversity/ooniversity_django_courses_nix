@@ -112,8 +112,6 @@ class StudentsListTest(TestCase):
 
         tree = etree.HTML(response.content)
         table_tr = tree.xpath('//table[@class="table"]/tr')
-        #for i in r:
-        #    print(i)
 
         self.assertEquals(response.status_code, 200)
         self.assertEquals(len(table_tr), 3)
