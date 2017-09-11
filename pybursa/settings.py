@@ -25,7 +25,7 @@ SECRET_KEY = 'u#62a83!q(jk%3n&p1(ljeg^@o&*-)y6wvk^l-o8lj=%df%ju9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 # Application definition
 INSTALLED_APPS = [
@@ -126,6 +126,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_files')
 
 ADMINS = [('Alex', 'ab@gmail.com')]
 
