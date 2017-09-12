@@ -15,6 +15,7 @@ logger = logging.getLogger(__name__)
 class StudentListView(ListView):
     model = Student
     paginate_by = 2
+    ordering = ['-id']
 
     def get_queryset(self):
         qs = super().get_queryset()
