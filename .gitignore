@@ -5,3 +5,5 @@
 __pycache__
 venv/
 .DS_Store
+courses_logger.log
+students_logger.log

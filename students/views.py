@@ -8,6 +8,9 @@ from django.urls import reverse_lazy
 
 from .models import Student
 
+import logging
+logger = logging.getLogger(__name__)
+
 
 class StudentListView(ListView):
     model = Student
@@ -23,6 +26,11 @@ class StudentListView(ListView):
 
 class StudentDetailView(DetailView):
     model = Student
+
+    logger.debug('Students detail view has been debugged!')
+    logger.warning('Logger of students detail view warns you!')
+    logger.info('Logger of students detail view informs you!')
+    logger.error('Students detail view went wrong!')
 
 
 class StudentCreateView(CreateView):
