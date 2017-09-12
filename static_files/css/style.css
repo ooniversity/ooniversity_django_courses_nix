@@ -1,0 +1,51 @@
+/*h2:hover {
+	text-decoration:underline;
+}*/
+
+h2 {
+	font-family:Tahoma;
+	font-size: 25px;
+}
+
+.titleH {
+	font-size: 30px;
+}
+
+a {
+	text-decoration:underline;
+}
+
+.cust_div {
+	border-width: 2px 2px 2px 2px;
+	border-color: black;
+	border-style: solid;
+	padding-left: 5px;
+}
+
+#img1 {
+	width: 50px;
+	height: 50px;
+}
+
+
+.content {
+	padding: 10px 10px 10px 10px;
+	font-size: 15px;
+}
+
+.otherContent {
+	font-size: 15px;
+	font-style: italic;
+}
+
+.text {
+	font-size: 20px;
+}
+
+.textlink {
+	font-size: 20px;
+	color:blue;
+}
+
+
+
