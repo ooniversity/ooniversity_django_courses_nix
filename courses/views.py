@@ -7,11 +7,19 @@ from .forms import CourseModelForm, LessonModelForm
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
+import logging
+logger = logging.getLogger(__name__)
+
 
 class CourseDetailView(DetailView):
     model = Course
     template_name = 'courses/detail.html'
     context_object_name = 'course'
+
+    logger.debug('Courses detail view has been debugged!')
+    logger.warning('Logger of courses detail view warns you!')
+    logger.info('Logger of courses detail view informs you!')
+    logger.error('Courses detail view went wrong!')
 
 
 class CourseCreateView(CreateView):
