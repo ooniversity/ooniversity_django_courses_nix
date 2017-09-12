@@ -23,7 +23,7 @@
         <tbody>
         {% for student in object_list %}
             <tr class="left">
-                <th scope="row">{{ forloop.counter }}</th>
+                <th scope="row">{{ student.id }}</th>
                 <td>
                     <a href="{% url 'students:detail' student.id %}">
                         {{ student.surname }} {{ student.name }}
@@ -49,6 +49,9 @@
         {% endfor %}
         </tbody>
     </table>
+
+    {% include 'include/pagination.html' %}
+
 {% endif %}
 
 {% endblock %}
