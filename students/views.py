@@ -23,7 +23,7 @@ class StudentListView(ListView):
             qs = Student.objects.filter(courses__id=course_id)
         return qs
 
-#some comment
+#some comment edited
 class StudentDetailView(DetailView):
     model = Student
 
