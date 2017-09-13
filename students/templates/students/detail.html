@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Mother of all Bursas, father of all Python">
+    <meta name="author" content="Kostyantyn Kedrya">
+    <title>The PythoThrone - main page</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+</head>
+<body>
+<div class="container">
+    <div class="header clearfix main-header">
+        <!-- The nav section -->
+        <nav>
+            <ul class="nav nav-pills float-right">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'index' %}">Main</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contact' %}">Contacts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'student_list' %}">Students</a>
+                </li>
+            </ul>
+        </nav>
+        <h3 class="project-title">The PythonThrone</h3>
+    </div>
+    <!-- End of nav section -->
+
+    <h1>{{ student|stringformat:"s" }}</h1>
+    <table>
+        <tbody>
+        <tr>
+            <td>
+                дата рождения
+            </td>
+            <td>
+                {{ student.date_of_birth }}
+            </td>
+        </tr>
+        <tr>
+            <td>email</td>
+            <td>{{ student.email }}</td>
+        </tr>
+        <tr>
+            <td>телефон</td>
+            <td>{{ student.phone }}</td>
+        </tr>
+        <tr>
+            <td>адрес</td>
+            <td>{{ student.address }}</td>
+        </tr>
+        <tr>
+            <td>skype</td>
+            <td>{{ student.skype }}</td>
+        </tr>
+        <tr>
+            <td>курсы</td>
+            <td>
+                <ul>
+                    {% for course in student.courses.all %}
+                        <li><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<!-- Footer section -->
+<footer class="main-footer">
+    <p class="text-center">&copy; The PythonThrone 2017, all rights reserved</p>
+</footer>
+</div> <!-- /container -->
+<!-- The js block -->
+<script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="../static/js/bootstrap.js"></script>
+<!-- End of js block -->
+</body>
