@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load get_item %}
+{% block title %}Solve the quadratic equation{% endblock title %}
+{% block main_content %}
+  <div class="row">
+    <div class="col-md-12">
+      <p>Квадратное уравнение: a*x*x + bx + c = 0</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Решить">
+      </form>
+    </div>
+    {% if result and result.D >= 0 %}
+      <p>
+          Дискриминант: {{result.D}}
+      </p>
+        <br>
+      <p>
+        {% if result.x1 == result.x2 %}
+          Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {{result.x2}}
+        {% else %}
+          Квадратное уравнение имеет два действительных корня: x1 = {{result.x1}}, x2 = {{result.x2}}
+        {% endif %}
+      </p>
+    {% elif result.D < 0 %}
+      <p>
+        Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений
+      </p>
+    {% endif %}
+    </div>
+{% endblock main_content %}

@@ -1,93 +1,27 @@
 import math
-from django.views import generic
+from django.shortcuts import render
+from .forms import QuadraticForm
 
 
-def quadratic_results():
-    return ResultsView.as_view()
+def quadratic_results(request):
+    context = {}
+    if request.method == 'POST':
+        form = QuadraticForm(request.POST)
+        if form.is_valid():
+            context['result'] = solve_quadratic(form.cleaned_data)
+    else:
+        form = QuadraticForm()
+
+    context['form'] = form
+    return render(request, 'quadratic/results.html', context)
 
 
-class ResultsView(generic.TemplateView):
+def solve_quadratic(data):
+    discriminant = data['b'] ** 2 - 4 * data['a'] * data['c']
+    result = {'D': discriminant}
 
-    template_name = 'quadratic/results.html'
+    if discriminant >= 0:
+        result['x1'] = round((-data['b'] + math.sqrt(discriminant)) / (2 * data['a']), 2)
+        result['x2'] = round((-data['b'] - math.sqrt(discriminant)) / (2 * data['a']), 2)
 
-    def get_context_data(self, **kwargs):
-        context = super(ResultsView, self).get_context_data(**kwargs)
-
-        coefficients = {
-            'a': self.request.GET.get('a', ''),
-            'b': self.request.GET.get('b', ''),
-            'c': self.request.GET.get('c', ''),
-        }
-
-        context.update({
-            'coefficients_names': ['a', 'b', 'c'],
-            'coefficients': coefficients,
-            'result': QuadraticCalculator.calculate(coefficients)
-        })
-        return context
-
-
-class QuadraticValidator():
-    errors = {
-        'undefined': 'коэффициент не определен',
-        'not_digit': 'коэффициент не целое число',
-        'empty_a': 'коэффициент при первом слагаемом уравнения не может быть равным нулю'
-    }
-
-    @classmethod
-    def validate(cls, kwargs):
-        output = {}
-        fields = ['a', 'b', 'c']
-        for field in fields:
-            value = kwargs.get(field, '')
-            if value == '':
-                output[field] = cls.errors['undefined']
-                continue
-            if not cls.__is_digit(value):
-                output[field] = cls.errors['not_digit']
-                continue
-            if field == 'a' and value == '0':
-                output[field] = cls.errors['empty_a']
-
-        return output
-
-    @classmethod
-    def __is_digit(cls, value):
-        if value[0] in ['-', '+']:
-            return value[1:].isdigit()
-        else:
-            return value.isdigit()
-
-
-class QuadraticCalculator:
-
-    negative_discriminant_error = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений'
-
-    @classmethod
-    def calculate(cls, coefficients):
-
-        result = {
-            'discriminant': None,
-            'errors': {},
-            'roots': []
-        }
-        errors = QuadraticValidator.validate(coefficients)
-
-        if len(errors) > 0:
-            result['errors'] = errors
-        else:
-            a = int(coefficients['a'])
-            b = int(coefficients['b'])
-            c = int(coefficients['c'])
-
-            discriminant = b ** 2 - 4 * a * c
-            result['discriminant'] = discriminant
-
-            if discriminant < 0:
-                result['errors']['d'] = cls.negative_discriminant_error
-            else:
-                root1 = round((-b + math.sqrt(discriminant)) / (2 * a), 2)
-                root2 = round((-b - math.sqrt(discriminant)) / (2 * a), 2)
-                result['roots'] = {'root1': root1, 'root2': root2}
-
-        return result
+    return result

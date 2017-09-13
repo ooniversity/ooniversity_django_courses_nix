@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}The PySchool - {{ student.full_name }}{% endblock title %}
+{% block description %}{{ student.full_name}} details page{% endblock description %}
+{% block main_content%}
+  <h2 class="text-muted project-title">{{ student.full_name }}</h2>
+  <div class="container student-details">
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>Дата рождения</th>
+          <td>{{ student.date_of_birth|date:"N d, Y" }}</td>
+        </tr>
+        <tr>
+          <th>Адрес</th>
+          <td>{{ student.address }}</td>
+        </tr>
+        <tr>
+          <th>Почта</th>
+          <td>{{ student.email }}</td>
+        </tr>
+        <tr>
+          <th>Skype</th>
+          <td>{{ student.skype }}</td>
+        </tr>
+          <th>Телефон</th>
+          <td>{{ student.phone }}</td>
+        </tr>
+        <tr>
+          <th>Курсы</th>
+          <td>
+          {% for course in student.courses.all %}
+            <p><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></p>
+          {% endfor %}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+{% endblock main_content %}

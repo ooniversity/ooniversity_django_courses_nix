@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}The PySchool - {{ coach.full_name }}{% endblock title %}
+{% block description %}{{ coach.full_name }} coach details{% endblock description %}
+{% block main_content%}
+  <h2 class="text-muted project-title">{{ coach.full_name }}</h2>
+  <div class="container student-details">
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>Дата рождения</th>
+          <td>{{ coach.date_of_birth|date:"N d, Y" }}</td>
+        </tr>
+        <tr>
+          <th>Адрес</th>
+          <td>{{ coach.address }}</td>
+        </tr>
+        <tr>
+          <th>Почта</th>
+          <td>{{ coach.user.email }}</td>
+        </tr>
+        <tr>
+          <th>Skype</th>
+          <td>{{ coach.skype }}</td>
+        </tr>
+        <tr>
+          <th>Телефон</th>
+          <td>{{ coach.phone }}</td>
+        </tr>
+        {% include "includes/coach_courses_include.html" with block_title="Курсы учитель" courses=coach.coach_courses.all %}
+        {% include "includes/coach_courses_include.html" with block_title="Курсы ассистент" courses=coach.assistant_courses.all %}
+      </tbody>
+    </table>
+  </div>
+{% endblock main_content %}

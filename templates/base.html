@@ -1,0 +1,43 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="{% block description %}{% endblock description %}">
+    <meta name="author" content="Slava NIk">
+    <title>{% block title %}{% endblock title %}</title>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  </head>
+  <body>
+  	<div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+              <a class="nav-link {% block nav_index %}{% endblock nav_index %}" href="{% url 'index' %}">
+                  Main
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% block nav_contact %}{% endblock nav_contact %}" href="{% url 'contact' %}">
+                  Contacts
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% block nav_students %}{% endblock nav_students %}" href="{% url 'students:index' %}">
+                  Students
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      {% block main_content %}{% endblock main_content %}
+    <footer class="text-muted">
+      <p class="text-center">&copy; The PySchool 2017, some rights reserved</p>
+    </footer>
+  </div>
+  <script type="text/javascript" src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+  </body>

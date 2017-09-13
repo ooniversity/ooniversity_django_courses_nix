@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}The PySchool - {{ course.name }}{% endblock title %}
+{% block description %}{{ course.description|truncatechars:32 }}{% endblock description %}
+{% block main_content%}
+  <h1 class="display-3 course-name">{{ course.name }} </h1>
+  <div class="lead text-muted">
+    <p>{{ course.description }}</p>
+  </div>
+  <h2>Преподаватели</h2>
+{% include "includes/course_coach_include.html" with block_title="Учитель" instructor=course.coach %}
+{% include "includes/course_coach_include.html" with block_title="Ассистент" instructor=course.assistant %}
+  <div class="row about-course">
+    <div class="col-lg-12">
+      <article class="main-content">
+        <h2>План курса</h2>
+        <table class="table">
+          <thead class="thead-inverse">
+            <tr>
+              <th>#</th>
+              <th>Тема</th>
+              <th>Описание</th>
+            </tr>
+          {% for lesson in lessons %}
+            <tr>
+              <td>{{ lesson.order }}</td>
+              <td>{{ lesson.subject }}</td>
+              <td>{{ lesson.description }}</td>
+            </tr>
+          {% endfor %}
+          </thead>
+        </table>
+      </article>
+    </div>
+  </div>
+{% endblock main_content %}

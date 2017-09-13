@@ -1,0 +1,15 @@
+{% load staticfiles %}
+<tr>
+  <th>{{ block_title }}</th>
+    <td>
+  {% for course in courses %}
+     <p>
+       <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
+       студенты курса
+       <a href="{% url 'students:course_students' course.id %}">
+         <img class="course_students_link" src="{% static 'images/svg/si-glyph-person-public.svg' %}"/>
+       </a>
+     </p>
+  {% endfor %}
+    </td>
+</tr>
