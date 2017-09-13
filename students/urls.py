@@ -1,7 +1,8 @@
 from django.conf.urls import url
+from students.views import students, student
 
-from . import views
-
+app_name = 'students'
 urlpatterns = [
-    url(r'^results/$', views.results, name='results'),
+    url(r'^$', students, name='students'),
+    url(r'^(?P<student_id>[0-9]+)/$', student, name='student'),
 ]

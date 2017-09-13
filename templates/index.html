@@ -50,8 +50,20 @@
             <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
           </section><!-- /main-content -->
         </div>
-      </div>
+          <table>
+              <tr>
+                  <th>Курс</th>
+                  <th>Описание</th>
+              </tr>
+              {% for course in courses %}
+                  <tr>
+                      <td><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></td>
+                      <td>{{ course.short_description }}</td>
+                  </tr>
+              {% endfor %}
+          </table>
 
+      </div>
       <!-- Footer section -->
        <footer class="main-footer">
         <p class="text-center">&copy; The PythonThrone 2017, all rights reserved</p>
