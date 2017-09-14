@@ -4,7 +4,10 @@ from students.models import Students
 
 # Create your views here.
 def students(request):
-    students = get_list_or_404(Students)
+    if 'course_id' in request.GET:
+        students = get_list_or_404(Students, courses=request.GET['course_id'])
+    else:
+        students = get_list_or_404(Students)
     return render(request, 'students/list_view.html', {'students': students})
 
 
