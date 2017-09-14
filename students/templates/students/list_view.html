@@ -42,8 +42,8 @@
         </tr>
         {% for student in students %}
             <tr>
-                <td></td>
-                <td>{{ student|stringformat:"s" }}</td>
+                <td>{{ forloop.counter }}</td>
+                <td><a href="{% url 'students:student' student.id %}">{{ student|stringformat:"s" }}</a></td>
                 <td>{{ student.address }}</td>
                 <td>{{ student.skype }}</td>
                 <td>
