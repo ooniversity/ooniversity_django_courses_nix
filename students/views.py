@@ -8,12 +8,15 @@ from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
+import logging
+logger = logging.getLogger(__name__)
+
 
 class StudentListView(ListView):
     model = Student
     paginate_by = 2
 
-    def get_queryset(self):
+    def get_queryset(self, page):
         queryset = super().get_queryset()
         course_id = self.request.GET.get('course_id', None)
         if course_id:
@@ -22,6 +25,12 @@ class StudentListView(ListView):
 
 
 class StudentDetailView(DetailView):
+
+    logger.debug('Students detail view has been debugged!')
+    logger.warning('Logger of students detail view warns you!')
+    logger.info('Logger of students detail view informs you!')
+    logger.error('Students detail view went wrong!')
+
     model = Student
 
 
